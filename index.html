@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robertino Marrazzo | Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
@@ -10,205 +11,261 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
     
     <style>
-        body { background-color: #050505; color: white; font-family: 'Inter', sans-serif; overflow-x: hidden; }
-        .neon-text { color: #00ff9d; }
-        .neon-bg { background-color: #00ff9d; }
-        .neon-border { border-color: #00ff9d; }
+        :root { --verde-inst: #00ff9d; }
         
-        /* Glassmorphism Menu */
+        body { 
+            background-color: #050505; 
+            color: white; 
+            font-family: 'Inter', sans-serif; 
+            overflow-x: hidden;
+            /* Textura de fondo sutil: Ruido + Gradiente */
+            background-image: 
+                radial-gradient(circle at 50% 50%, rgba(0, 255, 157, 0.03) 0%, transparent 80%),
+                url("https://www.transparenttextures.com/patterns/stardust.png");
+        }
+
+        .neon-text { color: var(--verde-inst); }
+        .neon-bg { background-color: var(--verde-inst); }
+        .neon-border { border-color: var(--verde-inst); }
+
+        /* Navegación Glassmorphism */
         .glass-nav {
-            background: rgba(10, 10, 10, 0.8);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(0, 255, 157, 0.1);
+            background: rgba(5, 5, 5, 0.8);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             position: sticky; top: 0; z-index: 100;
         }
 
-        /* Animaciones de Hover */
-        .nav-link { position: relative; transition: 0.3s; }
-        .nav-link::after {
-            content: ''; position: absolute; width: 0; height: 2px;
-            bottom: -4px; left: 0; background-color: #00ff9d; transition: 0.3s;
+        /* Hover de enlaces del menú */
+        .nav-link { transition: color 0.3s ease; }
+        .nav-link:hover { color: var(--verde-inst); }
+
+        /* Estilo de Tarjetas */
+        .card-anim { 
+            background: rgba(15, 15, 15, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s ease;
         }
-        .nav-link:hover::after { width: 100%; }
-        .nav-link:hover { color: #00ff9d; }
+        .card-anim:hover { 
+            border-color: var(--verde-inst); 
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 255, 157, 0.1);
+        }
 
-        .card-anim { transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-        .card-anim:hover { transform: scale(1.03) translateY(-10px); border-color: #00ff9d; }
-
-        /* Botón Flotante */
+        /* Botón ScrollTop */
         #scrollTop {
             position: fixed; bottom: 30px; right: 30px;
             width: 50px; height: 50px; border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
             cursor: pointer; opacity: 0; transition: 0.5s; z-index: 200;
-            box-shadow: 0 0 15px rgba(0, 255, 157, 0.4);
+            border: 1px solid var(--verde-inst);
+            color: var(--verde-inst);
         }
+        #scrollTop:hover { background: var(--verde-inst); color: black; }
 
-        .reveal { opacity: 0; transform: translateY(30px); }
+        /* Clases para GSAP */
+        .reveal { opacity: 0; }
     </style>
 </head>
 <body>
 
     <!-- MENÚ SUPERIOR -->
-    <nav class="glass-nav px-6 py-4 flex justify-between items-center">
-        <div class="text-xl font-black tracking-tighter">MARRAZZO<span class="neon-text">.</span></div>
-        <div class="hidden md:flex space-x-6 text-[11px] uppercase tracking-widest font-bold">
+    <nav class="glass-nav px-8 py-5 flex justify-between items-center">
+        <div class="text-xl font-black tracking-tighter uppercase">
+            ROBERTINO <span class="neon-text">MARRAZZO</span>
+        </div>
+        <div class="hidden md:flex space-x-8 text-[11px] uppercase tracking-widest font-bold">
             <a href="#inicio" class="nav-link">Inicio</a>
-            <a href="#social" class="nav-link">Social</a>
-            <a href="#logos" class="nav-link">Logos</a>
-            <a href="#print" class="nav-link">Print</a>
-            <a href="#uxui" class="nav-link">UX/UI</a>
-            <a href="#contacto" class="nav-link">Contacto</a>
+            <a href="#social" class="nav-link">Social Media</a>
+            <a href="#logos" class="nav-link">Logo Design</a>
+            <a href="#print" class="nav-link">Print Design</a>
+            <a href="#uxui" class="nav-link">UX/UI Design</a>
+            <a href="#contacto" class="nav-link neon-text italic">Contacto</a>
         </div>
     </nav>
 
     <!-- SECCIÓN HERO -->
-    <section id="inicio" class="min-h-screen flex flex-col justify-center px-8 md:px-20 relative overflow-hidden">
-        <div class="absolute -top-20 -right-20 w-96 h-96 bg-[#00ff9d] opacity-5 blur-[120px]"></div>
-        <div class="reveal">
-            <p class="neon-text font-bold tracking-[0.3em] uppercase mb-4">Graphic Design Portfolio</p>
-            <h1 class="text-6xl md:text-9xl font-black leading-none mb-6">ROBERTINO<br>MARRAZZO</h1>
-            <p class="max-w-2xl text-xl text-gray-400 border-l-4 neon-border pl-6 italic mb-10">
+    <section id="inicio" class="min-h-[90vh] flex flex-col justify-center px-8 md:px-20 relative">
+        <div class="hero-content">
+            <p id="hero-tag" class="reveal neon-text font-bold tracking-[0.4em] uppercase mb-4 text-sm">Graphic Design Portfolio</p>
+            <h1 id="hero-title" class="reveal text-6xl md:text-[8rem] font-black leading-[0.9] mb-8">ROBERTINO<br>MARRAZZO</h1>
+            <p id="hero-phrase" class="reveal max-w-2xl text-xl text-gray-400 border-l-4 neon-border pl-6 italic mb-12">
                 "Bridging creativity and strategy to drive personal and brand evolution."
             </p>
-            <div class="flex space-x-4">
-                <a href="#contacto" class="neon-bg text-black px-8 py-3 font-bold rounded hover:bg-white transition">CONTRÁTAME</a>
-                <a href="#social" class="border border-zinc-700 px-8 py-3 font-bold rounded hover:border-[#00ff9d] transition">VER TRABAJOS</a>
+            <div id="hero-btns" class="reveal flex space-x-4">
+                <a href="#social" class="neon-bg text-black px-10 py-4 font-black rounded-sm hover:brightness-110 transition uppercase text-sm">Ver Portfolio</a>
+                <a href="#contacto" class="border border-zinc-700 px-10 py-4 font-black rounded-sm hover:border-[#00ff9d] hover:text-[#00ff9d] transition uppercase text-sm">Contacto</a>
             </div>
         </div>
     </section>
 
     <!-- 01 SOCIAL MEDIA -->
-    <section id="social" class="px-8 md:px-20 py-32 bg-[#080808]">
-        <h2 class="text-5xl font-black mb-16 reveal"><span class="neon-text">01</span> SOCIAL MEDIA</h2>
+    <section id="social" class="px-8 md:px-20 py-32 border-t border-zinc-900">
+        <h2 class="section-header text-5xl font-black mb-16 reveal"><span class="neon-text">01</span> SOCIAL MEDIA</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- Los links de imagen deben ser reemplazados por tus archivos reales -->
-            <div class="card-anim border border-zinc-900 bg-zinc-950 p-6 rounded-xl reveal">
-                <img src="https://via.placeholder.com/500x600/111/00ff9d?text=Red+Mutual" class="w-full rounded-lg mb-4">
-                <h3 class="text-xl font-bold">RED MUTUAL</h3>
-                <p class="text-gray-500 text-sm">Estrategia de contenido y diseño visual.</p>
+            <div class="card-anim p-6 rounded-sm reveal">
+                <img src="https://via.placeholder.com/500x600/111/00ff9d?text=Red+Mutual" class="w-full rounded-sm mb-6 grayscale hover:grayscale-0 transition duration-500">
+                <h3 class="text-xl font-bold uppercase tracking-tighter">Red Mutual</h3>
+                <div class="w-10 h-[2px] neon-bg mt-2"></div>
             </div>
-            <div class="card-anim border border-zinc-900 bg-zinc-950 p-6 rounded-xl reveal">
-                <img src="https://via.placeholder.com/500x600/111/00ff9d?text=Eurorepar" class="w-full rounded-lg mb-4">
-                <h3 class="text-xl font-bold">EUROREPAR</h3>
-                <p class="text-gray-500 text-sm">Visuales para sector automotriz.</p>
+            <div class="card-anim p-6 rounded-sm reveal">
+                <img src="https://via.placeholder.com/500x600/111/00ff9d?text=Eurorepar" class="w-full rounded-sm mb-6 grayscale hover:grayscale-0 transition duration-500">
+                <h3 class="text-xl font-bold uppercase tracking-tighter">Eurorepar</h3>
+                <div class="w-10 h-[2px] neon-bg mt-2"></div>
             </div>
-            <div class="card-anim border border-zinc-900 bg-zinc-950 p-6 rounded-xl reveal">
-                <img src="https://via.placeholder.com/500x600/111/00ff9d?text=BsAs+Vending" class="w-full rounded-lg mb-4">
-                <h3 class="text-xl font-bold">BS AS VENDING</h3>
-                <p class="text-gray-500 text-sm">Social media management.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- 02 LOGO DESIGN -->
-    <section id="logos" class="px-8 md:px-20 py-32 bg-white text-black">
-        <h2 class="text-5xl font-black mb-16 reveal"><span class="neon-text">02</span> LOGO DESIGN</h2>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-12 items-center opacity-80 reveal">
-            <!-- Logos representativos -->
-            <img src="https://via.placeholder.com/200x100/fff/000?text=AVICOLA+ALE" class="grayscale hover:grayscale-0 transition duration-500 cursor-pointer">
-            <img src="https://via.placeholder.com/200x100/fff/000?text=ZOOVET" class="grayscale hover:grayscale-0 transition duration-500 cursor-pointer">
-            <img src="https://via.placeholder.com/200x100/fff/000?text=NICANOR" class="grayscale hover:grayscale-0 transition duration-500 cursor-pointer">
-            <img src="https://via.placeholder.com/200x100/fff/000?text=SPORTMAGIC" class="grayscale hover:grayscale-0 transition duration-500 cursor-pointer">
-        </div>
-    </section>
-
-    <!-- 04 UX/UI DESIGN (Dinamismo con Grid) -->
-    <section id="uxui" class="px-8 md:px-20 py-32 bg-[#050505]">
-        <h2 class="text-5xl font-black mb-16 reveal text-right">UX/UI DESIGN <span class="neon-text">04</span></h2>
-        <div class="grid md:grid-cols-2 gap-16 items-center">
-            <div class="reveal">
-                <img src="https://via.placeholder.com/600x900/111/00ff9d?text=Red+Mutual+App" class="rounded-3xl border-8 border-zinc-900 shadow-2xl">
-            </div>
-            <div class="reveal">
-                <h3 class="text-4xl font-black mb-6 neon-text">Red Mutual App</h3>
-                <p class="text-gray-400 text-lg mb-8 leading-relaxed">
-                    Diseño de interfaz centrado en el usuario, optimizando la gestión de servicios mutuos con una estética limpia y funcional.
-                </p>
-                <div class="h-1 w-20 neon-bg"></div>
+            <div class="card-anim p-6 rounded-sm reveal">
+                <img src="https://via.placeholder.com/500x600/111/00ff9d?text=BsAs+Vending" class="w-full rounded-sm mb-6 grayscale hover:grayscale-0 transition duration-500">
+                <h3 class="text-xl font-bold uppercase tracking-tighter">Bs As Vending</h3>
+                <div class="w-10 h-[2px] neon-bg mt-2"></div>
             </div>
         </div>
     </section>
 
-    <!-- CONTACTO Y MENÚ INFERIOR -->
-    <footer id="contacto" class="bg-black pt-32 pb-10 px-8 md:px-20 border-t border-zinc-900">
-        <div class="grid md:grid-cols-2 gap-20 mb-20">
+    <!-- 04 UX/UI DESIGN -->
+    <section id="uxui" class="px-8 md:px-20 py-32 bg-[#080808]/50">
+        <!-- Animación de izquierda a derecha configurada en JS -->
+        <h2 id="uxui-title" class="text-5xl font-black mb-20 opacity-0 uppercase tracking-tighter">
+            <span class="neon-text">04</span> UX/UI DESIGN
+        </h2>
+        
+        <div class="space-y-32">
+            <!-- Red Mutual App -->
+            <div class="grid md:grid-cols-2 gap-16 items-center reveal">
+                <img src="https://via.placeholder.com/800x1000/111/00ff9d?text=Red+Mutual+UI" class="rounded-xl border border-zinc-800 shadow-2xl">
+                <div>
+                    <h3 class="text-4xl font-black mb-6 uppercase">Red Mutual <span class="neon-text">App</span></h3>
+                    <p class="text-gray-400 text-lg leading-relaxed mb-6">
+                        Diseño de interfaz estratégica enfocada en la accesibilidad y la gestión eficiente de servicios mutuos.
+                    </p>
+                    <div class="h-[1px] w-full bg-zinc-800"></div>
+                </div>
+            </div>
+
+            <!-- Push App (NUEVA SECCIÓN REQUERIDA) -->
+            <div class="grid md:grid-cols-2 gap-16 items-center reveal">
+                <img src="https://via.placeholder.com/800x1000/111/00ff9d?text=Push+App+UI" class="rounded-xl border border-zinc-800 shadow-2xl md:order-last">
+                <div class="md:text-right">
+                    <h3 class="text-4xl font-black mb-6 uppercase">Push <span class="neon-text">App</span></h3>
+                    <p class="text-gray-400 text-lg leading-relaxed mb-6">
+                        Plataforma de entrenamiento y fitness con un enfoque visual dinámico y orientado al rendimiento deportivo.
+                    </p>
+                    <div class="h-[1px] w-full bg-zinc-800"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <footer id="contacto" class="bg-black py-32 px-8 md:px-20 border-t border-zinc-900">
+        <div class="grid md:grid-cols-2 gap-20">
             <div class="reveal">
-                <h2 class="text-6xl font-black mb-10">CONTACTO<span class="neon-text">.</span></h2>
-                <div class="space-y-6">
-                    <a href="mailto:romadgcv@gmail.com" class="flex items-center space-x-4 group">
-                        <span class="w-12 h-12 rounded-full border border-zinc-800 flex items-center justify-center group-hover:neon-border group-hover:neon-text transition"><i class="fa-regular fa-envelope"></i></span>
+                <h2 class="text-6xl font-black mb-12 uppercase">Hablemos<span class="neon-text">.</span></h2>
+                <div class="space-y-8">
+                    <a href="mailto:romadgcv@gmail.com" class="flex items-center space-x-6 group">
+                        <i class="fa-regular fa-envelope text-2xl neon-text"></i>
                         <span class="text-xl group-hover:neon-text transition">romadgcv@gmail.com</span>
                     </a>
-                    <a href="https://wa.me/393513848087" target="_blank" class="flex items-center space-x-4 group">
-                        <span class="w-12 h-12 rounded-full border border-zinc-800 flex items-center justify-center group-hover:neon-border group-hover:neon-text transition"><i class="fa-brands fa-whatsapp"></i></span>
+                    <a href="https://wa.me/393513848087" target="_blank" class="flex items-center space-x-6 group">
+                        <i class="fa-brands fa-whatsapp text-2xl neon-text"></i>
                         <span class="text-xl group-hover:neon-text transition">+39 351 384 8087</span>
                     </a>
-                    <a href="https://linkedin.com/in/robertinomarrazzo" target="_blank" class="flex items-center space-x-4 group">
-                        <span class="w-12 h-12 rounded-full border border-zinc-800 flex items-center justify-center group-hover:neon-border group-hover:neon-text transition"><i class="fa-brands fa-linkedin-in"></i></span>
-                        <span class="text-xl group-hover:neon-text transition">LinkedIn Profile</span>
-                    </a>
-                    <a href="https://behance.net/robertinomarrazzo" target="_blank" class="flex items-center space-x-4 group">
-                        <span class="w-12 h-12 rounded-full border border-zinc-800 flex items-center justify-center group-hover:neon-border group-hover:neon-text transition"><i class="fa-brands fa-behance"></i></span>
-                        <span class="text-xl group-hover:neon-text transition">Behance Portfolio</span>
+                    <a href="https://linkedin.com/in/robertinomarrazzo" target="_blank" class="flex items-center space-x-6 group">
+                        <i class="fa-brands fa-linkedin-in text-2xl neon-text"></i>
+                        <span class="text-xl group-hover:neon-text transition">LinkedIn</span>
                     </a>
                 </div>
             </div>
-
-            <!-- MENÚ INFERIOR REPETIDO -->
-            <div class="flex flex-col justify-center items-end text-right reveal">
-                <h4 class="text-xs uppercase tracking-[0.3em] text-gray-500 mb-6">Navegación</h4>
-                <div class="flex flex-col space-y-4 font-bold text-2xl">
-                    <a href="#inicio" class="hover:neon-text transition">Inicio</a>
-                    <a href="#social" class="hover:neon-text transition">Social Media</a>
-                    <a href="#logos" class="hover:neon-text transition">Logo Design</a>
-                    <a href="#print" class="hover:neon-text transition">Print Design</a>
-                    <a href="#uxui" class="hover:neon-text transition">UX/UI Design</a>
+            
+            <!-- Menú inferior repetido -->
+            <div class="flex flex-col justify-end items-end text-right reveal">
+                <div class="flex flex-col space-y-4 font-bold text-2xl uppercase tracking-tighter">
+                    <a href="#inicio" class="nav-link">Inicio</a>
+                    <a href="#social" class="nav-link">Social media</a>
+                    <a href="#logos" class="nav-link">Logo design</a>
+                    <a href="#print" class="nav-link">Print Design</a>
+                    <a href="#uxui" class="nav-link">UX/UI design</a>
                 </div>
             </div>
         </div>
-        <p class="text-center text-gray-700 text-xs mt-20 italic">© 2026 Marrazzo Robertino - All rights reserved.</p>
     </footer>
 
     <!-- BOTÓN VOLVER ARRIBA -->
-    <div id="scrollTop" class="neon-bg text-black" onclick="window.scrollTo({top:0, behavior:'smooth'})">
-        <i class="fa-solid fa-arrow-up"></i>
+    <div id="scrollTop" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+        <i class="fa-solid fa-chevron-up"></i>
     </div>
 
     <script>
         gsap.registerPlugin(ScrollTrigger);
 
-        // Animación de entrada de elementos al hacer scroll
-        gsap.utils.toArray('.reveal').forEach(el => {
-            gsap.to(el, {
-                scrollTrigger: {
-                    trigger: el,
-                    start: "top 85%",
-                    toggleActions: "play none none reverse"
-                },
-                opacity: 1,
-                y: 0,
-                duration: 1,
-                ease: "power4.out"
-            });
+        // 1. Animación Hero (Entrada al cargar y al volver arriba)
+        const heroTl = gsap.timeline({
+            scrollTrigger: {
+                trigger: "#inicio",
+                start: "top center",
+                toggleActions: "play none none reverse" // Re-activa la animación al subir
+            }
         });
 
-        // Lógica del botón de volver arriba
+        heroTl.to(".hero-content .reveal", {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            stagger: 0.2,
+            ease: "power4.out"
+        });
+
+        // 2. Animación "04 UX/UI DESIGN" (Izquierda a Derecha)
+        gsap.to("#uxui-title", {
+            scrollTrigger: {
+                trigger: "#uxui-title",
+                start: "top 80%",
+                toggleActions: "play none none reverse"
+            },
+            opacity: 1,
+            x: 0,
+            xStart: -100, // Comienza 100px a la izquierda
+            duration: 1.2,
+            ease: "power3.out"
+        });
+
+        // 3. Animaciones generales de scroll (Similares a Social Media)
+        gsap.utils.toArray('.reveal').forEach(el => {
+            if(el.id !== "hero-title") { // Evitar conflicto con el hero
+                gsap.to(el, {
+                    scrollTrigger: {
+                        trigger: el,
+                        start: "top 85%",
+                        toggleActions: "play none none reverse"
+                    },
+                    opacity: 1,
+                    y: 0,
+                    duration: 1,
+                    ease: "power3.out"
+                });
+            }
+        });
+
+        // 4. Lógica de botón ScrollTop
         window.onscroll = function() {
-            if (document.documentElement.scrollTop > 500) {
-                document.getElementById('scrollTop').style.opacity = "1";
+            const btn = document.getElementById('scrollTop');
+            if (window.scrollY > 600) {
+                btn.style.opacity = "1";
             } else {
-                document.getElementById('scrollTop').style.opacity = "0";
+                btn.style.opacity = "0";
             }
         };
 
-        // Smooth scroll para los enlaces
+        // Smooth Scroll para navegación
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const target = document.querySelector(this.getAttribute('href'));
+                if(target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
     </script>
