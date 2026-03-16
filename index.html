@@ -20,7 +20,6 @@
             overflow-x: hidden;
         }
 
-        /* Degradado 45° para fondos oscuros */
         .bg-dark-gradient {
             background: linear-gradient(45deg, #0f0f0f 0%, #000000 100%);
         }
@@ -46,12 +45,12 @@
         }
         .skill-box:hover { border-color: var(--verde-inst); color: var(--verde-inst); }
 
-        .lang-bar-bg { width: 100%; height: 6px; background: rgba(255,255,255,0.1); border-radius: 10px; margin-top: 5px; }
-        .lang-bar-fill { height: 100%; background: var(--verde-inst); border-radius: 10px; }
+        /* Barras de Idioma sólidas y planas */
+        .lang-bar-bg { width: 100%; height: 8px; background: rgba(255,255,255,0.1); border-radius: 0; margin-top: 5px; }
+        .lang-bar-fill { height: 100%; background: var(--verde-inst); border-radius: 0; }
 
         .section-title { font-size: 3.5rem; font-weight: 900; letter-spacing: -0.05em; line-height: 1; }
         
-        /* Clases para animación inicial */
         .hero-reveal { opacity: 0; }
 
         /* Footer Nav Links */
@@ -85,8 +84,9 @@
         </div>
     </nav>
 
-    <!-- HERO SECTION (FONDO NEGRO GRADIENTE) -->
-    <section id="inicio" class="bg-dark-gradient px-8 md:px-20 pt-20 pb-10">
+    <!-- HERO SECTION -->
+    <section id="inicio" class="bg-dark-gradient px-8 md:px-20 pt-20 pb-20">
+        <!-- Bloque Inicial de Jerarquía -->
         <p id="tagline" class="hero-reveal neon-text font-bold tracking-[0.4em] uppercase mb-4 text-sm">Visual communication designer</p>
         <h1 class="text-[5rem] md:text-[8rem] font-black leading-[0.85] uppercase mb-4">
             <span id="name-rob" class="hero-reveal block">ROBERTINO</span>
@@ -96,10 +96,18 @@
             "Bridging creativity and strategy to drive personal and brand evolution."
         </p>
 
-        <!-- LÍNEA DIVISORIA VERDE -->
-        <div id="divider" class="hero-reveal h-[1px] w-full bg-[#00ff9d] opacity-40 my-16"></div>
+        <!-- LÍNEA DIVISORIA VERDE (MÁS GRUESA) -->
+        <div id="divider" class="hero-reveal h-[3px] w-full bg-[#00ff9d] my-16"></div>
 
-        <!-- SECCIÓN DE INFORMACIÓN DEL CV (UNIVERSITY, WORK, SKILLS, LANG) -->
+        <!-- BLOQUE HELLO! + BIO -->
+        <div class="hero-reveal mb-20">
+            <h1 class="text-[5rem] md:text-[8rem] font-black uppercase neon-text leading-none mb-8">HELLO!</h1>
+            <p class="max-w-4xl text-lg md:text-xl text-gray-300 leading-relaxed font-light">
+                My name is Robertino Marrazzo. I am a 39-year-old Italian citizen currently residing in Italy, and I hold a Bachelor’s Degree in Visual Communication Design. I work as a freelance designer, enhancing brands and social media through strategic, well-crafted visual solutions. I have an efficient, self-motivated, and collaborative profile. I value teamwork and the exchange of knowledge as key drivers of both creative excellence and personal growth.
+            </p>
+        </div>
+
+        <!-- SECCIÓN DE INFORMACIÓN DEL CV -->
         <div id="cv-info" class="hero-reveal grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 text-sm">
             
             <!-- Education -->
@@ -116,7 +124,7 @@
                 <p class="font-bold">Present</p>
                 <p class="text-gray-400">Graphic designer (Freelance)</p>
                 <ul class="text-gray-500 mt-2 list-disc list-inside">
-                    <li>Video Editing</li>
+                    <li>Video Editing (CapCut)</li>
                     <li>Content Strategy</li>
                 </ul>
             </div>
@@ -128,11 +136,11 @@
                     <div class="skill-box" title="Adobe Illustrator">Ai</div>
                     <div class="skill-box" title="Adobe Photoshop">Ps</div>
                     <div class="skill-box" title="Figma">Fi</div>
-                    <div class="skill-box" title="Video Editing"><i class="fa-solid fa-clapperboard text-xs"></i></div>
+                    <div class="skill-box" title="CapCut">Cc</div>
                 </div>
             </div>
 
-            <!-- Language -->
+            <!-- Language (Barras de Nivel Corregidas) -->
             <div>
                 <h3 class="neon-text font-bold uppercase tracking-widest mb-4">Language</h3>
                 <div class="space-y-4">
@@ -141,12 +149,12 @@
                         <div class="lang-bar-bg"><div class="lang-bar-fill" style="width: 100%;"></div></div>
                     </div>
                     <div>
-                        <div class="flex justify-between"><span>English</span></div>
-                        <div class="lang-bar-bg"><div class="lang-bar-fill" style="width: 85%;"></div></div>
+                        <div class="flex justify-between"><span>English Medium</span></div>
+                        <div class="lang-bar-bg"><div class="lang-bar-fill" style="width: 42%;"></div></div>
                     </div>
                     <div>
                         <div class="flex justify-between"><span>Italian B1</span></div>
-                        <div class="lang-bar-bg"><div class="lang-bar-fill" style="width: 50%;"></div></div>
+                        <div class="lang-bar-bg"><div class="lang-bar-fill" style="width: 58%;"></div></div>
                     </div>
                 </div>
             </div>
@@ -163,10 +171,10 @@
         </div>
     </section>
 
-    <!-- 02 LOGO DESIGN (FONDO BLANCO) -->
+    <!-- 02 LOGO DESIGN -->
     <section id="logos" class="bg-white text-black px-8 md:px-20 py-32">
         <h2 class="section-title mb-16 reveal text-black"><span class="neon-text">02</span> LOGO DESIGN</h2>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-12 items-center opacity-90 reveal">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-12 items-center reveal">
             <img src="https://via.placeholder.com/200x100/fff/000?text=AVICOLA+ALE" class="hover:scale-110 transition cursor-pointer">
             <img src="https://via.placeholder.com/200x100/fff/000?text=ZOOVET" class="hover:scale-110 transition cursor-pointer">
             <img src="https://via.placeholder.com/200x100/fff/000?text=NICANOR" class="hover:scale-110 transition cursor-pointer">
@@ -183,7 +191,7 @@
         </div>
     </section>
 
-    <!-- 04 UX/UI DESIGN (FONDO BLANCO) -->
+    <!-- 04 UX/UI DESIGN -->
     <section id="uxui" class="bg-white text-black px-8 md:px-20 py-32">
         <h2 class="section-title mb-16 reveal text-black"><span class="neon-text">04</span> UX/UI DESIGN</h2>
         <div class="grid md:grid-cols-2 gap-20 items-center reveal">
@@ -199,7 +207,7 @@
     <footer id="contacto" class="bg-dark-gradient py-24 px-8 md:px-20 border-t border-white/5">
         <div class="grid md:grid-cols-2 gap-20">
             
-            <!-- Columna Izquierda: Navegación -->
+            <!-- Columna Izquierda: Navegación (Corregido Mayúsculas) -->
             <div class="reveal">
                 <p class="text-gray-500 text-[10px] uppercase tracking-[0.3em] font-bold mb-6">Navegación</p>
                 <nav class="footer-nav flex flex-col space-y-4 font-bold text-2xl uppercase tracking-tighter">
@@ -246,7 +254,6 @@
     <script>
         gsap.registerPlugin(ScrollTrigger);
 
-        // SECUENCIA DE ANIMACIÓN AL CARGAR (LOAD ANIMATION)
         window.addEventListener("load", () => {
             const tl = gsap.timeline();
 
@@ -254,11 +261,10 @@
               .to("#name-rob", { opacity: 1, y: 0, duration: 0.8, ease: "power4.out" }, "-=0.4")
               .to("#name-mar", { opacity: 1, y: 0, duration: 0.8, ease: "power4.out" }, "-=0.6")
               .to("#manifesto", { opacity: 1, x: 0, duration: 0.8, ease: "power2.out" }, "-=0.4")
-              .to("#divider", { opacity: 0.4, width: "100%", duration: 1, ease: "expo.out" }, "-=0.2")
-              .to("#cv-info", { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }, "-=0.5");
+              .to("#divider", { opacity: 1, width: "100%", duration: 1, ease: "expo.out" }, "-=0.2")
+              .to(".hero-reveal", { opacity: 1, y: 0, duration: 0.8, stagger: 0.2, ease: "power2.out" }, "-=0.5");
         });
 
-        // ANIMACIÓN DE REVELACIÓN AL HACER SCROLL
         gsap.utils.toArray('.reveal').forEach(el => {
             gsap.to(el, {
                 scrollTrigger: {
@@ -273,13 +279,11 @@
             });
         });
 
-        // BOTÓN SCROLL TOP
         window.onscroll = function() {
             const btn = document.getElementById('scrollTop');
             btn.style.opacity = (window.scrollY > 800) ? "1" : "0";
         };
 
-        // SMOOTH SCROLL PARA LOS LINKS
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -292,9 +296,6 @@
                 }
             });
         });
-    </script>
-</body>
-</html>
     </script>
 </body>
 </html>
