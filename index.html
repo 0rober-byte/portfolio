@@ -20,7 +20,7 @@
             overflow-x: hidden;
         }
 
-        /* Degradado 45° para fondos oscuros */
+        /* Fondo con degradado institucional 45° */
         .bg-dark-gradient {
             background: linear-gradient(45deg, #0f0f0f 0%, #000000 100%);
         }
@@ -35,29 +35,24 @@
             position: sticky; top: 0; z-index: 100;
         }
 
-        .nav-link { color: white; transition: color 0.3s ease; cursor: pointer; }
+        .nav-link { color: white; transition: color 0.3s ease; }
         .nav-link:hover { color: var(--verde-inst); }
 
-        /* Estilos de CV / Resume */
+        /* Estilo de Cajas de Habilidades */
         .skill-box {
             width: 50px; height: 50px; border: 1px solid rgba(255,255,255,0.2);
             border-radius: 8px; display: flex; align-items: center; justify-content: center;
-            font-weight: 900; font-size: 1.2rem; transition: 0.3s;
+            font-weight: 900; font-size: 1.1rem; transition: 0.3s;
         }
-        .skill-box:hover { border-color: var(--verde-inst); color: var(--verde-inst); }
+        .skill-box:hover { border-color: var(--verde-inst); color: var(--verde-inst); transform: translateY(-3px); }
 
-        .lang-bar-bg { width: 100%; height: 6px; background: rgba(255,255,255,0.1); border-radius: 10px; margin-top: 5px; }
-        .lang-bar-fill { height: 100%; background: var(--verde-inst); border-radius: 10px; }
+        /* Barras de Idioma */
+        .lang-bar-bg { width: 100%; height: 8px; background: rgba(255,255,255,0.1); border-radius: 10px; margin-top: 8px; }
+        .lang-bar-fill { height: 100%; background: var(--verde-inst); border-radius: 10px; box-shadow: 0 0 10px var(--verde-inst); }
 
-        .section-title { font-size: 3.5rem; font-weight: 900; letter-spacing: -0.05em; line-height: 1; }
+        /* Animaciones */
+        .reveal { opacity: 0; transform: translateY(20px); }
         
-        /* Clases para animación inicial */
-        .hero-reveal { opacity: 0; }
-
-        /* Footer Nav Links */
-        .footer-nav a { color: white; transition: 0.3s; }
-        .footer-nav a:hover { color: var(--verde-inst); }
-
         #scrollTop {
             position: fixed; bottom: 30px; right: 30px;
             width: 45px; height: 45px; border-radius: 50%;
@@ -70,7 +65,7 @@
 </head>
 <body>
 
-    <!-- MENÚ SUPERIOR -->
+    <!-- NAVEGACIÓN -->
     <nav class="glass-nav px-8 py-5 flex justify-between items-center">
         <div class="text-xl font-black tracking-tighter uppercase">
             ROBERTINO <span class="neon-text">MARRAZZO</span>
@@ -85,39 +80,51 @@
         </div>
     </nav>
 
-    <!-- HERO SECTION (FONDO NEGRO GRADIENTE) -->
-    <section id="inicio" class="bg-dark-gradient px-8 md:px-20 pt-20 pb-10">
-        <p id="tagline" class="hero-reveal neon-text font-bold tracking-[0.4em] uppercase mb-4 text-sm">Visual communication designer</p>
-        <h1 class="text-[5rem] md:text-[8rem] font-black leading-[0.85] uppercase mb-4">
-            <span id="name-rob" class="hero-reveal block">ROBERTINO</span>
-            <span id="name-mar" class="hero-reveal block">MARRAZZO</span>
-        </h1>
-        <p id="manifesto" class="hero-reveal max-w-2xl text-xl text-gray-400 border-l-4 border-[#00ff9d] pl-6 italic mb-12">
-            "Bridging creativity and strategy to drive personal and brand evolution."
-        </p>
+    <!-- HERO / BIOGRAFÍA -->
+    <section id="inicio" class="bg-dark-gradient px-8 md:px-20 py-20">
+        
+        <!-- HELLO & BIO -->
+        <div class="mb-20">
+            <h1 class="text-[5rem] md:text-[8rem] font-black leading-none neon-text uppercase reveal">HELLO!</h1>
+            <p class="max-w-4xl text-lg md:text-xl text-gray-300 mt-8 leading-relaxed reveal">
+                My name is Robertino Marrazzo. I am a 39-year-old Italian citizen currently residing in Italy, and I hold a Bachelor’s Degree in Visual Communication Design. I work as a freelance designer, enhancing brands and social media through strategic, well-crafted visual solutions. I have an efficient, self-motivated, and collaborative profile. I value teamwork and the exchange of knowledge as key drivers of both creative excellence and personal growth.
+            </p>
+        </div>
 
-        <!-- LÍNEA DIVISORIA VERDE -->
-        <div id="divider" class="hero-reveal h-[1px] w-full bg-[#00ff9d] opacity-40 my-16"></div>
+        <!-- NOMBRE Y MANIFIESTO -->
+        <div class="mb-10">
+            <p class="neon-text font-bold tracking-[0.4em] uppercase mb-4 text-sm reveal">Visual communication designer</p>
+            <h2 class="text-[5rem] md:text-[8rem] font-black leading-[0.85] uppercase mb-6 reveal">
+                ROBERTINO<br>MARRAZZO
+            </h2>
+            <p class="max-w-2xl text-xl text-gray-400 border-l-4 border-[#00ff9d] pl-6 italic mb-12 reveal">
+                "Bridging creativity and strategy to drive personal and brand evolution."
+            </p>
+        </div>
 
-        <!-- SECCIÓN DE INFORMACIÓN DEL CV (UNIVERSITY, WORK, SKILLS, LANG) -->
-        <div id="cv-info" class="hero-reveal grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 text-sm">
+        <!-- SEPARADOR VERDE GRUESO -->
+        <div id="divider" class="h-[6px] w-full bg-[#00ff9d] opacity-80 my-20 reveal"></div>
+
+        <!-- CV INFO GRID -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 text-sm reveal">
             
             <!-- Education -->
             <div>
                 <h3 class="neon-text font-bold uppercase tracking-widest mb-4">University Education</h3>
-                <p class="font-bold">2005 - 2014</p>
-                <p class="text-gray-400">Litoral National University - Santa Fe, Arg.</p>
-                <p class="text-gray-400 mt-2 italic">Bachelor Degree in Graphic Design and Visual Communication</p>
+                <p class="font-bold text-base">2005 - 2014</p>
+                <p class="text-gray-400">Litoral National University (UNL)</p>
+                <p class="text-gray-500 mt-2 italic">Bachelor’s Degree in Visual Communication Design</p>
             </div>
 
             <!-- Work Experience -->
             <div>
                 <h3 class="neon-text font-bold uppercase tracking-widest mb-4">Work Experience</h3>
-                <p class="font-bold">Present</p>
-                <p class="text-gray-400">Graphic designer (Freelance)</p>
+                <p class="font-bold text-base">Present</p>
+                <p class="text-gray-400">Freelance Graphic Designer</p>
                 <ul class="text-gray-500 mt-2 list-disc list-inside">
-                    <li>Video Editing</li>
                     <li>Content Strategy</li>
+                    <li>Visual Identity</li>
+                    <li>Social Media Design</li>
                 </ul>
             </div>
 
@@ -128,70 +135,39 @@
                     <div class="skill-box" title="Adobe Illustrator">Ai</div>
                     <div class="skill-box" title="Adobe Photoshop">Ps</div>
                     <div class="skill-box" title="Figma">Fi</div>
-                    <div class="skill-box" title="Video Editing"><i class="fa-solid fa-clapperboard text-xs"></i></div>
+                    <div class="skill-box" title="CapCut"><i class="fa-solid fa-scissors text-xs mr-1"></i> CC</div>
                 </div>
+                <p class="text-[10px] text-gray-500 mt-4 uppercase tracking-tighter">Video Editing / Adobe Suite / Figma</p>
             </div>
 
             <!-- Language -->
             <div>
                 <h3 class="neon-text font-bold uppercase tracking-widest mb-4">Language</h3>
-                <div class="space-y-4">
+                <div class="space-y-6">
                     <div>
-                        <div class="flex justify-between"><span>Spanish (Native)</span></div>
+                        <div class="flex justify-between text-xs font-bold uppercase"><span>Spanish (Native)</span></div>
                         <div class="lang-bar-bg"><div class="lang-bar-fill" style="width: 100%;"></div></div>
                     </div>
                     <div>
-                        <div class="flex justify-between"><span>English</span></div>
-                        <div class="lang-bar-bg"><div class="lang-bar-fill" style="width: 85%;"></div></div>
+                        <div class="flex justify-between text-xs font-bold uppercase"><span>English Medium</span></div>
+                        <div class="lang-bar-bg"><div class="lang-bar-fill" style="width: 42%;"></div></div>
                     </div>
                     <div>
-                        <div class="flex justify-between"><span>Italian B1</span></div>
-                        <div class="lang-bar-bg"><div class="lang-bar-fill" style="width: 50%;"></div></div>
+                        <div class="flex justify-between text-xs font-bold uppercase"><span>Italian B1</span></div>
+                        <div class="lang-bar-bg"><div class="lang-bar-fill" style="width: 58%;"></div></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 01 SOCIAL MEDIA -->
+    <!-- SECCIÓN 01 SOCIAL MEDIA -->
     <section id="social" class="bg-dark-gradient px-8 md:px-20 py-32 border-t border-white/5">
-        <h2 class="section-title mb-16 reveal"><span class="neon-text">01</span> SOCIAL MEDIA</h2>
+        <h2 class="text-6xl font-black mb-16 reveal"><span class="neon-text">01</span> SOCIAL MEDIA</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <img src="https://via.placeholder.com/500x600/111/00ff9d?text=Red+Mutual" class="reveal w-full border border-white/10 grayscale hover:grayscale-0 transition duration-700">
             <img src="https://via.placeholder.com/500x600/111/00ff9d?text=Eurorepar" class="reveal w-full border border-white/10 grayscale hover:grayscale-0 transition duration-700">
-            <img src="https://via.placeholder.com/500x600/111/00ff9d?text=SF+Materiales" class="reveal w-full border border-white/10 grayscale hover:grayscale-0 transition duration-700">
-        </div>
-    </section>
-
-    <!-- 02 LOGO DESIGN (FONDO BLANCO) -->
-    <section id="logos" class="bg-white text-black px-8 md:px-20 py-32">
-        <h2 class="section-title mb-16 reveal text-black"><span class="neon-text">02</span> LOGO DESIGN</h2>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-12 items-center opacity-90 reveal">
-            <img src="https://via.placeholder.com/200x100/fff/000?text=AVICOLA+ALE" class="hover:scale-110 transition cursor-pointer">
-            <img src="https://via.placeholder.com/200x100/fff/000?text=ZOOVET" class="hover:scale-110 transition cursor-pointer">
-            <img src="https://via.placeholder.com/200x100/fff/000?text=NICANOR" class="hover:scale-110 transition cursor-pointer">
-            <img src="https://via.placeholder.com/200x100/fff/000?text=SPORTMAGIC" class="hover:scale-110 transition cursor-pointer">
-        </div>
-    </section>
-
-    <!-- 03 PRINT DESIGN -->
-    <section id="print" class="bg-dark-gradient px-8 md:px-20 py-32 border-t border-white/5">
-        <h2 class="section-title mb-16 reveal"><span class="neon-text">03</span> PRINT DESIGN</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-            <img src="https://via.placeholder.com/800x500/111/666?text=Print+Project+1" class="reveal w-full shadow-2xl">
-            <img src="https://via.placeholder.com/800x500/111/666?text=Print+Project+2" class="reveal w-full shadow-2xl">
-        </div>
-    </section>
-
-    <!-- 04 UX/UI DESIGN (FONDO BLANCO) -->
-    <section id="uxui" class="bg-white text-black px-8 md:px-20 py-32">
-        <h2 class="section-title mb-16 reveal text-black"><span class="neon-text">04</span> UX/UI DESIGN</h2>
-        <div class="grid md:grid-cols-2 gap-20 items-center reveal">
-            <img src="https://via.placeholder.com/700x900/eee/111?text=App+Design" class="w-full shadow-2xl rounded-2xl border border-gray-100">
-            <div>
-                <h3 class="text-3xl font-black uppercase mb-4">Red Mutual App</h3>
-                <p class="text-gray-600 text-lg">Estrategia visual y diseño de interfaz funcional para plataformas mutuas.</p>
-            </div>
+            <img src="https://via.placeholder.com/500x600/111/00ff9d?text=Social+Campaign" class="reveal w-full border border-white/10 grayscale hover:grayscale-0 transition duration-700">
         </div>
     </section>
 
@@ -199,19 +175,19 @@
     <footer id="contacto" class="bg-dark-gradient py-24 px-8 md:px-20 border-t border-white/5">
         <div class="grid md:grid-cols-2 gap-20">
             
-            <!-- Columna Izquierda: Navegación -->
+            <!-- Navegación -->
             <div class="reveal">
-                <p class="text-gray-500 text-[10px] uppercase tracking-[0.3em] font-bold mb-6">Navegación</p>
-                <nav class="footer-nav flex flex-col space-y-4 font-bold text-2xl uppercase tracking-tighter">
-                    <a href="#inicio">Inicio</a>
-                    <a href="#social">Social Media</a>
-                    <a href="#logos">Logo Design</a>
-                    <a href="#print">Print Design</a>
-                    <a href="#uxui">UX/UI Design</a>
+                <p class="text-gray-500 text-[10px] uppercase tracking-[0.4em] font-bold mb-8">Navegación</p>
+                <nav class="flex flex-col space-y-4 font-bold text-2xl uppercase tracking-tighter">
+                    <a href="#inicio" class="nav-link">Inicio</a>
+                    <a href="#social" class="nav-link">Social Media</a>
+                    <a href="#logos" class="nav-link">Logo Design</a>
+                    <a href="#print" class="nav-link">Print Design</a>
+                    <a href="#uxui" class="nav-link">UX/UI Design</a>
                 </nav>
             </div>
 
-            <!-- Columna Derecha: Contacto -->
+            <!-- Contacto -->
             <div class="reveal md:text-right">
                 <h2 class="text-5xl font-black mb-10 uppercase">Hablemos<span class="neon-text">.</span></h2>
                 <div class="flex flex-col md:items-end space-y-6">
@@ -227,15 +203,10 @@
                         <span class="text-xl group-hover:neon-text transition">LinkedIn</span>
                         <i class="fa-brands fa-linkedin-in text-xl neon-text"></i>
                     </a>
-                    <a href="https://behance.net/robertinomarrazzo" target="_blank" class="flex items-center space-x-4 group">
-                        <span class="text-xl group-hover:neon-text transition">Behance</span>
-                        <i class="fa-brands fa-behance text-xl neon-text"></i>
-                    </a>
                 </div>
             </div>
-
         </div>
-        <p class="text-center text-gray-800 text-[10px] mt-20 uppercase tracking-widest">© 2026 Marrazzo Robertino — All Rights Reserved</p>
+        <p class="text-center text-gray-800 text-[10px] mt-24 uppercase tracking-[0.5em]">© 2026 Marrazzo Robertino — Portfolio</p>
     </footer>
 
     <!-- BOTÓN VOLVER ARRIBA -->
@@ -246,52 +217,37 @@
     <script>
         gsap.registerPlugin(ScrollTrigger);
 
-        // SECUENCIA DE ANIMACIÓN AL CARGAR (LOAD ANIMATION)
+        // Animación de carga inicial
         window.addEventListener("load", () => {
-            const tl = gsap.timeline();
-
-            tl.to("#tagline", { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" })
-              .to("#name-rob", { opacity: 1, y: 0, duration: 0.8, ease: "power4.out" }, "-=0.4")
-              .to("#name-mar", { opacity: 1, y: 0, duration: 0.8, ease: "power4.out" }, "-=0.6")
-              .to("#manifesto", { opacity: 1, x: 0, duration: 0.8, ease: "power2.out" }, "-=0.4")
-              .to("#divider", { opacity: 0.4, width: "100%", duration: 1, ease: "expo.out" }, "-=0.2")
-              .to("#cv-info", { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }, "-=0.5");
+            gsap.to(".reveal", {
+                opacity: 1,
+                y: 0,
+                duration: 1.2,
+                stagger: 0.2,
+                ease: "power4.out"
+            });
         });
 
-        // ANIMACIÓN DE REVELACIÓN AL HACER SCROLL
+        // Animaciones al hacer scroll
         gsap.utils.toArray('.reveal').forEach(el => {
             gsap.to(el, {
                 scrollTrigger: {
                     trigger: el,
-                    start: "top 85%",
+                    start: "top 90%",
                     toggleActions: "play none none reverse"
                 },
                 opacity: 1,
                 y: 0,
                 duration: 1,
-                ease: "power3.out"
+                ease: "power2.out"
             });
         });
 
-        // BOTÓN SCROLL TOP
+        // Lógica botón Scroll Top
         window.onscroll = function() {
             const btn = document.getElementById('scrollTop');
             btn.style.opacity = (window.scrollY > 800) ? "1" : "0";
         };
-
-        // SMOOTH SCROLL PARA LOS LINKS
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if(target) {
-                    window.scrollTo({
-                        top: target.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
     </script>
 </body>
 </html>
