@@ -14,57 +14,51 @@
         :root { --verde-inst: #00ff9d; }
         
         body { 
-            background-color: #050505; 
+            background-color: #000; 
             color: white; 
             font-family: 'Inter', sans-serif; 
             overflow-x: hidden;
-            /* Textura de fondo sutil: Ruido + Gradiente */
-            background-image: 
-                radial-gradient(circle at 50% 50%, rgba(0, 255, 157, 0.03) 0%, transparent 80%),
-                url("https://www.transparenttextures.com/patterns/stardust.png");
+        }
+
+        /* Degradado sutil 45° para fondos negros */
+        .bg-dark-gradient {
+            background: linear-gradient(45deg, #0f0f0f 0%, #000000 100%);
         }
 
         .neon-text { color: var(--verde-inst); }
         .neon-bg { background-color: var(--verde-inst); }
-        .neon-border { border-color: var(--verde-inst); }
-
-        /* Navegación Glassmorphism */
+        
+        /* Navegación Header */
         .glass-nav {
-            background: rgba(5, 5, 5, 0.8);
+            background: rgba(0, 0, 0, 0.85);
             backdrop-filter: blur(15px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             position: sticky; top: 0; z-index: 100;
         }
 
-        /* Hover de enlaces del menú */
-        .nav-link { transition: color 0.3s ease; }
+        .nav-link { color: white; transition: color 0.3s ease; }
         .nav-link:hover { color: var(--verde-inst); }
 
-        /* Estilo de Tarjetas */
-        .card-anim { 
-            background: rgba(15, 15, 15, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.4s ease;
-        }
-        .card-anim:hover { 
-            border-color: var(--verde-inst); 
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0, 255, 157, 0.1);
-        }
+        /* Estilo de Tarjetas y Secciones */
+        .section-title { font-size: 3.5rem; font-weight: 900; letter-spacing: -0.05em; line-height: 1; }
+        
+        .reveal-left { opacity: 0; transform: translateX(-50px); }
+        .reveal-up { opacity: 0; transform: translateY(30px); }
+
+        /* Footer Nav Links */
+        .footer-nav a { color: white; transition: 0.3s; }
+        .footer-nav a:hover { color: var(--verde-inst); padding-left: 5px; }
 
         /* Botón ScrollTop */
         #scrollTop {
             position: fixed; bottom: 30px; right: 30px;
-            width: 50px; height: 50px; border-radius: 50%;
+            width: 45px; height: 45px; border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
             cursor: pointer; opacity: 0; transition: 0.5s; z-index: 200;
             border: 1px solid var(--verde-inst);
             color: var(--verde-inst);
+            background: rgba(0,0,0,0.5);
         }
-        #scrollTop:hover { background: var(--verde-inst); color: black; }
-
-        /* Clases para GSAP */
-        .reveal { opacity: 0; }
     </style>
 </head>
 <body>
@@ -80,113 +74,104 @@
             <a href="#logos" class="nav-link">Logo Design</a>
             <a href="#print" class="nav-link">Print Design</a>
             <a href="#uxui" class="nav-link">UX/UI Design</a>
-            <a href="#contacto" class="nav-link neon-text italic">Contacto</a>
         </div>
     </nav>
 
-    <!-- SECCIÓN HERO -->
-    <section id="inicio" class="min-h-[90vh] flex flex-col justify-center px-8 md:px-20 relative">
-        <div class="hero-content">
-            <p id="hero-tag" class="reveal neon-text font-bold tracking-[0.4em] uppercase mb-4 text-sm">Graphic Design Portfolio</p>
-            <h1 id="hero-title" class="reveal text-6xl md:text-[8rem] font-black leading-[0.9] mb-8">ROBERTINO<br>MARRAZZO</h1>
-            <p id="hero-phrase" class="reveal max-w-2xl text-xl text-gray-400 border-l-4 neon-border pl-6 italic mb-12">
-                "Bridging creativity and strategy to drive personal and brand evolution."
-            </p>
-            <div id="hero-btns" class="reveal flex space-x-4">
-                <a href="#social" class="neon-bg text-black px-10 py-4 font-black rounded-sm hover:brightness-110 transition uppercase text-sm">Ver Portfolio</a>
-                <a href="#contacto" class="border border-zinc-700 px-10 py-4 font-black rounded-sm hover:border-[#00ff9d] hover:text-[#00ff9d] transition uppercase text-sm">Contacto</a>
-            </div>
-        </div>
+    <!-- HERO SECTION (FONDO NEGRO GRADIENTE) -->
+    <section id="inicio" class="bg-dark-gradient min-h-[85vh] flex flex-col justify-center px-8 md:px-20">
+        <p class="reveal-up neon-text font-bold tracking-[0.4em] uppercase mb-4 text-sm">Visual Communication Designer</p>
+        <h1 class="reveal-up text-6xl md:text-[7rem] font-black leading-[0.9] mb-8 uppercase">Robertino<br>Marrazzo</h1>
+        <p class="reveal-up max-w-2xl text-xl text-gray-400 border-l-4 border-[#00ff9d] pl-6 italic mb-10">
+            "Bridging creativity and strategy to drive personal and brand evolution."
+        </p>
     </section>
 
-    <!-- 01 SOCIAL MEDIA -->
-    <section id="social" class="px-8 md:px-20 py-32 border-t border-zinc-900">
-        <h2 class="section-header text-5xl font-black mb-16 reveal"><span class="neon-text">01</span> SOCIAL MEDIA</h2>
+    <!-- 01 SOCIAL MEDIA (FONDO NEGRO GRADIENTE) -->
+    <section id="social" class="bg-dark-gradient px-8 md:px-20 py-32 border-t border-white/5">
+        <h2 class="section-title mb-16 reveal-left"><span class="neon-text">01</span> SOCIAL MEDIA</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="card-anim p-6 rounded-sm reveal">
-                <img src="https://via.placeholder.com/500x600/111/00ff9d?text=Red+Mutual" class="w-full rounded-sm mb-6 grayscale hover:grayscale-0 transition duration-500">
-                <h3 class="text-xl font-bold uppercase tracking-tighter">Red Mutual</h3>
-                <div class="w-10 h-[2px] neon-bg mt-2"></div>
+            <img src="https://via.placeholder.com/500x600/111/00ff9d?text=Red+Mutual" class="reveal-up w-full border border-white/10 grayscale hover:grayscale-0 transition duration-700">
+            <img src="https://via.placeholder.com/500x600/111/00ff9d?text=Eurorepar" class="reveal-up w-full border border-white/10 grayscale hover:grayscale-0 transition duration-700">
+            <img src="https://via.placeholder.com/500x600/111/00ff9d?text=BsAs+Vending" class="reveal-up w-full border border-white/10 grayscale hover:grayscale-0 transition duration-700">
+        </div>
+    </section>
+
+    <!-- 02 LOGO DESIGN (FONDO BLANCO) -->
+    <section id="logos" class="bg-white text-black px-8 md:px-20 py-32">
+        <h2 class="section-title mb-16 reveal-left text-black"><span class="neon-text">02</span> LOGO DESIGN</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-12 items-center opacity-90 reveal-up">
+            <img src="https://via.placeholder.com/200x100/fff/000?text=AVICOLA+ALE" class="hover:scale-110 transition">
+            <img src="https://via.placeholder.com/200x100/fff/000?text=ZOOVET" class="hover:scale-110 transition">
+            <img src="https://via.placeholder.com/200x100/fff/000?text=NICANOR" class="hover:scale-110 transition">
+            <img src="https://via.placeholder.com/200x100/fff/000?text=SPORTMAGIC" class="hover:scale-110 transition">
+        </div>
+    </section>
+
+    <!-- 03 PRINT DESIGN (FONDO NEGRO GRADIENTE) -->
+    <section id="print" class="bg-dark-gradient px-8 md:px-20 py-32 border-t border-white/5">
+        <h2 class="section-title mb-16 reveal-left"><span class="neon-text">03</span> PRINT DESIGN</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <img src="https://via.placeholder.com/800x500/111/666?text=Billboard+Mockup" class="reveal-up w-full shadow-2xl">
+            <img src="https://via.placeholder.com/800x500/111/666?text=Magazine+Design" class="reveal-up w-full shadow-2xl">
+        </div>
+    </section>
+
+    <!-- 04 UX/UI DESIGN (FONDO BLANCO) -->
+    <section id="uxui" class="bg-white text-black px-8 md:px-20 py-32">
+        <h2 class="section-title mb-16 reveal-left text-black"><span class="neon-text">04</span> UX/UI DESIGN</h2>
+        <div class="grid md:grid-cols-2 gap-20 items-center">
+            <div class="reveal-up">
+                <img src="https://via.placeholder.com/700x900/eee/111?text=App+Mockup" class="w-full shadow-2xl rounded-2xl border border-gray-100">
             </div>
-            <div class="card-anim p-6 rounded-sm reveal">
-                <img src="https://via.placeholder.com/500x600/111/00ff9d?text=Eurorepar" class="w-full rounded-sm mb-6 grayscale hover:grayscale-0 transition duration-500">
-                <h3 class="text-xl font-bold uppercase tracking-tighter">Eurorepar</h3>
-                <div class="w-10 h-[2px] neon-bg mt-2"></div>
-            </div>
-            <div class="card-anim p-6 rounded-sm reveal">
-                <img src="https://via.placeholder.com/500x600/111/00ff9d?text=BsAs+Vending" class="w-full rounded-sm mb-6 grayscale hover:grayscale-0 transition duration-500">
-                <h3 class="text-xl font-bold uppercase tracking-tighter">Bs As Vending</h3>
-                <div class="w-10 h-[2px] neon-bg mt-2"></div>
+            <div class="reveal-up">
+                <h3 class="text-3xl font-black uppercase mb-4">Estrategia & Interfaz</h3>
+                <p class="text-gray-600 text-lg leading-relaxed">Soluciones centradas en el usuario con un enfoque estético y funcional de alto rendimiento.</p>
             </div>
         </div>
     </section>
 
-    <!-- 04 UX/UI DESIGN -->
-    <section id="uxui" class="px-8 md:px-20 py-32 bg-[#080808]/50">
-        <!-- Animación de izquierda a derecha configurada en JS -->
-        <h2 id="uxui-title" class="text-5xl font-black mb-20 opacity-0 uppercase tracking-tighter">
-            <span class="neon-text">04</span> UX/UI DESIGN
-        </h2>
-        
-        <div class="space-y-32">
-            <!-- Red Mutual App -->
-            <div class="grid md:grid-cols-2 gap-16 items-center reveal">
-                <img src="https://via.placeholder.com/800x1000/111/00ff9d?text=Red+Mutual+UI" class="rounded-xl border border-zinc-800 shadow-2xl">
-                <div>
-                    <h3 class="text-4xl font-black mb-6 uppercase">Red Mutual <span class="neon-text">App</span></h3>
-                    <p class="text-gray-400 text-lg leading-relaxed mb-6">
-                        Diseño de interfaz estratégica enfocada en la accesibilidad y la gestión eficiente de servicios mutuos.
-                    </p>
-                    <div class="h-[1px] w-full bg-zinc-800"></div>
-                </div>
-            </div>
-
-            <!-- Push App (NUEVA SECCIÓN REQUERIDA) -->
-            <div class="grid md:grid-cols-2 gap-16 items-center reveal">
-                <img src="https://via.placeholder.com/800x1000/111/00ff9d?text=Push+App+UI" class="rounded-xl border border-zinc-800 shadow-2xl md:order-last">
-                <div class="md:text-right">
-                    <h3 class="text-4xl font-black mb-6 uppercase">Push <span class="neon-text">App</span></h3>
-                    <p class="text-gray-400 text-lg leading-relaxed mb-6">
-                        Plataforma de entrenamiento y fitness con un enfoque visual dinámico y orientado al rendimiento deportivo.
-                    </p>
-                    <div class="h-[1px] w-full bg-zinc-800"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CONTACTO -->
-    <footer id="contacto" class="bg-black py-32 px-8 md:px-20 border-t border-zinc-900">
+    <!-- FOOTER (FONDO NEGRO GRADIENTE) -->
+    <footer id="contacto" class="bg-dark-gradient py-24 px-8 md:px-20 border-t border-white/5">
         <div class="grid md:grid-cols-2 gap-20">
-            <div class="reveal">
-                <h2 class="text-6xl font-black mb-12 uppercase">Hablemos<span class="neon-text">.</span></h2>
-                <div class="space-y-8">
-                    <a href="mailto:romadgcv@gmail.com" class="flex items-center space-x-6 group">
-                        <i class="fa-regular fa-envelope text-2xl neon-text"></i>
-                        <span class="text-xl group-hover:neon-text transition">romadgcv@gmail.com</span>
-                    </a>
-                    <a href="https://wa.me/393513848087" target="_blank" class="flex items-center space-x-6 group">
-                        <i class="fa-brands fa-whatsapp text-2xl neon-text"></i>
-                        <span class="text-xl group-hover:neon-text transition">+39 351 384 8087</span>
-                    </a>
-                    <a href="https://linkedin.com/in/robertinomarrazzo" target="_blank" class="flex items-center space-x-6 group">
-                        <i class="fa-brands fa-linkedin-in text-2xl neon-text"></i>
-                        <span class="text-xl group-hover:neon-text transition">LinkedIn</span>
-                    </a>
-                </div>
-            </div>
             
-            <!-- Menú inferior repetido -->
-            <div class="flex flex-col justify-end items-end text-right reveal">
-                <div class="flex flex-col space-y-4 font-bold text-2xl uppercase tracking-tighter">
-                    <a href="#inicio" class="nav-link">Inicio</a>
-                    <a href="#social" class="nav-link">Social media</a>
-                    <a href="#logos" class="nav-link">Logo design</a>
-                    <a href="#print" class="nav-link">Print Design</a>
-                    <a href="#uxui" class="nav-link">UX/UI design</a>
+            <!-- Columna Izquierda: Navegación -->
+            <div class="reveal-up">
+                <p class="text-gray-500 text-[10px] uppercase tracking-[0.3em] font-bold mb-6">Navegación</p>
+                <nav class="footer-nav flex flex-col space-y-4 font-bold text-2xl uppercase tracking-tighter">
+                    <a href="#inicio">Inicio</a>
+                    <a href="#social">Social Media</a>
+                    <a href="#logos">Logo Design</a>
+                    <a href="#print">Print Design</a>
+                    <a href="#uxui">UX/UI Design</a>
+                </nav>
+            </div>
+
+            <!-- Columna Derecha: Contacto + Behance -->
+            <div class="reveal-up md:text-right">
+                <h2 class="text-5xl font-black mb-10 uppercase">Hablemos<span class="neon-text">.</span></h2>
+                <div class="flex flex-col md:items-end space-y-6">
+                    <a href="mailto:romadgcv@gmail.com" class="flex items-center space-x-4 group">
+                        <span class="text-xl group-hover:neon-text transition">romadgcv@gmail.com</span>
+                        <i class="fa-regular fa-envelope text-xl neon-text"></i>
+                    </a>
+                    <a href="https://wa.me/393513848087" target="_blank" class="flex items-center space-x-4 group">
+                        <span class="text-xl group-hover:neon-text transition">+39 351 384 8087</span>
+                        <i class="fa-brands fa-whatsapp text-xl neon-text"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/robertinomarrazzo" target="_blank" class="flex items-center space-x-4 group">
+                        <span class="text-xl group-hover:neon-text transition">LinkedIn</span>
+                        <i class="fa-brands fa-linkedin-in text-xl neon-text"></i>
+                    </a>
+                    <!-- ICONO BEHANCE REQUERIDO -->
+                    <a href="https://behance.net/robertinomarrazzo" target="_blank" class="flex items-center space-x-4 group">
+                        <span class="text-xl group-hover:neon-text transition">Behance</span>
+                        <i class="fa-brands fa-behance text-xl neon-text"></i>
+                    </a>
                 </div>
             </div>
+
         </div>
+        <p class="text-center text-gray-800 text-[10px] mt-20 uppercase tracking-widest">© 2026 Marrazzo Robertino — All Rights Reserved</p>
     </footer>
 
     <!-- BOTÓN VOLVER ARRIBA -->
@@ -197,65 +182,48 @@
     <script>
         gsap.registerPlugin(ScrollTrigger);
 
-        // 1. Animación Hero (Entrada al cargar y al volver arriba)
-        const heroTl = gsap.timeline({
-            scrollTrigger: {
-                trigger: "#inicio",
-                start: "top center",
-                toggleActions: "play none none reverse" // Re-activa la animación al subir
-            }
-        });
-
-        heroTl.to(".hero-content .reveal", {
-            opacity: 1,
-            y: 0,
-            duration: 1,
-            stagger: 0.2,
-            ease: "power4.out"
-        });
-
-        // 2. Animación "04 UX/UI DESIGN" (Izquierda a Derecha)
-        gsap.to("#uxui-title", {
-            scrollTrigger: {
-                trigger: "#uxui-title",
-                start: "top 80%",
-                toggleActions: "play none none reverse"
-            },
-            opacity: 1,
-            x: 0,
-            xStart: -100, // Comienza 100px a la izquierda
-            duration: 1.2,
-            ease: "power3.out"
-        });
-
-        // 3. Animaciones generales de scroll (Similares a Social Media)
-        gsap.utils.toArray('.reveal').forEach(el => {
-            if(el.id !== "hero-title") { // Evitar conflicto con el hero
-                gsap.to(el, {
-                    scrollTrigger: {
-                        trigger: el,
-                        start: "top 85%",
-                        toggleActions: "play none none reverse"
-                    },
-                    opacity: 1,
-                    y: 0,
-                    duration: 1,
-                    ease: "power3.out"
-                });
-            }
-        });
-
-        // 4. Lógica de botón ScrollTop
-        window.onscroll = function() {
-            const btn = document.getElementById('scrollTop');
-            if (window.scrollY > 600) {
-                btn.style.opacity = "1";
-            } else {
-                btn.style.opacity = "0";
-            }
+        // Animación de entrada delicada al cargar
+        window.onload = () => {
+            gsap.to(".reveal-up", { opacity: 1, y: 0, duration: 1, stagger: 0.1, ease: "power4.out" });
         };
 
-        // Smooth Scroll para navegación
+        // Animaciones Left -> Right para títulos de sección
+        gsap.utils.toArray('.reveal-left').forEach(el => {
+            gsap.to(el, {
+                scrollTrigger: {
+                    trigger: el,
+                    start: "top 85%",
+                    toggleActions: "play none none reverse"
+                },
+                opacity: 1,
+                x: 0,
+                duration: 1.2,
+                ease: "power3.out"
+            });
+        });
+
+        // Animaciones genéricas al hacer scroll
+        gsap.utils.toArray('.reveal-up').forEach(el => {
+            gsap.to(el, {
+                scrollTrigger: {
+                    trigger: el,
+                    start: "top 90%",
+                    toggleActions: "play none none reverse"
+                },
+                opacity: 1,
+                y: 0,
+                duration: 1,
+                ease: "power2.out"
+            });
+        });
+
+        // Botón Scroll Top
+        window.onscroll = function() {
+            const btn = document.getElementById('scrollTop');
+            btn.style.opacity = (window.scrollY > 800) ? "1" : "0";
+        };
+
+        // Smooth scroll corregido
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
