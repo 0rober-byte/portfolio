@@ -393,17 +393,22 @@
 'print-design': {
     title: 'Print & POP',
     content: `<div class="space-y-10">
-        ${Array(7).fill(0).map((_, i) => `
+        ${[
+            { mainThumb: 'img/print-1-thumb.jpg', mainFull: 'img/print-1-full.jpg', d1Thumb: 'img/print-1a-thumb.jpg', d1Full: 'img/print-1a-full.jpg', d2Thumb: 'img/print-1b-thumb.jpg', d2Full: 'img/print-1b-full.jpg' },
+            { mainThumb: 'img/print-2-thumb.jpg', mainFull: 'img/print-2-full.jpg', d1Thumb: 'img/print-2a-thumb.jpg', d1Full: 'img/print-2a-full.jpg', d2Thumb: 'img/print-2b-thumb.jpg', d2Full: 'img/print-2b-full.jpg' },
+            // Puedes seguir agregando objetos aquí para las 7 piezas
+        ].map((item, i) => `
             <div class="space-y-8">
-                <div class="project-card h-[400px] w-full" onclick="zoomImage(this)">
-                    <div class="absolute inset-0 bg-neutral-900/50 flex items-center justify-center font-black opacity-20 uppercase tracking-widest">Main Piece ${i+1}</div>
+                <div class="project-card h-[400px] w-full" onclick="zoomImage(this, '${item.mainFull}')">
+                    <img src="${item.mainThumb}" class="w-full h-full object-cover" onerror="this.style.opacity='0.2'">
+                    <div class="absolute inset-0 bg-neutral-900/20 flex items-center justify-center font-black opacity-0 hover:opacity-100 transition-all text-[10px] tracking-[0.3em]">VIEW FULL PIECE ${i+1}</div>
                 </div>
                 <div class="grid grid-cols-2 gap-8">
-                    <div class="project-card aspect-[1.1/1]" onclick="zoomImage(this)">
-                        <div class="absolute inset-0 bg-neutral-800/50"></div>
+                    <div class="project-card aspect-[1.1/1]" onclick="zoomImage(this, '${item.d1Full}')">
+                        <img src="${item.d1Thumb}" class="w-full h-full object-cover" onerror="this.style.opacity='0.2'">
                     </div>
-                    <div class="project-card aspect-[1.1/1]" onclick="zoomImage(this)">
-                        <div class="absolute inset-0 bg-neutral-800/50"></div>
+                    <div class="project-card aspect-[1.1/1]" onclick="zoomImage(this, '${item.d2Full}')">
+                        <img src="${item.d2Thumb}" class="w-full h-full object-cover" onerror="this.style.opacity='0.2'">
                     </div>
                 </div>
             </div>
