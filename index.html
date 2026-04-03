@@ -390,17 +390,26 @@
                     `).join('')}
                 </div>`
             },
-            'print-design': {
-                title: 'Print & POP',
-                content: `<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    ${Array(4).fill(0).map((_, i) => `
-                        <div class="project-card aspect-video" onclick="zoomImage(this, 'img/print-${i+1}-full.jpg')">
-                            <div class="card-tag text-white">Piece ${i+1}</div>
-                            <img src="img/print-${i+1}-thumb.jpg" class="w-full h-full object-cover" onerror="this.style.opacity='0.1'">
-                        </div>
-                    `).join('')}
-                </div>`
-            },
+'print-design': {
+    title: 'Print & POP',
+    content: `<div class="space-y-10">
+        ${Array(7).fill(0).map((_, i) => `
+            <div class="space-y-8">
+                <div class="project-card h-[400px] w-full" onclick="zoomImage(this)">
+                    <div class="absolute inset-0 bg-neutral-900/50 flex items-center justify-center font-black opacity-20 uppercase tracking-widest">Main Piece ${i+1}</div>
+                </div>
+                <div class="grid grid-cols-2 gap-8">
+                    <div class="project-card aspect-[1.1/1]" onclick="zoomImage(this)">
+                        <div class="absolute inset-0 bg-neutral-800/50"></div>
+                    </div>
+                    <div class="project-card aspect-[1.1/1]" onclick="zoomImage(this)">
+                        <div class="absolute inset-0 bg-neutral-800/50"></div>
+                    </div>
+                </div>
+            </div>
+        `).join('')}
+    </div>`
+},
             'ux-ui': {
                 title: 'UX/UI Portfolio',
                 content: `<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
