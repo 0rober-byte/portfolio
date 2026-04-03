@@ -140,7 +140,7 @@
             padding: 40px;
         }
         .zoom-overlay.active { display: flex; }
-        .zoom-img { max-width: 100%; max-height: 100%; border-radius: 12px; border: 1px solid var(--border-color); }
+        .zoom-img { max-width: 100%; max-height: 100%; border-radius: 12px; border: 1px solid var(--border-color); object-fit: contain; }
 
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: #000; }
@@ -171,7 +171,7 @@
         <section id="about" class="pt-44 pb-12 px-6">
             <div class="max-w-7xl mx-auto">
                 <div class="mb-24 text-center md:text-left">
-                    <h2 class="text-xs md:text-sm font-bold text-gray-500 uppercase tracking-[0.6em] mb-4 font-geometric">Marrazzo Robertino | Portfoliop 2026</h2>
+                    <h2 class="text-xs md:text-sm font-bold text-gray-500 uppercase tracking-[0.6em] mb-4 font-geometric">Marrazzo Robertino | Portfolio 2026</h2>
                     <h1 class="text-5xl md:text-7xl font-black mb-6 font-geometric uppercase leading-[0.85] tracking-tighter">
                         GRAPHIC DESIGN <br><span class="text-accent">& VISUAL COMMUNICATION.</span>
                     </h1>
@@ -182,9 +182,10 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-24">
-                    <!-- FOTO CON EFECTO PROJECT-CARD -->
-                    <div onclick="zoomImage(this)" class="aspect-[3/4] project-card overflow-hidden relative cursor-pointer flex items-center justify-center p-0">
-                        <div class="absolute inset-0 flex items-center justify-center text-gray-800"><i class="fa-solid fa-user-tie text-9xl opacity-10 transition-opacity group-hover:opacity-20"></i></div>
+                    <div class="aspect-[3/4] project-card overflow-hidden relative flex items-center justify-center p-0">
+                         <!-- Espacio para foto de perfil -->
+                        <div class="absolute inset-0 flex items-center justify-center text-gray-800"><i class="fa-solid fa-user-tie text-9xl opacity-10"></i></div>
+                        <img src="img/profile.jpg" alt="Robertino Marrazzo" class="w-full h-full object-cover" onerror="this.style.display='none'">
                     </div>
                     <div class="flex flex-col justify-center h-full">
                         <h3 class="text-accent text-4xl md:text-5xl font-black mb-6 font-geometric italic">HELLO!</h3>
@@ -199,7 +200,7 @@
                     </div>
                 </div>
 
-                <!-- Herramientas a Color -->
+                <!-- Herramientas -->
                 <div class="space-y-6 pb-20">
                     <h4 class="text-gray-500 text-[10px] font-black uppercase tracking-[0.5em] mb-8 text-center">Tools</h4>
                     <div class="flex flex-wrap justify-center gap-6">
@@ -207,7 +208,6 @@
                         <div class="skill-icon" title="Adobe Photoshop"><img src="https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg" alt="Photoshop"></div>
                         <div class="skill-icon" title="Adobe InDesign"><img src="https://upload.wikimedia.org/wikipedia/commons/4/48/Adobe_InDesign_CC_icon.svg" alt="InDesign"></div>
                         <div class="skill-icon" title="Video Editing">
-                            <!-- Icono de Referencia a Video -->
                             <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="m22 8-6 4 6 4V8Z"/><rect width="14" height="12" x="2" y="6" rx="2" ry="2"/></svg>
                         </div>
                         <div class="skill-icon" title="Figma"><img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg" alt="Figma"></div>
@@ -220,9 +220,8 @@
                     </div>
                 </div>
 
-                <!-- Education, Work & Language -->
+                <!-- CV Info -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-                    <!-- Education -->
                     <div class="space-y-6">
                         <h4 class="text-gray-500 text-[10px] font-black uppercase tracking-[0.5em] mb-4">University education</h4>
                         <div class="info-card">
@@ -231,7 +230,6 @@
                             <p class="text-sm text-gray-400">Litoral National University - Santa Fe, Arg.</p>
                         </div>
                     </div>
-                    <!-- Work Experience -->
                     <div class="space-y-6">
                         <h4 class="text-gray-500 text-[10px] font-black uppercase tracking-[0.5em] mb-4">Work experience</h4>
                         <div class="info-card">
@@ -243,7 +241,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Language (Nueva Estética) -->
                     <div class="space-y-6 md:col-span-2">
                         <h4 class="text-gray-500 text-[10px] font-black uppercase tracking-[0.5em] mb-4">Language</h4>
                         <div class="info-card">
@@ -294,39 +291,35 @@
             </div>
         </section>
 
-        <!-- Footer Lets Connect -->
         <footer id="contact" class="pt-20 pb-16 px-6 border-t border-white/5 bg-black">
             <div class="max-w-7xl mx-auto">
                 <div class="text-center md:text-left">
                     <h2 class="text-5xl md:text-8xl font-black font-geometric mb-16 uppercase tracking-tighter leading-none">Let's <br><span class="text-accent">Connect.</span></h2>
                 </div>
-                
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-24">
                     <a href="mailto:romadgcv@gmail.com" class="project-card p-8 bg-[#050505] group">
-                        <i class="fa-regular fa-envelope text-accent mb-6 text-2xl transition-transform block"></i>
+                        <i class="fa-regular fa-envelope text-accent mb-6 text-2xl"></i>
                         <p class="text-[10px] font-black uppercase text-gray-500 mb-2 tracking-widest">Email</p>
                         <p class="font-bold text-sm truncate">romadgcv@gmail.com</p>
                     </a>
                     <a href="https://wa.me/393513848087" target="_blank" class="project-card p-8 bg-[#050505] group">
-                        <i class="fa-brands fa-whatsapp text-accent mb-6 text-2xl transition-transform block"></i>
+                        <i class="fa-brands fa-whatsapp text-accent mb-6 text-2xl"></i>
                         <p class="text-[10px] font-black uppercase text-gray-500 mb-2 tracking-widest">WhatsApp</p>
                         <p class="font-bold text-sm truncate">+39 351 384 8087</p>
                     </a>
                     <a href="https://linkedin.com/in/robertinomarrazzo" target="_blank" class="project-card p-8 bg-[#050505] group">
-                        <i class="fa-brands fa-linkedin-in text-accent mb-6 text-2xl transition-transform block"></i>
+                        <i class="fa-brands fa-linkedin-in text-accent mb-6 text-2xl"></i>
                         <p class="text-[10px] font-black uppercase text-gray-500 mb-2 tracking-widest">LinkedIn</p>
                         <p class="font-bold text-sm truncate">/robertinomarrazzo</p>
                     </a>
                     <a href="https://behance.net/robertinomarrazzo" target="_blank" class="project-card p-8 bg-[#050505] group">
-                        <i class="fa-brands fa-behance text-accent mb-6 text-2xl transition-transform block"></i>
+                        <i class="fa-brands fa-behance text-accent mb-6 text-2xl"></i>
                         <p class="text-[10px] font-black uppercase text-gray-500 mb-2 tracking-widest">Behance</p>
                         <p class="font-bold text-sm truncate">/robertinomarrazzo</p>
                     </a>
                 </div>
-
-                <!-- Footer Bottom -->
                 <div class="flex flex-col items-center justify-center space-y-6">
-                    <span class="text-[5rem] md:text-[6.5rem] font-black font-geometric opacity-10 tracking-tighter select-none leading-none">RM</span>
+                    <span class="text-[5rem] md:text-[6.5rem] font-black font-geometric opacity-10 tracking-tighter leading-none">RM</span>
                     <div class="text-[10px] text-gray-600 font-bold uppercase tracking-[0.4em] text-center space-y-3">
                         <p>© 2026 Robertino Marrazzo — All rights reserved</p>
                         <p>Argentina — Italy — Freelancer — Remote</p>
@@ -336,7 +329,6 @@
         </footer>
     </main>
 
-    <!-- Overlays -->
     <div id="project-overlay" class="project-detail">
         <div class="max-w-7xl mx-auto px-6 py-20">
             <button onclick="closeProject()" class="mb-12 flex items-center gap-4 text-gray-500 hover:text-accent font-bold uppercase text-xs">
@@ -351,47 +343,81 @@
     </div>
 
     <script>
-        const smNames = ['Red <span class="text-accent">Mutual</span>', 'Farmacia <span class="text-accent">AMUS</span>', 'Euro <span class="text-accent">repar</span>', 'SF <span class="text-accent">Materiales</span>', 'BAV <span class="text-accent">Vending</span>', 'Virtu'];
+        const smProjects = [
+            { name: 'Red Mutual', thumb: 'img/sm-1-thumb.jpg', full: 'img/sm-1-full.jpg' },
+            { name: 'Farmacia AMUS', thumb: 'img/sm-2-thumb.jpg', full: 'img/sm-2-full.jpg' },
+            { name: 'Euro Repar', thumb: 'img/sm-3-thumb.jpg', full: 'img/sm-3-full.jpg' },
+            { name: 'SF Materiales', thumb: 'img/sm-4-thumb.jpg', full: 'img/sm-4-full.jpg' },
+            { name: 'BAV Vending', thumb: 'img/sm-5-thumb.jpg', full: 'img/sm-5-full.jpg' },
+            { name: 'Virtu', thumb: 'img/sm-6-thumb.jpg', full: 'img/sm-6-full.jpg' }
+        ];
+
+        // Mapeo exacto basado en captura: logonegro (grid) -> logocolor (zoom)
+        const logoItems = [
+            { thumb: 'img/logonegro-13.png', full: 'img/logocolor-23.png' },
+            { thumb: 'img/logonegro-14.png', full: 'img/logocolor-24.png' },
+            { thumb: 'img/logonegro-15.png', full: 'img/logocolor-25.png' },
+            { thumb: 'img/logonegro-16.png', full: 'img/logocolor-26.png' },
+            { thumb: 'img/logonegro-17.png', full: 'img/logocolor-27.png' },
+            { thumb: 'img/logonegro-18.png', full: 'img/logocolor-28.png' },
+            { thumb: 'img/logonegro-19.png', full: 'img/logocolor-29.png' },
+            { thumb: 'img/logonegro-20.png', full: 'img/logocolor-30.png' },
+            { thumb: 'img/logonegro-21.png', full: 'img/logocolor-31.png' },
+            { thumb: 'img/logonegro-22.png', full: 'img/logocolor-32.png' }
+        ];
 
         const projects = {
             'social-media': {
                 title: 'Social Media Strategy',
                 content: `<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    ${smNames.map(name => `<div class="project-card aspect-[4/6]" onclick="zoomImage(this)"><div class="card-tag text-white">${name}</div><div class="absolute inset-0 bg-neutral-900/50 flex items-center justify-center opacity-20 hover:opacity-100 transition-all text-xs font-black">PIECE</div></div>`).join('')}
-                </div>`
-            },
-            'logo-design': {
-                title: 'Logo & Branding',
-                content: `<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
-                    ${Array(12).fill(0).map((_, i) => `<div class="project-card aspect-square bg-neutral-900/50 flex items-center justify-center" onclick="zoomImage(this)"><span class="text-[10px] font-black opacity-20">BRANDING ${i+1}</span></div>`).join('')}
-                </div>`
-            },
-            'print-design': {
-                title: 'Print & POP',
-                content: `<div class="space-y-10">
-                    ${Array(7).fill(0).map((_, i) => `
-                        <div class="space-y-8">
-                            <div class="project-card h-[400px] w-full" onclick="zoomImage(this)"><div class="absolute inset-0 bg-neutral-900/50 flex items-center justify-center font-black opacity-20 uppercase tracking-widest">Main Piece ${i+1}</div></div>
-                            <div class="grid grid-cols-2 gap-8">
-                                <div class="project-card aspect-[1.1/1]" onclick="zoomImage(this)"><div class="absolute inset-0 bg-neutral-800/50"></div></div>
-                                <div class="project-card aspect-[1.1/1]" onclick="zoomImage(this)"><div class="absolute inset-0 bg-neutral-800/50"></div></div>
+                    ${smProjects.map(p => `
+                        <div class="project-card aspect-[4/5]" onclick="zoomImage(this, '${p.full}')">
+                            <div class="card-tag text-white">${p.name}</div>
+                            <img src="${p.thumb}" class="w-full h-full object-cover" onerror="this.style.opacity='0.1'">
+                            <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 hover:opacity-100 transition-all">
+                                <span class="text-[10px] font-black uppercase text-accent">Expand Design</span>
                             </div>
                         </div>
                     `).join('')}
                 </div>`
             },
-            'ux-ui': {
-                title: 'UX/UI Design',
+            'logo-design': {
+                title: 'Logo & Branding',
+                content: `<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
+                    ${logoItems.map(p => `
+                        <div class="project-card aspect-square bg-[#070707] flex items-center justify-center p-8" onclick="zoomImage(this, '${p.full}')">
+                            <img src="${p.thumb}" class="max-w-full max-h-full object-contain" onerror="this.style.opacity='0.2'">
+                        </div>
+                    `).join('')}
+                </div>`
+            },
+            'print-design': {
+                title: 'Print & POP',
                 content: `<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="project-card h-[800px]" onclick="zoomImage(this)"><div class="absolute inset-0 bg-neutral-900/50 flex items-center justify-center font-black opacity-20">CASE STUDY 01</div></div>
-                    <div class="project-card h-[800px]" onclick="zoomImage(this)"><div class="absolute inset-0 bg-neutral-900/50 flex items-center justify-center font-black opacity-20">CASE STUDY 02</div></div>
+                    ${Array(4).fill(0).map((_, i) => `
+                        <div class="project-card aspect-video" onclick="zoomImage(this, 'img/print-${i+1}-full.jpg')">
+                            <div class="card-tag text-white">Piece ${i+1}</div>
+                            <img src="img/print-${i+1}-thumb.jpg" class="w-full h-full object-cover" onerror="this.style.opacity='0.1'">
+                        </div>
+                    `).join('')}
+                </div>`
+            },
+            'ux-ui': {
+                title: 'UX/UI Portfolio',
+                content: `<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="project-card h-[600px]" onclick="zoomImage(this, 'img/ux-1-full.jpg')">
+                        <img src="img/ux-1-thumb.jpg" class="w-full h-full object-cover" onerror="this.style.opacity='0.1'">
+                    </div>
+                    <div class="project-card h-[600px]" onclick="zoomImage(this, 'img/ux-2-full.jpg')">
+                        <img src="img/ux-2-thumb.jpg" class="w-full h-full object-cover" onerror="this.style.opacity='0.1'">
+                    </div>
                 </div>`
             }
         };
 
         function openProject(id) {
             const data = projects[id];
-            document.getElementById('project-content').innerHTML = `<h2 class="text-6xl font-black uppercase mb-12 tracking-tighter">${data.title}</h2>${data.content}`;
+            document.getElementById('project-content').innerHTML = `<h2 class="text-4xl md:text-6xl font-black uppercase mb-12 tracking-tighter font-geometric">${data.title}</h2>${data.content}`;
             document.getElementById('project-overlay').style.display = 'block';
             document.body.style.overflow = 'hidden';
         }
@@ -401,8 +427,14 @@
             document.body.style.overflow = 'auto';
         }
 
-        function zoomImage(el) {
-            document.getElementById('zoom-overlay').classList.add('active');
+        function zoomImage(el, customSrc) {
+            const zoomOverlay = document.getElementById('zoom-overlay');
+            const zoomImg = document.getElementById('zoom-img');
+            let src = customSrc || (el.querySelector('img') ? el.querySelector('img').src : '');
+            if (src) {
+                zoomImg.src = src;
+                zoomOverlay.classList.add('active');
+            }
         }
     </script>
 </body>
