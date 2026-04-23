@@ -286,6 +286,10 @@
                         <h4 class="text-4xl font-black uppercase italic font-geometric">04 <br>UX/UI Design</h4>
                         <div class="flex justify-between items-center pt-2 border-t border-white/5"><span class="text-[10px] font-black uppercase text-accent">Product Design</span><i class="fa-solid fa-arrow-right text-xs"></i></div>
                     </div>
+                    <div onclick="openProject('video-editing')" class="project-card group p-6 flex flex-col justify-between min-h-[200px]">
+    <h4 class="text-4xl font-black uppercase italic font-geometric">05 <br>Video Editing</h4>
+    <div class="flex justify-between items-center pt-2 border-t border-white/5"><span class="text-[10px] font-black uppercase text-accent">CapCut + Basic Animation</span><i class="fa-solid fa-arrow-right text-xs"></i></div>
+</div>
                 </div>
             </div>
         </section>
@@ -434,6 +438,77 @@
                     </div>
                 </div>`
             }
+            ,
+'video-editing': {
+    title: 'Video Editing',
+    content: `
+        <p class="text-[10px] font-black uppercase tracking-[0.4em] text-accent mb-12">CapCut + Basic Animation</p>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-4">
+
+            <div class="project-card aspect-[9/16] relative overflow-hidden hover:border-[var(--accent)] hover:-translate-y-2 transition-all duration-500">
+                <div class="card-tag text-white">Fordevs</div>
+                <div class="w-full h-full flex items-center justify-center bg-[#0a0a0a]">
+                    <i class="fa-solid fa-play text-[var(--accent)] text-3xl opacity-30"></i>
+                </div>
+            </div>
+
+            <div class="project-card aspect-[9/16] relative overflow-hidden hover:border-[var(--accent)] hover:-translate-y-2 transition-all duration-500">
+                <div class="card-tag text-white">BAV</div>
+                <div class="w-full h-full flex items-center justify-center bg-[#0a0a0a]">
+                    <i class="fa-solid fa-play text-[var(--accent)] text-3xl opacity-30"></i>
+                </div>
+            </div>
+
+            <div class="project-card aspect-[9/16] relative overflow-hidden hover:border-[var(--accent)] hover:-translate-y-2 transition-all duration-500">
+                <div class="card-tag text-white">Casa Toledo</div>
+                <div class="w-full h-full flex items-center justify-center bg-[#0a0a0a]">
+                    <i class="fa-solid fa-play text-[var(--accent)] text-3xl opacity-30"></i>
+                </div>
+            </div>
+
+            <div class="project-card aspect-[9/16] relative overflow-hidden hover:border-[var(--accent)] hover:-translate-y-2 transition-all duration-500">
+                <div class="card-tag text-white">Avicola Ale</div>
+                <div class="w-full h-full flex items-center justify-center bg-[#0a0a0a]">
+                    <i class="fa-solid fa-play text-[var(--accent)] text-3xl opacity-30"></i>
+                </div>
+            </div>
+
+            <div class="project-card aspect-[9/16] relative overflow-hidden hover:border-[var(--accent)] hover:-translate-y-2 transition-all duration-500">
+                <div class="card-tag text-white">Tecnolight</div>
+                <div class="w-full h-full flex items-center justify-center bg-[#0a0a0a]">
+                    <i class="fa-solid fa-play text-[var(--accent)] text-3xl opacity-30"></i>
+                </div>
+            </div>
+
+            <div class="project-card aspect-[9/16] relative overflow-hidden hover:border-[var(--accent)] hover:-translate-y-2 transition-all duration-500">
+                <div class="card-tag text-white">Red Mutual</div>
+                <div class="w-full h-full flex items-center justify-center bg-[#0a0a0a]">
+                    <i class="fa-solid fa-play text-[var(--accent)] text-3xl opacity-30"></i>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+            <div class="project-card aspect-video relative overflow-hidden hover:border-[var(--accent)] hover:-translate-y-2 transition-all duration-500">
+                <div class="card-tag text-white">Quality</div>
+                <div class="w-full h-full flex items-center justify-center bg-[#0a0a0a]">
+                    <i class="fa-solid fa-play text-[var(--accent)] text-3xl opacity-30"></i>
+                </div>
+            </div>
+
+            <div class="project-card aspect-video relative overflow-hidden hover:border-[var(--accent)] hover:-translate-y-2 transition-all duration-500">
+                <div class="card-tag text-white">Nation</div>
+                <div class="w-full h-full flex items-center justify-center bg-[#0a0a0a]">
+                    <i class="fa-solid fa-play text-[var(--accent)] text-3xl opacity-30"></i>
+                </div>
+            </div>
+
+        </div>
+    `
+}
         };
 
         function openProject(id) {
