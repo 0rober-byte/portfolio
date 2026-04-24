@@ -440,75 +440,92 @@
             }
             ,
 'video-editing': {
-    title: 'Video Editing',
-    content: `
-
-        <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-4">
-
-            <div class="project-card aspect-[9/16] relative overflow-hidden hover:border-[var(--accent)] hover:-translate-y-2 transition-all duration-500">
-                <div class="card-tag text-white">Fordevs</div>
-                <div class="w-full h-full flex items-center justify-center bg-[#0a0a0a]">
-                    <i class="fa-solid fa-play text-[var(--accent)] text-3xl opacity-30"></i>
-                </div>
-            </div>
-
-            <div class="project-card aspect-[9/16] relative overflow-hidden hover:border-[var(--accent)] hover:-translate-y-2 transition-all duration-500">
-                <div class="card-tag text-white">BAV</div>
-                <div class="w-full h-full flex items-center justify-center bg-[#0a0a0a]">
-                    <i class="fa-solid fa-play text-[var(--accent)] text-3xl opacity-30"></i>
-                </div>
-            </div>
-
-            <div class="project-card aspect-[9/16] relative overflow-hidden hover:border-[var(--accent)] hover:-translate-y-2 transition-all duration-500">
-                <div class="card-tag text-white">Casa Toledo</div>
-                <div class="w-full h-full flex items-center justify-center bg-[#0a0a0a]">
-                    <i class="fa-solid fa-play text-[var(--accent)] text-3xl opacity-30"></i>
-                </div>
-            </div>
-
-            <div class="project-card aspect-[9/16] relative overflow-hidden hover:border-[var(--accent)] hover:-translate-y-2 transition-all duration-500">
-                <div class="card-tag text-white">Avicola Ale</div>
-                <div class="w-full h-full flex items-center justify-center bg-[#0a0a0a]">
-                    <i class="fa-solid fa-play text-[var(--accent)] text-3xl opacity-30"></i>
-                </div>
-            </div>
-
-            <div class="project-card aspect-[9/16] relative overflow-hidden hover:border-[var(--accent)] hover:-translate-y-2 transition-all duration-500">
-                <div class="card-tag text-white">Tecnolight</div>
-                <div class="w-full h-full flex items-center justify-center bg-[#0a0a0a]">
-                    <i class="fa-solid fa-play text-[var(--accent)] text-3xl opacity-30"></i>
-                </div>
-            </div>
-
-            <div class="project-card aspect-[9/16] relative overflow-hidden hover:border-[var(--accent)] hover:-translate-y-2 transition-all duration-500">
-                <div class="card-tag text-white">Red Mutual</div>
-                <div class="w-full h-full flex items-center justify-center bg-[#0a0a0a]">
-                    <i class="fa-solid fa-play text-[var(--accent)] text-3xl opacity-30"></i>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 -mt-3">
-
-            <div class="project-card aspect-video relative overflow-hidden hover:border-[var(--accent)] hover:-translate-y-2 transition-all duration-500">
-                <div class="card-tag text-white">Quality</div>
-                <div class="w-full h-full flex items-center justify-center bg-[#0a0a0a]">
-                    <i class="fa-solid fa-play text-[var(--accent)] text-3xl opacity-30"></i>
-                </div>
-            </div>
-
-            <div class="project-card aspect-video relative overflow-hidden hover:border-[var(--accent)] hover:-translate-y-2 transition-all duration-500">
-                <div class="card-tag text-white">Nation</div>
-                <div class="w-full h-full flex items-center justify-center bg-[#0a0a0a]">
-                    <i class="fa-solid fa-play text-[var(--accent)] text-3xl opacity-30"></i>
-                </div>
-            </div>
-
-        </div>
-    `
-}
-        };
+                title: 'Video Editing',
+                content: `
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-4">
+                        <div class="project-card aspect-[9/16] relative overflow-hidden hover:border-[var(--accent)] hover:-translate-y-2 transition-all duration-500">
+                            <div class="card-tag text-white">Fordevs</div>
+                            <div class="w-full h-full flex items-center justify-center bg-[#0a0a0a]">
+                                <i class="fa-solid fa-play text-[var(--accent)] text-3xl opacity-30"></i>
+                            </div>
+                        </div>
+                        <div class="project-card aspect-[9/16] relative overflow-hidden hover:border-[var(--accent)] hover:-translate-y-2 transition-all duration-500">
+                            <div class="card-tag text-white">BAV</div>
+                            <div class="w-full h-full flex items-center justify-center bg-[#0a0a0a]">
+                                <i class="fa-solid fa-play text-[var(--accent)] text-3xl opacity-30"></i>
+                            </div>
+                        </div>
+                        <div class="project-card aspect-[9/16] relative overflow-hidden hover:border-[var(--accent)] hover:-translate-y-2 transition-all duration-500">
+                            <div class="card-tag text-white">Casa Toledo</div>
+                            <div class="w-full h-full flex items-center justify-center bg-[#0a0a0a]">
+                                <i class="fa-solid fa-play text-[var(--accent)] text-3xl opacity-30"></i>
+                            </div>
+                        </div>
+                        <!-- REEL AVICOLA ALE CONFIGURADO -->
+                        <div class="project-card aspect-[9/16] relative overflow-hidden hover:border-[var(--accent)] hover:-translate-y-2 transition-all duration-500">
+                            <div class="card-tag text-white">Avicola Ale</div>
+                            <div class="w-full h-full flex flex-col items-center justify-center bg-[#0a0a0a] p-4">
+                                <video class="w-full h-full object-cover absolute inset-0 opacity-40 group-hover:opacity-100 transition-opacity" muted loop playsinline poster="img/poster-avicola.jpg">
+                                    <source src="videos/Reel_avicola.mp4" type="video/mp4">
+                                </video>
+                                <div class="relative z-10 flex flex-col items-center gap-4">
+                                    <i class="fa-solid fa-circle-play text-[var(--accent)] text-5xl"></i>
+                                    <span class="text-[10px] font-black uppercase tracking-widest text-white/50">Click to Play Reel</span>
+                                </div>
+                                <!-- Ventana Emergente al hacer click -->
+                                <div onclick="event.stopPropagation();" class="hidden">
+                                    <video id="player-avicola" controls class="w-full h-full">
+                                        <source src="videos/Reel_avicola.mp4" type="video/mp4">
+                                    </video>
+                                </div>
+                            </div>
+                            <!-- Ajuste de contenido para el modal -->
+                            <script>
+                                // Este pequeño ajuste asegura que cuando se abra el proyecto 'video-editing', 
+                                // el contenido de Avicola Ale sea un reproductor de video real con controles.
+                                window.openAvicolaVideo = function() {
+                                    const modalContent = document.getElementById('project-content');
+                                    modalContent.innerHTML = \`
+                                        <h2 class="text-4xl md:text-6xl font-black uppercase mb-12 tracking-tighter font-geometric">Avícola Ale - Reel</h2>
+                                        <div class="max-w-[400px] mx-auto shadow-2xl border border-white/10 rounded-2xl overflow-hidden bg-black">
+                                            <video class="w-full" controls autoplay>
+                                                <source src="videos/Reel_avicola.mp4" type="video/mp4">
+                                                Tu navegador no soporta el video.
+                                            </video>
+                                        </div>
+                                    \`;
+                                }
+                            </script>
+                        </div>
+                        <div class="project-card aspect-[9/16] relative overflow-hidden hover:border-[var(--accent)] hover:-translate-y-2 transition-all duration-500">
+                            <div class="card-tag text-white">Tecnolight</div>
+                            <div class="w-full h-full flex items-center justify-center bg-[#0a0a0a]">
+                                <i class="fa-solid fa-play text-[var(--accent)] text-3xl opacity-30"></i>
+                            </div>
+                        </div>
+                        <div class="project-card aspect-[9/16] relative overflow-hidden hover:border-[var(--accent)] hover:-translate-y-2 transition-all duration-500">
+                            <div class="card-tag text-white">Red Mutual</div>
+                            <div class="w-full h-full flex items-center justify-center bg-[#0a0a0a]">
+                                <i class="fa-solid fa-play text-[var(--accent)] text-3xl opacity-30"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 -mt-3">
+                        <div class="project-card aspect-video relative overflow-hidden hover:border-[var(--accent)] hover:-translate-y-2 transition-all duration-500">
+                            <div class="card-tag text-white">Quality</div>
+                            <div class="w-full h-full flex items-center justify-center bg-[#0a0a0a]">
+                                <i class="fa-solid fa-play text-[var(--accent)] text-3xl opacity-30"></i>
+                            </div>
+                        </div>
+                        <div class="project-card aspect-video relative overflow-hidden hover:border-[var(--accent)] hover:-translate-y-2 transition-all duration-500">
+                            <div class="card-tag text-white">Nation</div>
+                            <div class="w-full h-full flex items-center justify-center bg-[#0a0a0a]">
+                                <i class="fa-solid fa-play text-[var(--accent)] text-3xl opacity-30"></i>
+                            </div>
+                        </div>
+                    </div>
+                `
+            }
 
         function openProject(id) {
             const data = projects[id];
