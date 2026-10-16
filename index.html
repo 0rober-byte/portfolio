@@ -121,6 +121,30 @@ body:after{background:linear-gradient(115deg,rgba(255,255,255,.12),transparent 3
 .brand.asset-empty .asset-placeholder-label,.footer-logo.asset-empty .asset-placeholder-label{color:inherit}
 @media(prefers-reduced-motion:reduce){.aura{animation:none!important}}
 
+/* RobGD refinement: calmer, more deliberate ambient motion */
+.aura{
+  opacity:.82;
+  background:
+    radial-gradient(ellipse at 22% 43%,rgba(0,240,96,.48),transparent 39%),
+    radial-gradient(ellipse at 50% 47%,rgba(100,227,220,.54),transparent 43%),
+    radial-gradient(ellipse at 76% 35%,rgba(166,77,255,.34),transparent 34%),
+    radial-gradient(ellipse at 37% 75%,rgba(166,77,255,.38),transparent 38%);
+  filter:blur(25px);
+  animation:float 16s ease-in-out infinite alternate,auraPulse 13s ease-in-out infinite alternate;
+}
+.hero-person{
+  object-fit:contain;
+  object-position:center bottom;
+}
+.about-photo:before{
+  opacity:.62;
+  filter:blur(23px);
+  animation:photoAura 14s ease-in-out infinite alternate;
+}
+@media(prefers-reduced-motion:reduce){
+  .aura,.about-photo:before{animation:none!important}
+}
+
 </style>
 </head>
 <body>
@@ -139,7 +163,7 @@ body:after{background:linear-gradient(115deg,rgba(255,255,255,.12),transparent 3
     <a class="scroll-link" href="#work"><span>↓</span> Scroll to explore</a>
   </div>
   <div class="hero-art" aria-label="Portrait of Robertino Marrazzo">
-    <div class="aura"></div><img class="hero-person" src="img/-_perfil.jpg" alt="Robertino Marrazzo, graphic designer"><div class="hero-side-note">Messina, Italy <strong>15+ years<br>in design</strong></div><div class="signature" aria-hidden="true">Robertino</div>
+    <div class="aura"></div><img class="hero-person" src="assets/images/Foto%201.png" alt="Robertino Marrazzo, graphic designer"><div class="hero-side-note">Messina, Italy <strong>15+ years<br>in design</strong></div><div class="signature" aria-hidden="true">Robertino</div>
   </div>
 </section>
 <section class="wrap section" id="work">
@@ -172,7 +196,7 @@ body:after{background:linear-gradient(115deg,rgba(255,255,255,.12),transparent 3
   </div>
 </section>
 <section class="wrap about" id="about">
-  <div class="about-photo reveal"><img src="img/-_perfil.jpg" alt="Portrait of Robertino Marrazzo" loading="lazy"></div>
+  <div class="about-photo reveal"><img src="assets/images/Foto%202.png" alt="Portrait of Robertino Marrazzo" loading="lazy"></div>
   <div class="about-copy reveal delay-1"><div class="eyebrow">About me</div><h2>I’m Robertino, a graphic designer with 15+ years of experience.</h2><p>I help brands communicate, connect and grow through strategic and thoughtful visual design.</p><a class="outline-pill" href="mailto:robertinomarrazzo@gmail.com">More about me <span>→</span></a></div>
   <div class="facts reveal delay-2">
     <div class="fact"><svg viewBox="0 0 24 24"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg><div><strong>From Argentina</strong><p>Based in Messina, Italy</p></div></div>
