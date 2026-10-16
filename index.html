@@ -154,6 +154,24 @@ body:after{background:linear-gradient(115deg,rgba(255,255,255,.12),transparent 3
 #work.section{padding-top:36px}
 @media(max-width:600px){#work.section{padding-top:25px}}
 
+
+/* RobGD review pass — portrait scale, monochrome, signature removal and project spacing */
+.hero-person{
+  width:88%;
+  max-width:480px;
+  filter:grayscale(1) contrast(1.035) !important;
+}
+@media(min-width:1500px){.hero-person{max-width:540px}}
+@media(max-width:900px){.hero-person{width:90%;max-width:440px}}
+@media(max-width:600px){.hero-person{width:90%;max-width:350px}}
+.signature{display:none!important}
+.hero{padding-bottom:26px}
+#work.section{padding-top:20px}
+@media(max-width:600px){
+  .hero{padding-bottom:20px}
+  #work.section{padding-top:14px}
+}
+
 </style>
 </head>
 <body>
