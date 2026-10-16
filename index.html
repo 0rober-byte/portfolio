@@ -1151,6 +1151,74 @@ header.topbar .nav .main-talk:hover{
   .case-modal .case-bottom-fixed{transition:none!important}
 }
 
+
+/* PROJECT DETAIL — bottom navigation layout matching the supplied reference */
+.case-modal .case-bottom-fixed .case-nav{
+  display:grid!important;
+  grid-template-columns:clamp(76px,12vw,112px) 1px auto 1px clamp(76px,12vw,112px)!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:clamp(16px,3.2vw,34px)!important;
+  width:max-content!important;
+  max-width:100%!important;
+  margin:0 auto!important;
+}
+.case-modal .case-bottom-fixed .case-nav-btn{
+  display:grid!important;
+  place-items:center!important;
+  width:clamp(76px,12vw,112px)!important;
+  height:clamp(76px,12vw,112px)!important;
+  padding:0!important;
+  border:1px solid #dedede!important;
+  border-radius:50%!important;
+  background:transparent!important;
+  color:var(--black)!important;
+  font-size:clamp(24px,3vw,34px)!important;
+  line-height:1!important;
+}
+.case-modal .case-bottom-fixed .case-nav-btn:hover{
+  border-color:var(--black)!important;
+  background:#f7f7f7!important;
+}
+.case-modal .case-bottom-fixed .case-nav-logo{display:none!important}
+.case-modal .case-bottom-fixed .case-counter{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  position:relative!important;
+  min-width:clamp(150px,28vw,290px)!important;
+  height:100%!important;
+  margin:0!important;
+  white-space:nowrap!important;
+  font:500 clamp(20px,3.2vw,36px)/1 'DM Mono',monospace!important;
+  letter-spacing:.04em!important;
+}
+.case-modal .case-bottom-fixed .case-counter::before,
+.case-modal .case-bottom-fixed .case-counter::after{
+  content:"";
+  position:absolute;
+  top:0;
+  bottom:0;
+  width:1px;
+  background:#dedede;
+}
+.case-modal .case-bottom-fixed .case-counter::before{left:calc(clamp(16px,3.2vw,34px) * -1)}
+.case-modal .case-bottom-fixed .case-counter::after{right:calc(clamp(16px,3.2vw,34px) * -1)}
+@media(max-width:600px){
+  .case-modal .case-bottom-fixed{min-height:94px!important;padding:8px 12px!important}
+  .case-modal .case-bottom-fixed .case-nav{
+    grid-template-columns:58px 1px auto 1px 58px!important;
+    gap:12px!important;
+  }
+  .case-modal .case-bottom-fixed .case-nav-btn{width:58px!important;height:58px!important;font-size:25px!important}
+  .case-modal .case-bottom-fixed .case-counter{min-width:94px!important;font-size:19px!important}
+  .case-modal .case-bottom-fixed .case-counter::before{left:-12px}
+  .case-modal .case-bottom-fixed .case-counter::after{right:-12px}
+}
+@media(prefers-reduced-motion:reduce){
+  .case-modal .case-bottom-fixed .case-nav-btn{transition:none!important}
+}
+
 </style>
 </head>
 <body>
