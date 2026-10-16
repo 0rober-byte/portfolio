@@ -1292,6 +1292,38 @@ header.topbar .nav .main-talk:hover{
  .case-modal .case-bottom-fixed .case-counter{min-width:70px!important;height:34px!important;padding:0 8px!important}
 }
 
+
+/* FINAL DETAIL NAV POLISH — no underline on the project header CTA; no stray strokes beside circles */
+.case-modal .case-nav-links .case-talk,
+.case-modal .case-nav-links .case-talk:hover,
+.case-modal .case-nav-links .case-talk:focus,
+.case-modal .case-nav-links .case-talk:focus-visible,
+.case-modal .case-nav-links .case-talk:active{
+  text-decoration:none!important;
+  box-shadow:none!important;
+  background:var(--green)!important;
+  color:var(--black)!important;
+  border-color:var(--green)!important;
+  outline:none!important;
+}
+.case-modal .case-nav-links .case-talk::before,
+.case-modal .case-nav-links .case-talk::after{
+  content:none!important;display:none!important;
+}
+.case-modal .case-bottom-fixed .case-nav-divider{
+  display:none!important;
+}
+.case-modal .case-bottom-fixed .case-nav{
+  gap:18px!important;
+}
+.case-modal .case-bottom-fixed .case-nav-btn{
+  border-left:1px solid #dedede!important;
+  border-right:1px solid #dedede!important;
+}
+@media(max-width:480px){
+  .case-modal .case-bottom-fixed .case-nav{gap:9px!important}
+}
+
 </style>
 </head>
 <body>
