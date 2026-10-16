@@ -506,6 +506,43 @@ main,.topbar,footer.footer{position:relative;z-index:1}
   .hero-note-rule{height:44px}
 }
 
+
+/* Header: solid white strip for clear separation from the page atmosphere */
+header.topbar{
+  background:#fff!important;
+  box-shadow:0 1px 0 rgba(10,10,10,.045);
+  z-index:50!important;
+}
+@media(min-width:901px){
+  header.topbar{width:100%;max-width:none;padding-inline:max(var(--pad),calc((100vw - var(--max))/2 + var(--pad)))}
+}
+/* Hero portrait: shift farther right and slightly higher; retain full silhouette */
+.hero-art .hero-person{
+  width:86%!important;
+  max-width:530px!important;
+  margin:0 -20px 0 auto!important;
+  transform:translate(28px,-18px)!important;
+}
+@media(min-width:1500px){
+  .hero-art .hero-person{max-width:565px!important}
+}
+@media(max-width:900px){
+  .hero-art .hero-person{
+    width:86%!important;
+    max-width:440px!important;
+    margin-right:-12px!important;
+    transform:translate(18px,-13px)!important;
+  }
+}
+@media(max-width:600px){
+  .hero-art .hero-person{
+    width:86%!important;
+    max-width:380px!important;
+    margin-right:-8px!important;
+    transform:translate(12px,-10px)!important;
+  }
+}
+
 </style>
 </head>
 <body>
