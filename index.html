@@ -885,13 +885,140 @@ header.topbar .nav{background:transparent}
   .case-modal .case-bottom-fixed .case-counter{display:none!important}
 }
 
+
+/* Homepage header CTA: keep the primary WhatsApp button visible */
+header.topbar .nav .main-talk{
+  display:inline-flex!important;
+  visibility:visible!important;
+  opacity:1!important;
+  flex:0 0 auto!important;
+  background:var(--black)!important;
+  color:#fff!important;
+  border:1px solid var(--black)!important;
+  border-radius:99px!important;
+  padding:14px 20px!important;
+}
+header.topbar .nav .main-talk:hover{
+  background:var(--green)!important;color:var(--black)!important;border-color:var(--green)!important;
+}
+@media(max-width:600px){header.topbar .nav.open .main-talk{align-self:flex-start!important}}
+/* Hero: scale down the source cut-out enough to keep the entire right arm inside the image column */
+.hero,.hero-art{overflow:visible!important}
+.hero-art{
+  padding:0 clamp(72px,8vw,112px) 0 0!important;
+  min-width:0!important;
+  justify-content:center!important;
+}
+.hero-art .hero-person{
+  width:78%!important;
+  max-width:390px!important;
+  height:auto!important;
+  max-height:none!important;
+  object-fit:contain!important;
+  object-position:center bottom!important;
+  margin:0 auto!important;
+  transform:none!important;
+  clip-path:none!important;
+  mask:none!important;
+  mask-image:none!important;
+  -webkit-mask:none!important;
+  -webkit-mask-image:none!important;
+}
+@media(min-width:1500px){.hero-art{padding-right:112px!important}.hero-art .hero-person{max-width:410px!important}}
+@media(max-width:900px){
+  .hero-art{padding:0 78px 0 0!important}
+  .hero-art .hero-person{width:78%!important;max-width:330px!important}
+}
+@media(max-width:600px){
+  .hero-art{padding:0 68px 0 0!important;min-height:300px!important}
+  .hero-art .hero-person{width:78%!important;max-width:270px!important}
+}
+/* Project detail header: match the home header and keep the CTA in the row */
+.case-modal .case-topbar{
+  position:sticky!important;top:0!important;z-index:50!important;
+  width:100%!important;min-height:76px!important;
+  display:flex!important;align-items:center!important;justify-content:space-between!important;
+  flex-wrap:nowrap!important;gap:clamp(12px,2vw,24px)!important;
+  margin:0 0 28px!important;padding:12px clamp(12px,2vw,28px)!important;
+  background:rgba(255,255,255,.97)!important;
+  border-bottom:1px solid rgba(10,10,10,.08)!important;
+  backdrop-filter:blur(16px)!important;
+}
+.case-modal .case-brand{width:88px!important;flex:0 0 88px!important}
+.case-modal .case-nav-links{
+  display:flex!important;align-items:center!important;justify-content:flex-end!important;
+  flex:0 1 auto!important;flex-wrap:nowrap!important;
+  gap:clamp(10px,2vw,28px)!important;white-space:nowrap!important;
+}
+.case-modal .case-nav-links a{font-size:12px!important}
+.case-modal .case-nav-links .case-talk{
+  display:inline-flex!important;align-items:center!important;justify-content:center!important;
+  flex:0 0 auto!important;border-radius:99px!important;
+  padding:12px 17px!important;margin:0!important;
+  background:var(--black)!important;color:#fff!important;border:1px solid var(--black)!important;
+}
+.case-modal .case-nav-links .case-talk:hover{background:var(--green)!important;color:var(--black)!important;border-color:var(--green)!important}
+@media(max-width:600px){
+  .case-modal .case-topbar{min-height:62px!important;padding:10px 8px!important;gap:8px!important;margin-bottom:20px!important}
+  .case-modal .case-brand{width:66px!important;flex-basis:66px!important}
+  .case-modal .case-nav-links{gap:8px!important}
+  .case-modal .case-nav-links a{font-size:9px!important}
+  .case-modal .case-nav-links .case-talk{padding:10px 11px!important;font-size:9px!important;gap:8px!important}
+}
+@media(max-width:380px){
+  .case-modal .case-brand{width:54px!important;flex-basis:54px!important}
+  .case-modal .case-nav-links{gap:6px!important}
+  .case-modal .case-nav-links a{font-size:8px!important}
+  .case-modal .case-nav-links .case-talk{padding:9px 8px!important}
+}
+/* Project navigation stays hidden until the visitor scrolls inside the project view */
+.case-modal .case-bottom-fixed{
+  position:fixed!important;left:0!important;right:0!important;bottom:0!important;z-index:60!important;
+  display:flex!important;align-items:center!important;justify-content:center!important;
+  min-height:66px!important;padding:10px 16px!important;margin:0!important;
+  background:rgba(255,255,255,.96)!important;
+  border-top:1px solid rgba(10,10,10,.1)!important;
+  box-shadow:0 -8px 28px rgba(10,10,10,.045)!important;
+  transform:translateY(110%)!important;opacity:0!important;visibility:hidden!important;
+  pointer-events:none!important;
+  transition:transform .28s ease,opacity .28s ease,visibility .28s ease!important;
+}
+.case-modal .case-bottom-fixed.is-visible{
+  transform:translateY(0)!important;opacity:1!important;visibility:visible!important;pointer-events:auto!important;
+}
+.case-modal .case-content{padding-bottom:88px!important}
+.case-modal .case-bottom-fixed .case-nav{
+  display:flex!important;align-items:center!important;justify-content:center!important;
+  gap:12px!important;margin:0 auto!important;
+}
+.case-modal .case-bottom-fixed .case-nav-btn{
+  display:grid!important;place-items:center!important;width:40px!important;height:40px!important;
+  border-radius:50%!important;background:#fff!important;border:1px solid rgba(10,10,10,.18)!important;
+}
+.case-modal .case-bottom-fixed .case-nav-logo{
+  display:flex!important;align-items:center!important;justify-content:center!important;
+  width:68px!important;min-width:68px!important;flex:0 0 68px!important;height:36px!important;
+  padding:4px 8px!important;border-left:1px solid #dedede!important;border-right:1px solid #dedede!important;
+}
+.case-modal .case-bottom-fixed .case-counter{
+  display:inline-block!important;white-space:nowrap!important;font:10px 'DM Mono',monospace!important;
+  margin:0 0 0 2px!important;
+}
+@media(max-width:480px){
+  .case-modal .case-bottom-fixed{min-height:56px!important;padding:8px 10px!important}
+  .case-modal .case-bottom-fixed .case-nav{gap:7px!important}
+  .case-modal .case-bottom-fixed .case-nav-btn{width:34px!important;height:34px!important}
+  .case-modal .case-bottom-fixed .case-nav-logo{width:50px!important;min-width:50px!important;flex-basis:50px!important;height:30px!important;padding:4px!important}
+  .case-modal .case-bottom-fixed .case-counter{font-size:8px!important}
+}
+
 </style>
 </head>
 <body>
 <header class="wrap topbar">
   <a class="brand" href="#home" aria-label="RobGD, home"><img src="assets/logos/Rob_negro.svg" alt="RobGD"></a>
   <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
-  <nav class="nav" aria-label="Main navigation"><a href="#about">About</a><a href="#services">Services</a><a href="#contact">Contact</a><a class="pill" href="https://wa.me/3513848087" target="_blank" rel="noreferrer">Let’s talk <span class="arrow">↗</span></a></nav>
+  <nav class="nav" aria-label="Main navigation"><a href="#about">About</a><a href="#services">Services</a><a href="#contact">Contact</a><a class="pill main-talk" href="https://wa.me/3513848087" target="_blank" rel="noreferrer">Let’s talk <span class="arrow">↗</span></a></nav>
 </header>
 <main id="home">
 <section class="wrap hero">
@@ -950,7 +1077,7 @@ header.topbar .nav{background:transparent}
 
 <div class="case-modal" id="case-study" role="dialog" aria-modal="true" aria-label="Project case study" tabindex="-1" aria-hidden="true">
   
-  <div class="case-content"><header class="case-topbar"><a class="case-brand" href="#home" aria-label="RobGD home"><img src="assets/logos/Rob_negro.svg" alt="RobGD"></a><nav class="case-nav-links" aria-label="Main navigation"><a href="#about">About</a><a href="#services">Services</a><a href="#contact">Contact</a></nav></header><div class="case-main"><div class="case-hero-image" id="case-hero-image"></div><div class="case-copy"><div class="case-eyebrow" id="case-category">BRANDING / VISUAL SYSTEM</div><h2 id="case-title">Project title</h2><p class="case-description" id="case-description"></p><div class="case-meta"><div><strong>Client</strong><span id="case-client"></span></div><div><strong>Year</strong><span id="case-year"></span></div><div><strong>Services</strong><span id="case-services"></span></div></div><a class="case-live pill" id="case-live" href="https://wa.me/3513848087" target="_blank" rel="noreferrer">Let’s Talk <span class="arrow" aria-hidden="true">↗</span></a></div></div><div class="case-gallery" id="case-gallery"></div><div class="case-bottom case-bottom-fixed"><button class="case-back" type="button" data-close-case><span aria-hidden="true">←</span> All projects</button><div class="case-nav"><button class="case-nav-btn" type="button" id="case-prev" aria-label="Previous project">‹</button><a class="case-nav-logo" href="#home" aria-label="RobGD home"><img src="assets/logos/Rob_negro.svg" alt="RobGD"></a><button class="case-nav-btn" type="button" id="case-next" aria-label="Next project">›</button><span class="case-counter" id="case-counter">01 / 08</span></div></div></div>
+  <div class="case-content"><header class="case-topbar"><a class="case-brand" href="#home" aria-label="RobGD home"><img src="assets/logos/Rob_negro.svg" alt="RobGD"></a><nav class="case-nav-links" aria-label="Project navigation"><a href="#about">About</a><a href="#services">Services</a><a href="#contact">Contact</a><a class="pill case-talk" href="https://wa.me/3513848087" target="_blank" rel="noreferrer">Let’s talk <span class="arrow">↗</span></a></nav></header><div class="case-main"><div class="case-hero-image" id="case-hero-image"></div><div class="case-copy"><div class="case-eyebrow" id="case-category">BRANDING / VISUAL SYSTEM</div><h2 id="case-title">Project title</h2><p class="case-description" id="case-description"></p><div class="case-meta"><div><strong>Client</strong><span id="case-client"></span></div><div><strong>Year</strong><span id="case-year"></span></div><div><strong>Services</strong><span id="case-services"></span></div></div><a class="case-live pill" id="case-live" href="https://wa.me/3513848087" target="_blank" rel="noreferrer">Let’s Talk <span class="arrow" aria-hidden="true">↗</span></a></div></div><div class="case-gallery" id="case-gallery"></div><div class="case-bottom case-bottom-fixed"><div class="case-nav"><button class="case-nav-btn" type="button" id="case-prev" aria-label="Previous project">‹</button><a class="case-nav-logo" href="#home" aria-label="RobGD home"><img src="assets/logos/Rob_negro.svg" alt="RobGD"></a><button class="case-nav-btn" type="button" id="case-next" aria-label="Next project">›</button><span class="case-counter" id="case-counter">01 / 08</span></div></div></div>
 </div>
 
 <footer class="footer"><div class="wrap footer-top"><a class="footer-logo" href="#home"><img src="assets/logos/Rob_blanco.svg" alt="RobGD"></a><nav class="footer-links" aria-label="Footer navigation"><a href="#work">Work</a><a href="#about">About</a><a href="#services">Services</a></nav><div class="socials"><a href="https://www.linkedin.com/in/robertinomarrazzo/" target="_blank" rel="noreferrer">LinkedIn</a><a href="https://www.instagram.com/robgd_" target="_blank" rel="noreferrer">Instagram</a><a href="https://www.behance.net/robertinomarrazzo" target="_blank" rel="noreferrer">Behance</a><a href="mailto:robertinomarrazzo@gmail.com">Email</a></div></div><div class="wrap footer-bottom"><span>© 2026 Robertino Marrazzo. All rights reserved.</span><span>Visual solutions for a real world.</span></div></footer>
@@ -1009,7 +1136,8 @@ const caseModal=document.querySelector('.case-modal');let activeProject=0;let pr
 const caseEls={counter:document.querySelector('#case-counter'),category:document.querySelector('#case-category'),title:document.querySelector('#case-title'),description:document.querySelector('#case-description'),client:document.querySelector('#case-client'),year:document.querySelector('#case-year'),services:document.querySelector('#case-services'),hero:document.querySelector('#case-hero-image'),gallery:document.querySelector('#case-gallery'),live:document.querySelector('#case-live')};
 function coverMarkup(project){return `<div class="project-image typographic-cover ${project.cover}"><span class="cover-index">${project.coverIndex}</span><strong>${project.coverTitle}</strong><small>${project.coverFoot}</small></div>`}
 function renderCase(index){activeProject=(index+projectData.length)%projectData.length;const d=projectData[activeProject];caseEls.counter.textContent=`${String(activeProject+1).padStart(2,'0')} / ${String(projectData.length).padStart(2,'0')}`;caseEls.category.textContent=d.category;caseEls.title.textContent=d.title;caseEls.description.textContent=d.description;caseEls.client.textContent=d.client;caseEls.year.textContent=d.year;caseEls.services.textContent=d.services;caseEls.live.href="https://wa.me/3513848087";caseEls.hero.innerHTML=d.image?`<img src="${d.image}" alt="${d.title} project overview">`:coverMarkup(d);caseEls.gallery.innerHTML=(d.gallery||Array(4).fill(null)).map((src,i)=>src?`<div class="case-gallery-item"><img src="${src}" alt="${d.title} application ${i+1}" loading="lazy"></div>`:`<div class="case-gallery-item">${coverMarkup({...d,coverIndex:`0${activeProject+1} / APPLICATION ${i+1}`})}</div>`).join('');caseModal.scrollTop=0;}
-function openCase(index){previousFocus=document.activeElement;renderCase(index);caseModal.classList.add('is-open');caseModal.setAttribute('aria-hidden','false');document.body.classList.add('modal-open');caseModal.focus({preventScroll:true});}
+function openCase(index){previousFocus=document.activeElement;renderCase(index);const caseBottom=caseModal.querySelector('.case-bottom-fixed');caseBottom?.classList.remove('is-visible');caseModal.classList.add('is-open');caseModal.setAttribute('aria-hidden','false');document.body.classList.add('modal-open');caseModal.scrollTop=0;caseModal.focus({preventScroll:true});}
+caseModal.addEventListener('scroll',()=>{const bar=caseModal.querySelector('.case-bottom-fixed');if(!bar)return;bar.classList.toggle('is-visible',caseModal.scrollTop>100);},{passive:true});
 function closeCase(){caseModal.classList.remove('is-open');caseModal.setAttribute('aria-hidden','true');document.body.classList.remove('modal-open');if(previousFocus&&typeof previousFocus.focus==='function')previousFocus.focus();}
 document.querySelectorAll('.project').forEach((card,index)=>{card.addEventListener('click',event=>{event.preventDefault();openCase(index)});card.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();openCase(index)}})});
 document.querySelectorAll('[data-close-case]').forEach(el=>el.addEventListener('click',closeCase));
