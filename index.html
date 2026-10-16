@@ -1176,9 +1176,11 @@ header.topbar .nav .main-talk:hover{
   font-size:clamp(24px,3vw,34px)!important;
   line-height:1!important;
 }
-.case-modal .case-bottom-fixed .case-nav-btn:hover{
+.case-modal .case-bottom-fixed .case-nav-btn:hover,
+.case-modal .case-bottom-fixed .case-nav-btn:focus-visible{
   border-color:var(--black)!important;
-  background:#f7f7f7!important;
+  background:var(--black)!important;
+  color:#fff!important;
 }
 .case-modal .case-bottom-fixed .case-nav-logo{display:none!important}
 .case-modal .case-bottom-fixed .case-counter{
