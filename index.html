@@ -543,6 +543,69 @@ header.topbar{
   }
 }
 
+
+/* Final hero/header correction: solid navigation bar and full shoulder breathing room */
+header.topbar{
+  background:#fff!important;
+  background-color:#fff!important;
+  position:relative!important;
+  z-index:100!important;
+  box-shadow:0 1px 0 rgba(10,10,10,.06);
+}
+header.topbar .nav{background:transparent}
+.hero{overflow:visible!important}
+.hero-art{
+  overflow:visible!important;
+  min-width:0!important;
+  padding:0 clamp(54px,7vw,94px) 0 0!important;
+  margin:0!important;
+  justify-content:center!important;
+}
+.hero-art .hero-person{
+  display:block!important;
+  width:100%!important;
+  max-width:470px!important;
+  height:auto!important;
+  max-height:none!important;
+  object-fit:contain!important;
+  object-position:center bottom!important;
+  margin:0 auto!important;
+  transform:translateY(-10px)!important;
+  clip-path:none!important;
+  mask-image:none!important;
+  -webkit-mask-image:none!important;
+}
+.hero-side-note{
+  right:0!important;
+  top:25%!important;
+  width:72px!important;
+  gap:12px!important;
+  font-size:10px!important;
+  line-height:1.55!important;
+  letter-spacing:.06em!important;
+}
+.hero-location{font-size:10px!important;line-height:1.55!important}
+.hero-note-rule{height:72px!important}
+.hero-side-note strong{font-size:11px!important;line-height:1.55!important}
+@media(min-width:1500px){
+  .hero-art{padding-right:100px!important}
+  .hero-art .hero-person{max-width:500px!important}
+}
+@media(max-width:900px){
+  .hero-art{padding:0 76px 0 0!important}
+  .hero-art .hero-person{width:100%!important;max-width:390px!important;transform:translateY(-8px)!important}
+  .hero-side-note{width:66px!important;top:19%!important}
+  .hero-note-rule{height:58px!important}
+}
+@media(max-width:600px){
+  .hero-art{padding:0 68px 0 0!important;margin:0!important;min-height:300px!important}
+  .hero-art .hero-person{width:100%!important;max-width:330px!important;transform:translateY(-5px)!important}
+  .hero-side-note{right:0!important;top:12%!important;width:60px!important;font-size:8px!important;gap:8px!important}
+  .hero-location{font-size:8px!important}
+  .hero-side-note strong{font-size:9px!important}
+  .hero-note-rule{height:44px!important}
+}
+
 </style>
 </head>
 <body>
