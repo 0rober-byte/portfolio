@@ -337,6 +337,52 @@ body:before{
 .language-item.is-greeting{color:var(--ink);font-weight:700;transform:translateX(3px)}
 @media(prefers-reduced-motion:reduce){.language-item{transition:none}}
 
+
+/* CONSISTENT SECTION RHYTHM — even, intentional spacing */
+#work.section{padding-bottom:44px!important}
+#services.section{padding-top:44px!important;padding-bottom:44px!important}
+.about{padding-top:44px!important;padding-bottom:60px!important}
+@media(max-width:900px){
+  #work.section{padding-bottom:38px!important}
+  #services.section{padding-top:38px!important;padding-bottom:38px!important}
+  .about{padding-top:38px!important}
+}
+@media(max-width:600px){
+  #work.section{padding-bottom:30px!important}
+  #services.section{padding-top:30px!important;padding-bottom:30px!important}
+  .about{padding-top:30px!important}
+}
+/* Subtle cursor-responsive ambient colour across the whole page */
+body:before{
+  background-image:
+    radial-gradient(ellipse 24% 20% at var(--ambient-x,50%) var(--ambient-y,50%),rgba(0,240,96,.075),transparent 74%),
+    radial-gradient(ellipse 22% 22% at calc(100% - var(--ambient-x,50%)) calc(100% - var(--ambient-y,50%)),rgba(166,77,255,.065),transparent 74%),
+    radial-gradient(ellipse 30% 25% at 76% 10%,rgba(0,240,96,.36),transparent 72%),
+    radial-gradient(ellipse 25% 28% at 88% 18%,rgba(166,77,255,.29),transparent 72%),
+    radial-gradient(ellipse 28% 25% at 8% 42%,rgba(0,240,96,.29),transparent 72%),
+    radial-gradient(ellipse 28% 24% at 92% 56%,rgba(166,77,255,.27),transparent 72%),
+    radial-gradient(ellipse 30% 25% at 5% 79%,rgba(0,240,96,.25),transparent 72%),
+    radial-gradient(ellipse 22% 20% at 52% 95%,rgba(166,77,255,.17),transparent 72%)!important;
+  transition:background-position .35s ease;
+}
+/* Keep contact lighting atmospheric, not overpowering */
+.cta{
+  background-image:
+    radial-gradient(ellipse 22% 78% at var(--pointer-x,50%) var(--pointer-y,50%),rgba(0,240,96,.075),transparent 78%),
+    radial-gradient(ellipse 17% 72% at calc(100% - var(--pointer-x,50%)) calc(100% - var(--pointer-y,50%)),rgba(0,210,235,.08),transparent 76%)!important;
+}
+.cta:before{
+  background:radial-gradient(ellipse at 35% 42%,rgba(0,240,96,.82),rgba(0,240,96,.24) 36%,rgba(166,77,255,.16) 54%,transparent 74%)!important;
+  filter:blur(27px)!important;
+}
+.cta:after{
+  background:radial-gradient(ellipse at 70% 40%,rgba(166,77,255,.84),rgba(57,70,255,.42) 27%,rgba(0,220,220,.26) 43%,transparent 72%)!important;
+  filter:blur(30px)!important;
+}
+@media(prefers-reduced-motion:reduce){
+  body:before{transition:none!important}
+}
+
 </style>
 </head>
 <body>
@@ -488,6 +534,15 @@ window.addEventListener('error', function(event){
 }, true);
 
 
+// Cursor-reactive ambient gradients: subtle movement follows the pointer across the full page.
+if(motionOK&&matchMedia('(hover:hover) and (pointer:fine)').matches){
+  document.addEventListener('pointermove',event=>{
+    const x=Math.max(0,Math.min(100,event.clientX/window.innerWidth*100));
+    const y=Math.max(0,Math.min(100,event.clientY/window.innerHeight*100));
+    document.body.style.setProperty('--ambient-x',x+'%');
+    document.body.style.setProperty('--ambient-y',y+'%');
+  },{passive:true});
+}
 // Cursor-reactive ambient gradients in the hero and contact section; restrained on purpose.
 if(motionOK&&matchMedia('(hover:hover) and (pointer:fine)').matches){
   document.querySelectorAll('.cta').forEach(section=>{
@@ -515,8 +570,8 @@ if(languageItems.length){
     window.setTimeout(()=>{
       item.textContent=item.dataset.native;
       item.classList.remove('is-greeting');
-    },5000);
-  },20000);
+    },3000);
+  },10000);
 }
 
 </script>
