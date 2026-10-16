@@ -276,6 +276,67 @@ footer.footer:after,
   .footer-bottom{padding-block:10px}
 }
 
+
+/* HERO PORTRAIT — remove container clipping and preserve the transparent cut-out */
+.hero{overflow:visible!important}
+.hero-art{
+  overflow:visible!important;
+  min-width:0;
+  isolation:isolate;
+}
+.hero-art .hero-person{
+  width:100%!important;
+  max-width:540px!important;
+  height:auto!important;
+  flex:0 1 auto;
+  object-fit:contain!important;
+  object-position:center bottom!important;
+  mix-blend-mode:normal!important;
+  mask-image:none!important;
+  -webkit-mask-image:none!important;
+  filter:grayscale(1) contrast(1.035)!important;
+}
+@media(max-width:600px){
+  .hero-art{overflow:visible!important}
+  .hero-art .hero-person{width:100%!important;max-width:390px!important}
+}
+/* Slightly richer ambient colour on the light page, without compromising text contrast */
+body:before{
+  background:
+    radial-gradient(ellipse 30% 25% at 76% 10%,rgba(0,240,96,.36),transparent 72%),
+    radial-gradient(ellipse 25% 28% at 88% 18%,rgba(166,77,255,.29),transparent 72%),
+    radial-gradient(ellipse 28% 25% at 8% 42%,rgba(0,240,96,.29),transparent 72%),
+    radial-gradient(ellipse 28% 24% at 92% 56%,rgba(166,77,255,.27),transparent 72%),
+    radial-gradient(ellipse 30% 25% at 5% 79%,rgba(0,240,96,.25),transparent 72%),
+    radial-gradient(ellipse 22% 20% at 52% 95%,rgba(166,77,255,.17),transparent 72%);
+}
+/* Contact section: stronger, more directional green/cyan/lilac glow, like the supplied reference */
+.cta{
+  --pointer-x:50%;
+  --pointer-y:50%;
+  background-color:#08090b!important;
+  background-image:
+    radial-gradient(ellipse 22% 78% at var(--pointer-x) var(--pointer-y),rgba(0,240,96,.12),transparent 78%),
+    radial-gradient(ellipse 17% 72% at calc(100% - var(--pointer-x)) calc(100% - var(--pointer-y)),rgba(0,210,235,.13),transparent 76%)!important;
+}
+.cta:before{
+  width:42vw!important;height:34vw!important;left:-12vw!important;bottom:-24vw!important;
+  background:
+    radial-gradient(ellipse at 35% 42%,rgba(0,240,96,1),rgba(0,240,96,.32) 36%,rgba(166,77,255,.24) 54%,transparent 74%)!important;
+  filter:blur(24px)!important;opacity:1!important;
+}
+.cta:after{
+  width:45vw!important;height:36vw!important;right:-12vw!important;top:-24vw!important;
+  background:
+    radial-gradient(ellipse at 70% 40%,rgba(166,77,255,1),rgba(57,70,255,.62) 27%,rgba(0,220,220,.4) 43%,transparent 72%)!important;
+  filter:blur(27px)!important;opacity:1!important;
+}
+.cta .eyebrow{color:#fff!important}
+/* Language greeting rotation: one language animates at a time */
+.language-item{display:inline-block;transition:opacity .25s ease,transform .25s ease}
+.language-item.is-greeting{color:var(--ink);font-weight:700;transform:translateX(3px)}
+@media(prefers-reduced-motion:reduce){.language-item{transition:none}}
+
 </style>
 </head>
 <body>
@@ -332,7 +393,7 @@ footer.footer:after,
   <div class="facts reveal delay-2">
     <div class="fact"><svg viewBox="0 0 24 24"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg><div><strong>From Argentina</strong><p>Based in Messina, Italy</p></div></div>
     <div class="fact"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg><div><strong>Open to global projects</strong><p>Remote collaboration</p></div></div>
-    <div class="fact"><svg viewBox="0 0 24 24"><path d="M4 5h10M9 3v2c0 5-2 8-5 10M6 9c1 2 3 4 5 5M14 20l4-10 4 10M15.5 17h5"/><path d="m17 4 4 4M21 4l-4 4"/></svg><div><strong>Languages</strong><p>Spanish (native)<br>Italian (advanced)<br>English (advanced)</p></div></div>
+    <div class="fact"><svg viewBox="0 0 24 24"><path d="M4 5h10M9 3v2c0 5-2 8-5 10M6 9c1 2 3 4 5 5M14 20l4-10 4 10M15.5 17h5"/><path d="m17 4 4 4M21 4l-4 4"/></svg><div><strong>Languages</strong><p class="language-list"><span class="language-item" data-native="Spanish (native)" data-greeting="Hola!">Spanish (native)</span><br><span class="language-item" data-native="Italian (advanced)" data-greeting="Ciao!">Italian (advanced)</span><br><span class="language-item" data-native="English (advanced)" data-greeting="Hello!">English (advanced)</span></p></div></div>
   </div>
 </section>
 <section class="wrap clients"><div class="eyebrow">Brands I’ve worked with</div><div class="client-marquee" aria-label="Eight brands I have worked with, moving marquee"><div class="client-row"><div class="client-logo client-wordmark script">Chaná<small>RESTÓ</small></div><div class="client-logo client-wordmark long">◉ CONTROL<br>VEHICULAR</div><div class="client-logo client-wordmark">GLOOW<small>AGENCY</small></div><div class="client-logo client-wordmark">BAV<small>BUENOS AIRES VENDING</small></div><div class="client-logo client-wordmark long">▣ Red Mutual</div><div class="client-logo client-wordmark long">IPI<small>INSTITUTO DE PSICOLOGÍA INTEGRATIVA</small></div><div class="client-logo client-wordmark script">Nicanor<small>RESTAURANT</small></div><div class="client-logo client-wordmark long">NK MARKETING<small>CREATIVE STUDIO</small></div><div class="client-logo client-wordmark script" aria-hidden="true">Chaná<small>RESTÓ</small></div><div class="client-logo client-wordmark long" aria-hidden="true">◉ CONTROL<br>VEHICULAR</div><div class="client-logo client-wordmark" aria-hidden="true">GLOOW<small>AGENCY</small></div><div class="client-logo client-wordmark" aria-hidden="true">BAV<small>BUENOS AIRES VENDING</small></div><div class="client-logo client-wordmark long" aria-hidden="true">▣ Red Mutual</div><div class="client-logo client-wordmark long" aria-hidden="true">IPI<small>INSTITUTO DE PSICOLOGÍA INTEGRATIVA</small></div><div class="client-logo client-wordmark script" aria-hidden="true">Nicanor<small>RESTAURANT</small></div><div class="client-logo client-wordmark long" aria-hidden="true">NK MARKETING<small>CREATIVE STUDIO</small></div></div></div></section>
@@ -425,6 +486,38 @@ window.addEventListener('error', function(event){
   fallback.textContent = isLogo ? 'RobGD' : label;
   parent.appendChild(fallback);
 }, true);
+
+
+// Cursor-reactive ambient gradients in the hero and contact section; restrained on purpose.
+if(motionOK&&matchMedia('(hover:hover) and (pointer:fine)').matches){
+  document.querySelectorAll('.cta').forEach(section=>{
+    section.addEventListener('pointermove',event=>{
+      const rect=section.getBoundingClientRect();
+      section.style.setProperty('--pointer-x',((event.clientX-rect.left)/rect.width*100)+'%');
+      section.style.setProperty('--pointer-y',((event.clientY-rect.top)/rect.height*100)+'%');
+    });
+    section.addEventListener('pointerleave',()=>{
+      section.style.setProperty('--pointer-x','50%');
+      section.style.setProperty('--pointer-y','50%');
+    });
+  });
+}
+// Rotate a single language to its greeting every 20 seconds; each line returns to its label.
+const languageItems=[...document.querySelectorAll('.language-item')];
+if(languageItems.length){
+  let languageIndex=0;
+  window.setInterval(()=>{
+    languageItems.forEach(item=>{item.textContent=item.dataset.native;item.classList.remove('is-greeting')});
+    const item=languageItems[languageIndex];
+    item.textContent=item.dataset.greeting;
+    item.classList.add('is-greeting');
+    languageIndex=(languageIndex+1)%languageItems.length;
+    window.setTimeout(()=>{
+      item.textContent=item.dataset.native;
+      item.classList.remove('is-greeting');
+    },5000);
+  },20000);
+}
 
 </script>
 </body></html>
