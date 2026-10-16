@@ -1248,9 +1248,11 @@ header.topbar .nav .main-talk:hover{
 }
 
 
-/* PROJECT DETAIL — matching home ambient gradient, reactive to the same cursor variables */
-.case-modal{
-  background-color:rgba(255,255,255,.86)!important;
+
+/* PROJECT DETAIL — opaque canvas with its own ambient gradient; never show the home beneath */
+.case-modal,
+.case-modal.is-open{
+  background-color:#fff!important;
   background-image:
     radial-gradient(ellipse 28% 28% at var(--ambient-x,50%) var(--ambient-y,50%),rgba(0,240,96,.13),transparent 74%),
     radial-gradient(ellipse 24% 26% at calc(100% - var(--ambient-x,50%)) calc(100% - var(--ambient-y,50%)),rgba(166,77,255,.12),transparent 74%),
@@ -1259,24 +1261,35 @@ header.topbar .nav .main-talk:hover{
     radial-gradient(ellipse 28% 25% at 8% 42%,rgba(0,240,96,.16),transparent 72%),
     radial-gradient(ellipse 28% 24% at 92% 56%,rgba(166,77,255,.15),transparent 72%)!important;
   background-attachment:fixed!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
 }
-/* Bottom project navigation: same footprint and position, with the reference's circular controls and dividers */
-.case-modal .case-bottom-fixed .case-nav{gap:0!important}
+/* Bottom project navigation: reference layout, preserve current bar position and footprint */
+.case-modal .case-bottom-fixed .case-nav{
+  display:flex!important;align-items:center!important;justify-content:center!important;
+  gap:0!important;width:max-content!important;max-width:100%!important;
+  margin:0 auto!important;min-width:0!important;
+}
 .case-modal .case-bottom-fixed .case-nav-btn{
+  display:grid!important;place-items:center!important;
   width:40px!important;height:40px!important;flex:0 0 40px!important;
-  border:1px solid #dedede!important;border-radius:50%!important;
-  background:rgba(255,255,255,.72)!important;
-  font-size:21px!important;line-height:1!important;
+  padding:0!important;border:1px solid #dedede!important;border-radius:50%!important;
+  background:rgba(255,255,255,.9)!important;font-size:21px!important;line-height:1!important;
+}
+.case-modal .case-bottom-fixed .case-nav-divider{
+  display:block!important;width:1px!important;height:40px!important;
+  flex:0 0 1px!important;background:#dedede!important;margin:0 16px!important;
 }
 .case-modal .case-bottom-fixed .case-counter{
   display:flex!important;align-items:center!important;justify-content:center!important;
-  min-width:86px!important;height:40px!important;margin:0 12px!important;padding:0 16px!important;
-  border-left:1px solid #dedede!important;border-right:1px solid #dedede!important;
-  font-size:10px!important;letter-spacing:.1em!important;
+  min-width:86px!important;height:40px!important;margin:0!important;padding:0 12px!important;
+  border:0!important;white-space:nowrap!important;
+  font:10px 'DM Mono',monospace!important;letter-spacing:.1em!important;
 }
 @media(max-width:480px){
-  .case-modal .case-bottom-fixed .case-nav-btn{width:34px!important;height:34px!important;flex-basis:34px!important}
-  .case-modal .case-bottom-fixed .case-counter{min-width:70px!important;height:34px!important;margin:0 8px!important;padding:0 10px!important}
+ .case-modal .case-bottom-fixed .case-nav-btn{width:34px!important;height:34px!important;flex-basis:34px!important}
+ .case-modal .case-bottom-fixed .case-nav-divider{height:34px!important;margin:0 8px!important}
+ .case-modal .case-bottom-fixed .case-counter{min-width:70px!important;height:34px!important;padding:0 8px!important}
 }
 
 </style>
