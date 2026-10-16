@@ -383,6 +383,39 @@ body:before{
   body:before{transition:none!important}
 }
 
+
+/* FINAL POLISH — remove the green line after Featured Projects title */
+#work .section-title .eyebrow:after{display:none!important;content:none!important}
+/* Portrait safety: give the right arm breathing room and never clip the hero art */
+.hero{overflow:visible!important}
+.hero-art{
+  overflow:visible!important;
+  padding-right:clamp(10px,1.5vw,24px);
+  padding-left:0;
+  margin-right:clamp(0px,1vw,14px);
+}
+.hero-art .hero-person{
+  width:calc(100% - 18px)!important;
+  max-width:540px!important;
+  margin-inline:auto;
+  transform:translateY(5px) scale(.96)!important;
+  transform-origin:center bottom;
+}
+@media(min-width:1500px){.hero-art .hero-person{max-width:590px!important}}
+@media(max-width:900px){
+  .hero-art{padding-right:18px;margin-right:0}
+  .hero-art .hero-person{width:calc(100% - 22px)!important;max-width:440px!important}
+}
+@media(max-width:600px){
+  .hero-art{padding-right:12px;padding-left:0;margin-inline:-2px}
+  .hero-art .hero-person{width:calc(100% - 12px)!important;max-width:390px!important;transform:translateY(5px) scale(.98)!important}
+}
+/* Ensure the page-wide ambient layer is not visually buried behind the body */
+body{isolation:auto!important}
+body:before{z-index:0!important;position:fixed!important;pointer-events:none!important;opacity:.9!important}
+body:after{z-index:0!important;pointer-events:none!important}
+main,.topbar,footer.footer{position:relative;z-index:1}
+
 </style>
 </head>
 <body>
@@ -536,11 +569,16 @@ window.addEventListener('error', function(event){
 
 // Cursor-reactive ambient gradients: subtle movement follows the pointer across the full page.
 if(motionOK&&matchMedia('(hover:hover) and (pointer:fine)').matches){
+  let ambientFrame=0;
   document.addEventListener('pointermove',event=>{
-    const x=Math.max(0,Math.min(100,event.clientX/window.innerWidth*100));
-    const y=Math.max(0,Math.min(100,event.clientY/window.innerHeight*100));
-    document.body.style.setProperty('--ambient-x',x+'%');
-    document.body.style.setProperty('--ambient-y',y+'%');
+    if(ambientFrame)return;
+    ambientFrame=requestAnimationFrame(()=>{
+      const x=Math.max(0,Math.min(100,event.clientX/window.innerWidth*100));
+      const y=Math.max(0,Math.min(100,event.clientY/window.innerHeight*100));
+      document.body.style.setProperty('--ambient-x',x+'%');
+      document.body.style.setProperty('--ambient-y',y+'%');
+      ambientFrame=0;
+    });
   },{passive:true});
 }
 // Cursor-reactive ambient gradients in the hero and contact section; restrained on purpose.
