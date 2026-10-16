@@ -443,6 +443,68 @@ main,.topbar,footer.footer{position:relative;z-index:1}
   .hero-art .hero-person{width:88%!important;max-width:360px!important;transform:translateY(5px) scale(.96)!important}
 }
 
+
+/* Hero side label — compact stacked typography matching the supplied reference */
+.hero-side-note{
+  right:0!important;
+  top:25%!important;
+  writing-mode:horizontal-tb!important;
+  transform:none!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:flex-start!important;
+  gap:12px!important;
+  width:82px;
+  font-family:'DM Mono',monospace!important;
+  font-size:10px!important;
+  line-height:1.55!important;
+  letter-spacing:.06em!important;
+  text-transform:uppercase;
+}
+.hero-location{display:block}
+.hero-note-rule{display:block;width:2px;height:72px;background:#999;opacity:.85;margin:0 0 0 1px}
+.hero-side-note strong{
+  display:block;
+  font-size:11px!important;
+  line-height:1.55!important;
+  font-weight:500!important;
+  margin:0!important;
+}
+/* More room around the full portrait silhouette; no clipping masks or transforms */
+.hero,.hero-art{overflow:visible!important}
+.hero-art{
+  padding-inline:clamp(24px,3.2vw,48px)!important;
+  margin:0!important;
+}
+.hero-art .hero-person{
+  display:block;
+  width:76%!important;
+  max-width:450px!important;
+  height:auto!important;
+  max-height:none!important;
+  object-fit:contain!important;
+  object-position:center bottom!important;
+  margin:0 auto!important;
+  transform:translateY(5px)!important;
+  clip-path:none!important;
+  mask-image:none!important;
+  -webkit-mask-image:none!important;
+}
+@media(min-width:1500px){.hero-art .hero-person{max-width:490px!important}}
+@media(max-width:900px){
+  .hero-art{padding-inline:28px!important}
+  .hero-art .hero-person{width:78%!important;max-width:390px!important}
+  .hero-side-note{width:72px;top:19%!important;font-size:9px!important}
+  .hero-note-rule{height:58px}
+}
+@media(max-width:600px){
+  .hero-art{padding-inline:16px!important}
+  .hero-art .hero-person{width:80%!important;max-width:330px!important}
+  .hero-side-note{right:0!important;top:12%!important;width:64px;font-size:8px!important;gap:8px!important}
+  .hero-side-note strong{font-size:9px!important}
+  .hero-note-rule{height:44px}
+}
+
 </style>
 </head>
 <body>
@@ -461,7 +523,7 @@ main,.topbar,footer.footer{position:relative;z-index:1}
     <a class="scroll-link" href="#work"><span>↓</span> Scroll to explore</a>
   </div>
   <div class="hero-art" aria-label="Portrait of Robertino Marrazzo">
-    <div class="aura"></div><img class="hero-person" src="assets/images/Foto%201.png" alt="Robertino Marrazzo, graphic designer"><div class="hero-side-note">Messina, Italy <strong>15+ years<br>in design</strong></div>
+    <div class="aura"></div><img class="hero-person" src="assets/images/Foto%201.png" alt="Robertino Marrazzo, graphic designer"><div class="hero-side-note"><span class="hero-location">Argentina,<br>Italy</span><span class="hero-note-rule" aria-hidden="true"></span><strong>15+<br>years<br>in design</strong></div>
   </div>
 </section>
 <section class="wrap section" id="work">
