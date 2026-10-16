@@ -209,6 +209,65 @@ body:after{background:linear-gradient(115deg,rgba(255,255,255,.12),transparent 3
   .footer-bottom{padding-block:10px}
 }
 
+
+/* REFINED REVIEW — natural portrait blending, restore About treatment, solid-black footer */
+.hero-art{isolation:isolate;overflow:hidden}
+.hero-art .aura{z-index:0;pointer-events:none}
+.hero-art .hero-person{
+  position:relative;
+  z-index:3;
+  mix-blend-mode:multiply!important;
+  mask-image:none!important;
+  -webkit-mask-image:none!important;
+  filter:grayscale(1) contrast(1.035)!important;
+  opacity:1;
+  animation:none!important;
+  transform:translateY(5px)!important;
+}
+/* Restore the original light About photo card and its soft colour field behind the portrait */
+.about-photo{
+  isolation:isolate;
+  background:var(--soft)!important;
+  box-shadow:0 15px 40px rgba(10,10,10,.07);
+}
+.about-photo:before{
+  z-index:0;
+  opacity:.62;
+  filter:blur(23px);
+  pointer-events:none;
+}
+.about-photo img{
+  position:relative;
+  z-index:2;
+  mix-blend-mode:multiply!important;
+  filter:grayscale(1) contrast(1.035)!important;
+  opacity:1;
+}
+/* Footer is a single, uninterrupted black surface */
+footer.footer,
+.footer,
+.footer-top,
+.footer-bottom{
+  background-color:#0a0a0a!important;
+  background-image:none!important;
+}
+footer.footer:before,
+footer.footer:after,
+.footer:before,
+.footer:after{
+  content:none!important;
+  display:none!important;
+}
+.footer{color:#fff!important;border-top:1px solid #0a0a0a!important;margin-top:0}
+.footer-top{padding-block:18px}
+.footer-bottom{border-top:1px solid #242424;padding-block:12px}
+@media(max-width:600px){
+  .hero-art{overflow:hidden}
+  .hero-person{width:90%;max-width:350px}
+  .footer-top{padding-block:15px}
+  .footer-bottom{padding-block:10px}
+}
+
 </style>
 </head>
 <body>
