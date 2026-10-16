@@ -765,13 +765,133 @@ header.topbar .nav{background:transparent}
   .hero-art .hero-person{width:100%!important;max-width:330px!important}
 }
 
+
+/* Focused fixes: full hero portrait, restored main CTA, stable project-view navigation */
+/* Keep the hero cut-out well inside its column so the right arm cannot hit the viewport edge */
+.hero,.hero-art{overflow:visible!important}
+.hero-art{
+  padding:0 clamp(104px,12vw,150px) 0 0!important;
+  margin:0!important;
+  justify-content:center!important;
+  min-width:0!important;
+}
+.hero-art .hero-person{
+  width:100%!important;
+  max-width:390px!important;
+  height:auto!important;
+  max-height:none!important;
+  object-fit:contain!important;
+  object-position:center bottom!important;
+  margin:0 auto!important;
+  transform:none!important;
+  clip-path:none!important;
+  mask:none!important;
+  mask-image:none!important;
+  -webkit-mask:none!important;
+  -webkit-mask-image:none!important;
+}
+@media(min-width:1500px){
+  .hero-art{padding-right:150px!important}
+  .hero-art .hero-person{max-width:430px!important}
+}
+@media(max-width:900px){
+  .hero-art{padding:0 90px 0 0!important}
+  .hero-art .hero-person{max-width:340px!important}
+}
+@media(max-width:600px){
+  .hero-art{padding:0 78px 0 0!important;min-height:300px!important}
+  .hero-art .hero-person{max-width:285px!important}
+}
+/* Project detail header: stable spacing and alignment across desktop/mobile */
+.case-modal .case-content{width:100%!important;max-width:1600px!important}
+.case-modal .case-topbar{
+  box-sizing:border-box!important;
+  width:100%!important;
+  min-height:72px!important;
+  padding:14px clamp(18px,3vw,42px)!important;
+  margin:0 0 clamp(24px,3vw,42px)!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  flex-wrap:nowrap!important;
+  gap:clamp(16px,3vw,32px)!important;
+}
+.case-modal .case-brand{width:100px!important;flex:0 0 100px!important}
+.case-modal .case-nav-links{
+  display:flex!important;
+  flex:0 1 auto!important;
+  align-items:center!important;
+  justify-content:flex-end!important;
+  flex-wrap:nowrap!important;
+  gap:clamp(16px,3vw,34px)!important;
+  white-space:nowrap!important;
+}
+.case-modal .case-nav-links a{font-size:12px!important}
+/* Project detail footer/navigation: keep All projects, arrows and centered RobGD logo in one clean bar */
+.case-modal .case-bottom-fixed{
+  box-sizing:border-box!important;
+  width:100%!important;
+  min-height:68px!important;
+  padding:10px clamp(16px,3vw,42px)!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  gap:14px!important;
+}
+.case-modal .case-bottom-fixed .case-back{
+  flex:0 0 auto!important;
+  white-space:nowrap!important;
+}
+.case-modal .case-bottom-fixed .case-nav{
+  display:flex!important;
+  flex:0 0 auto!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:10px!important;
+  min-width:0!important;
+}
+.case-modal .case-bottom-fixed .case-nav-logo{
+  width:64px!important;
+  min-width:64px!important;
+  height:34px!important;
+  flex:0 0 64px!important;
+  padding:4px 8px!important;
+}
+.case-modal .case-bottom-fixed .case-counter{
+  white-space:nowrap!important;
+  font-size:9px!important;
+}
+@media(max-width:600px){
+  .case-modal .case-topbar{
+    min-height:60px!important;
+    padding:12px 14px!important;
+    margin-bottom:22px!important;
+    gap:12px!important;
+  }
+  .case-modal .case-brand{width:76px!important;flex-basis:76px!important}
+  .case-modal .case-nav-links{gap:12px!important}
+  .case-modal .case-nav-links a{font-size:10px!important}
+  .case-modal .case-bottom-fixed{padding:9px 12px!important;gap:8px!important}
+  .case-modal .case-bottom-fixed .case-back{font-size:10px!important;padding:9px 10px!important}
+  .case-modal .case-bottom-fixed .case-nav{gap:5px!important}
+  .case-modal .case-bottom-fixed .case-nav-logo{width:42px!important;min-width:42px!important;flex-basis:42px!important;height:30px!important;padding:4px!important}
+  .case-modal .case-bottom-fixed .case-nav-btn{width:30px!important;height:30px!important}
+  .case-modal .case-bottom-fixed .case-counter{font-size:8px!important;margin:0 0 0 1px!important}
+}
+@media(max-width:380px){
+  .case-modal .case-nav-links{gap:8px!important}
+  .case-modal .case-nav-links a{font-size:9px!important}
+  .case-modal .case-brand{width:66px!important;flex-basis:66px!important}
+  .case-modal .case-bottom-fixed .case-counter{display:none!important}
+}
+
 </style>
 </head>
 <body>
 <header class="wrap topbar">
   <a class="brand" href="#home" aria-label="RobGD, home"><img src="assets/logos/Rob_negro.svg" alt="RobGD"></a>
   <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
-  <nav class="nav" aria-label="Main navigation"><a href="#about">About</a><a href="#services">Services</a><a href="#contact">Contact</a></nav>
+  <nav class="nav" aria-label="Main navigation"><a href="#about">About</a><a href="#services">Services</a><a href="#contact">Contact</a><a class="pill" href="https://wa.me/3513848087" target="_blank" rel="noreferrer">Let’s talk <span class="arrow">↗</span></a></nav>
 </header>
 <main id="home">
 <section class="wrap hero">
