@@ -172,6 +172,43 @@ body:after{background:linear-gradient(115deg,rgba(255,255,255,.12),transparent 3
   #work.section{padding-top:14px}
 }
 
+
+/* FINAL ART-DIRECTION FIX — portraits above colour fields, hard image edge, dark contact/footer */
+.hero-art{isolation:isolate;overflow:hidden}
+.hero-art .aura{z-index:0;pointer-events:none}
+.hero-art .hero-person{
+  position:relative;
+  z-index:3;
+  mix-blend-mode:normal!important;
+  mask-image:none!important;
+  -webkit-mask-image:none!important;
+  filter:grayscale(1) contrast(1.035)!important;
+  opacity:1;
+  animation:none!important;
+  transform:none!important;
+}
+.about-photo{isolation:isolate;background:#0a0a0a}
+.about-photo:before{z-index:0;pointer-events:none}
+.about-photo img{
+  position:relative;
+  z-index:2;
+  mix-blend-mode:normal!important;
+  filter:grayscale(1) contrast(1.035)!important;
+  opacity:1;
+}
+.cta .eyebrow{color:#fff!important}
+.cta .eyebrow:before{background:var(--green)}
+.cta{background:#0a0a0a!important;color:#fff}
+.footer{background:#0a0a0a!important;color:#fff;margin-top:0}
+.footer-top{padding-block:18px}
+.footer-bottom{padding-block:12px}
+@media(max-width:600px){
+  .hero-art{overflow:hidden}
+  .hero-person{width:90%;max-width:350px}
+  .footer-top{padding-block:15px}
+  .footer-bottom{padding-block:10px}
+}
+
 </style>
 </head>
 <body>
