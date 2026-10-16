@@ -1404,6 +1404,17 @@ header.topbar .nav .main-talk:hover{
 }
 
 
+/* Optical balance: keep equal gaps, tune only individual logo scale. */
+.client-logo img[src$="/tmb.svg"]{max-width:116px;max-height:36px}
+.client-logo img[src$="/chana.svg"]{max-width:142px;max-height:46px}
+.client-logo img[src$="/florencia.svg"]{max-width:142px;max-height:46px}
+.client-logo img[src$="/bml.svg"]{max-width:126px;max-height:40px}
+@media(max-width:600px){
+ .client-logo img[src$="/tmb.svg"]{max-width:101px;max-height:32px}
+ .client-logo img[src$="/chana.svg"]{max-width:116px;max-height:40px}
+ .client-logo img[src$="/florencia.svg"]{max-width:116px;max-height:40px}
+ .client-logo img[src$="/bml.svg"]{max-width:104px;max-height:36px}
+}
 /* Brand logos: consistent optical scale and uninterrupted marquee on every viewport */
 .client-row{display:flex!important;align-items:center;justify-content:flex-start;flex-wrap:nowrap;gap:clamp(35px,5vw,76px);width:max-content;}
 .client-logo img{max-width:132px;max-height:42px;width:auto;height:auto;object-fit:contain;}
