@@ -1046,6 +1046,45 @@ header.topbar .nav .main-talk:hover{
   .case-modal .case-bottom-fixed{transition:none!important}
 }
 
+
+/* PROJECT VIEW ONLY — stable header and viewport-fixed bottom navigation */
+.case-modal,
+.case-modal.is-open{
+  transform:none!important;
+  -webkit-transform:none!important;
+  transition:opacity .3s ease,visibility .3s ease!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+}
+.case-modal .case-content{padding-top:0!important}
+.case-modal .case-topbar{
+  position:sticky!important;
+  top:0!important;
+  z-index:100!important;
+  margin-top:0!important;
+  background:rgba(255,255,255,.98)!important;
+  backdrop-filter:blur(12px)!important;
+  -webkit-backdrop-filter:blur(12px)!important;
+}
+.case-modal .case-bottom-fixed{
+  position:fixed!important;
+  inset:auto 0 0 0!important;
+  width:100vw!important;
+  margin:0!important;
+  z-index:110!important;
+  transform:translate3d(0,110%,0)!important;
+  opacity:0!important;
+  visibility:hidden!important;
+  pointer-events:none!important;
+  will-change:transform,opacity;
+}
+.case-modal .case-bottom-fixed.is-visible{
+  transform:translate3d(0,0,0)!important;
+  opacity:1!important;
+  visibility:visible!important;
+  pointer-events:auto!important;
+}
+
 </style>
 </head>
 <body>
@@ -1274,7 +1313,7 @@ if(aboutToggle&&aboutTitle&&aboutSummary&&aboutExpanded){
 
 
 /* Project detail navigation returns to the matching homepage section */
-document.querySelectorAll('.case-nav-links a').forEach(link=>{
+document.querySelectorAll('.case-nav-links a:not(.case-talk)').forEach(link=>{link.addEventListener('click',event=>{const target=link.getAttribute('href');if(!target||!target.startsWith('#'))return;event.preventDefault();closeCase();window.setTimeout(()=>{const section=document.querySelector(target);if(section){history.replaceState(null,'',target);section.scrollIntoView({behavior:motionOK?'smooth':'auto',block:'start'});}},80);});});
   link.addEventListener('click',event=>{
     event.preventDefault();
     const target=document.querySelector(link.getAttribute('href'));
