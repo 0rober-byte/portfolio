@@ -470,36 +470,37 @@ main,.topbar,footer.footer{position:relative;z-index:1}
   font-weight:500!important;
   margin:0!important;
 }
-/* More room around the full portrait silhouette; no clipping masks or transforms */
+/* Hero portrait: keep its natural scale, shift right and slightly upward to reveal the arm */
 .hero,.hero-art{overflow:visible!important}
 .hero-art{
-  padding-inline:clamp(24px,3.2vw,48px)!important;
+  padding-left:clamp(20px,2.5vw,36px)!important;
+  padding-right:clamp(8px,1vw,14px)!important;
   margin:0!important;
 }
 .hero-art .hero-person{
   display:block;
-  width:76%!important;
-  max-width:450px!important;
+  width:88%!important;
+  max-width:540px!important;
   height:auto!important;
   max-height:none!important;
   object-fit:contain!important;
   object-position:center bottom!important;
-  margin:0 auto!important;
-  transform:translateY(5px)!important;
+  margin:0 -12px 0 auto!important;
+  transform:translate(18px,-10px)!important;
   clip-path:none!important;
   mask-image:none!important;
   -webkit-mask-image:none!important;
 }
-@media(min-width:1500px){.hero-art .hero-person{max-width:490px!important}}
+@media(min-width:1500px){.hero-art .hero-person{max-width:580px!important}}
 @media(max-width:900px){
-  .hero-art{padding-inline:28px!important}
-  .hero-art .hero-person{width:78%!important;max-width:390px!important}
+  .hero-art{padding-left:20px!important;padding-right:8px!important}
+  .hero-art .hero-person{width:88%!important;max-width:450px!important;margin-right:-8px!important;transform:translate(12px,-8px)!important}
   .hero-side-note{width:72px;top:19%!important;font-size:9px!important}
   .hero-note-rule{height:58px}
 }
 @media(max-width:600px){
-  .hero-art{padding-inline:16px!important}
-  .hero-art .hero-person{width:80%!important;max-width:330px!important}
+  .hero-art{padding-left:10px!important;padding-right:4px!important}
+  .hero-art .hero-person{width:88%!important;max-width:390px!important;margin-right:-4px!important;transform:translate(8px,-6px)!important}
   .hero-side-note{right:0!important;top:12%!important;width:64px;font-size:8px!important;gap:8px!important}
   .hero-side-note strong{font-size:9px!important}
   .hero-note-rule{height:44px}
