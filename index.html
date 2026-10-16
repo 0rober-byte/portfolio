@@ -416,13 +416,40 @@ body:before{z-index:0!important;position:fixed!important;pointer-events:none!imp
 body:after{z-index:0!important;pointer-events:none!important}
 main,.topbar,footer.footer{position:relative;z-index:1}
 
+
+/* Expanded About Me copy and toggle */
+.about-toggle{font:inherit;cursor:pointer;color:inherit;background:transparent;margin-top:0}
+.about-expanded p{font-size:15px;line-height:1.65;color:var(--muted);max-width:560px;margin:0 0 15px}
+.about-expanded p:last-child{margin-bottom:22px}
+.about-expanded strong{color:var(--ink);font-weight:700}
+.about-expanded[hidden]{display:none!important}
+.socials{flex-wrap:wrap}
+@media(max-width:600px){.socials{flex-wrap:wrap;gap:12px 15px}}
+/* Keep the complete portrait silhouette inside the hero column with visible side margins */
+.hero-art{padding-inline:clamp(16px,2.4vw,36px)!important;margin-right:0!important}
+.hero-art .hero-person{
+  width:88%!important;
+  max-width:500px!important;
+  margin-inline:auto!important;
+  transform:translateY(5px) scale(.94)!important;
+}
+@media(min-width:1500px){.hero-art .hero-person{max-width:540px!important}}
+@media(max-width:900px){
+  .hero-art{padding-inline:18px!important}
+  .hero-art .hero-person{width:88%!important;max-width:410px!important;transform:translateY(5px) scale(.94)!important}
+}
+@media(max-width:600px){
+  .hero-art{padding-inline:14px!important;margin-inline:0!important}
+  .hero-art .hero-person{width:88%!important;max-width:360px!important;transform:translateY(5px) scale(.96)!important}
+}
+
 </style>
 </head>
 <body>
 <header class="wrap topbar">
   <a class="brand" href="#home" aria-label="RobGD, home"><img src="assets/logos/Rob_negro.svg" alt="RobGD"></a>
   <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
-  <nav class="nav" aria-label="Main navigation"><a href="#work">Work</a><a href="#about">About</a><a href="#services">Services</a><a href="#contact">Contact</a><a class="pill" href="mailto:robertinomarrazzo@gmail.com">Let’s talk <span class="arrow">↗</span></a></nav>
+  <nav class="nav" aria-label="Main navigation"><a href="#work">Work</a><a href="#about">About</a><a href="#services">Services</a><a href="#contact">Contact</a><a class="pill" href="https://wa.me/3513848087" target="_blank" rel="noreferrer">Let’s talk <span class="arrow">↗</span></a></nav>
 </header>
 <main id="home">
 <section class="wrap hero">
@@ -468,7 +495,7 @@ main,.topbar,footer.footer{position:relative;z-index:1}
 </section>
 <section class="wrap about" id="about">
   <div class="about-photo reveal"><img src="assets/images/Foto%202.png" alt="Portrait of Robertino Marrazzo" loading="lazy"></div>
-  <div class="about-copy reveal delay-1"><div class="eyebrow">About me</div><h2>I’m Robertino, a graphic designer with 15+ years of experience.</h2><p>I help brands communicate, connect and grow through strategic and thoughtful visual design.</p><a class="outline-pill" href="mailto:robertinomarrazzo@gmail.com">More about me <span>→</span></a></div>
+  <div class="about-copy reveal delay-1" id="about-copy"><div class="eyebrow">About me</div><h2 id="about-title">I’m Robertino, a graphic designer with 15+ years of experience.</h2><p class="about-summary" id="about-summary">I help brands communicate, connect and grow through strategic and thoughtful visual design.</p><div class="about-expanded" id="about-expanded" hidden><p>My name is <strong>Robertino Marrazzo</strong>.</p><p>I am a 39-year-old Argentine citizen and a naturalized Italian citizen currently residing in Italy for the past year and a half, and I hold a Bachelor’s Degree in Visual Communication Design.</p><p>I work as a freelance designer, enhancing brands and social media through strategic, well-crafted visual solutions.</p><p>I have an efficient, self-motivated, and collaborative profile. I value teamwork and the exchange of knowledge as key drivers of both creative excellence and personal growth.</p></div><button class="outline-pill about-toggle" id="about-toggle" type="button" aria-expanded="false">More about me <span>→</span></button></div>
   <div class="facts reveal delay-2">
     <div class="fact"><svg viewBox="0 0 24 24"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg><div><strong>From Argentina</strong><p>Based in Messina, Italy</p></div></div>
     <div class="fact"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg><div><strong>Open to global projects</strong><p>Remote collaboration</p></div></div>
@@ -476,7 +503,7 @@ main,.topbar,footer.footer{position:relative;z-index:1}
   </div>
 </section>
 <section class="wrap clients"><div class="eyebrow">Brands I’ve worked with</div><div class="client-marquee" aria-label="Eight brands I have worked with, moving marquee"><div class="client-row"><div class="client-logo client-wordmark script">Chaná<small>RESTÓ</small></div><div class="client-logo client-wordmark long">◉ CONTROL<br>VEHICULAR</div><div class="client-logo client-wordmark">GLOOW<small>AGENCY</small></div><div class="client-logo client-wordmark">BAV<small>BUENOS AIRES VENDING</small></div><div class="client-logo client-wordmark long">▣ Red Mutual</div><div class="client-logo client-wordmark long">IPI<small>INSTITUTO DE PSICOLOGÍA INTEGRATIVA</small></div><div class="client-logo client-wordmark script">Nicanor<small>RESTAURANT</small></div><div class="client-logo client-wordmark long">NK MARKETING<small>CREATIVE STUDIO</small></div><div class="client-logo client-wordmark script" aria-hidden="true">Chaná<small>RESTÓ</small></div><div class="client-logo client-wordmark long" aria-hidden="true">◉ CONTROL<br>VEHICULAR</div><div class="client-logo client-wordmark" aria-hidden="true">GLOOW<small>AGENCY</small></div><div class="client-logo client-wordmark" aria-hidden="true">BAV<small>BUENOS AIRES VENDING</small></div><div class="client-logo client-wordmark long" aria-hidden="true">▣ Red Mutual</div><div class="client-logo client-wordmark long" aria-hidden="true">IPI<small>INSTITUTO DE PSICOLOGÍA INTEGRATIVA</small></div><div class="client-logo client-wordmark script" aria-hidden="true">Nicanor<small>RESTAURANT</small></div><div class="client-logo client-wordmark long" aria-hidden="true">NK MARKETING<small>CREATIVE STUDIO</small></div></div></div></section>
-<section class="cta" id="contact"><div class="wrap cta-inner"><div><div class="eyebrow">Let’s work together</div><h2>Have a project<br>in mind?</h2></div><div class="cta-middle"><p>Let’s create something great.<br>I’m open to new opportunities worldwide.</p><a class="pill" href="mailto:robertinomarrazzo@gmail.com">Get in touch <span class="arrow">→</span></a></div><div class="cta-tags">Brands<br>People<br>Ideas<br>Cultures<br>Global impact</div></div></section>
+<section class="cta" id="contact"><div class="wrap cta-inner"><div><div class="eyebrow">Let’s work together</div><h2>Have a project<br>in mind?</h2></div><div class="cta-middle"><p>Let’s create something great.<br>I’m open to new opportunities worldwide.</p><a class="pill" href="https://wa.me/3513848087" target="_blank" rel="noreferrer">Get in touch <span class="arrow">→</span></a></div><div class="cta-tags">Brands<br>People<br>Ideas<br>Cultures<br>Global impact</div></div></section>
 </main>
 
 <div class="case-modal" id="case-study" role="dialog" aria-modal="true" aria-label="Project case study" tabindex="-1" aria-hidden="true">
@@ -484,7 +511,7 @@ main,.topbar,footer.footer{position:relative;z-index:1}
   <div class="case-content"><div class="case-main"><div class="case-hero-image" id="case-hero-image"></div><div class="case-copy"><div class="case-eyebrow" id="case-category">BRANDING / VISUAL SYSTEM</div><h2 id="case-title">Project title</h2><p class="case-description" id="case-description"></p><div class="case-meta"><div><strong>Client</strong><span id="case-client"></span></div><div><strong>Year</strong><span id="case-year"></span></div><div><strong>Services</strong><span id="case-services"></span></div></div><a class="case-live" id="case-live" href="https://www.behance.net/robertinomarrazzo" target="_blank" rel="noreferrer">View live project <span aria-hidden="true">→</span></a></div></div><div class="case-gallery" id="case-gallery"></div><div class="case-bottom"><button type="button" id="case-previous-bottom">← Previous project</button><button type="button" class="case-grid-link" data-close-case aria-label="Back to all projects">▦</button><button type="button" id="case-next-bottom">Next project →</button></div></div>
 </div>
 
-<footer class="footer"><div class="wrap footer-top"><a class="footer-logo" href="#home"><img src="assets/logos/Rob_blanco.svg" alt="RobGD"></a><nav class="footer-links" aria-label="Footer navigation"><a href="#work">Work</a><a href="#about">About</a><a href="#services">Services</a><a href="#contact">Contact</a></nav><div class="socials"><a href="https://www.linkedin.com/in/robertinomarrazzo/" target="_blank" rel="noreferrer">LinkedIn</a><a href="https://www.behance.net/robertinomarrazzo" target="_blank" rel="noreferrer">Behance</a><a href="mailto:robertinomarrazzo@gmail.com">Email</a></div></div><div class="wrap footer-bottom"><span>© 2026 Robertino Marrazzo. All rights reserved.</span><span>Visual solutions for a real world.</span></div></footer>
+<footer class="footer"><div class="wrap footer-top"><a class="footer-logo" href="#home"><img src="assets/logos/Rob_blanco.svg" alt="RobGD"></a><nav class="footer-links" aria-label="Footer navigation"><a href="#work">Work</a><a href="#about">About</a><a href="#services">Services</a></nav><div class="socials"><a href="https://www.linkedin.com/in/robertinomarrazzo/" target="_blank" rel="noreferrer">LinkedIn</a><a href="https://www.instagram.com/robgd_" target="_blank" rel="noreferrer">Instagram</a><a href="https://www.behance.net/robertinomarrazzo" target="_blank" rel="noreferrer">Behance</a><a href="mailto:robertinomarrazzo@gmail.com">Email</a></div></div><div class="wrap footer-bottom"><span>© 2026 Robertino Marrazzo. All rights reserved.</span><span>Visual solutions for a real world.</span></div></footer>
 <script>
 // Accessible horizontal carousel: buttons, touch/trackpad scrolling and keyboard navigation.
 const viewport=document.querySelector('.project-viewport');
@@ -610,6 +637,35 @@ if(languageItems.length){
       item.classList.remove('is-greeting');
     },3000);
   },10000);
+}
+
+
+/* About Me: expand the biography and restore the original summary on Less */
+const aboutToggle=document.getElementById('about-toggle');
+const aboutTitle=document.getElementById('about-title');
+const aboutSummary=document.getElementById('about-summary');
+const aboutExpanded=document.getElementById('about-expanded');
+if(aboutToggle&&aboutTitle&&aboutSummary&&aboutExpanded){
+  const defaultTitle="I’m Robertino, a graphic designer with 15+ years of experience.";
+  const defaultSummary="I help brands communicate, connect and grow through strategic and thoughtful visual design.";
+  const expandedTitle="I help brands communicate, connect and grow through strategic and thoughtful visual design.";
+  aboutToggle.addEventListener('click',()=>{
+    const isExpanded=aboutToggle.getAttribute('aria-expanded')==='true';
+    if(!isExpanded){
+      aboutTitle.textContent=expandedTitle;
+      aboutSummary.hidden=true;
+      aboutExpanded.hidden=false;
+      aboutToggle.innerHTML='Less <span>↑</span>';
+      aboutToggle.setAttribute('aria-expanded','true');
+    }else{
+      aboutTitle.textContent=defaultTitle;
+      aboutSummary.textContent=defaultSummary;
+      aboutSummary.hidden=false;
+      aboutExpanded.hidden=true;
+      aboutToggle.innerHTML='More about me <span>→</span>';
+      aboutToggle.setAttribute('aria-expanded','false');
+    }
+  });
 }
 
 </script>
