@@ -1429,6 +1429,10 @@ header.topbar .nav .main-talk:hover{
 .client-logo.brand-florencia img{transform:scale(1.07)}
 .client-logo.brand-bml img{transform:scale(.96)}
 @media(max-width:600px){.client-row{gap:32px!important}.client-logo{flex:0 0 122px;width:122px;height:50px}}
+
+/* Cursor-reactive lilac glow: a little more visible, still restrained */
+body:after{background:radial-gradient(circle at var(--ambient-x,50%) var(--ambient-y,50%),rgba(166,77,255,.16),transparent 24%),linear-gradient(115deg,rgba(255,255,255,.18),transparent 38%,rgba(255,255,255,.22));transition:background .12s ease-out}
+@media(max-width:700px),(prefers-reduced-motion:reduce){body:after{background:linear-gradient(115deg,rgba(255,255,255,.18),transparent 38%,rgba(255,255,255,.22))}}
 </style>
 </head>
 <body>
