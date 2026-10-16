@@ -1324,6 +1324,39 @@ header.topbar .nav .main-talk:hover{
   .case-modal .case-bottom-fixed .case-nav{gap:9px!important}
 }
 
+
+/* Final navigation polish: remove CTA underline; keep only the counter's two separators */
+.case-modal .case-nav-links .case-talk,
+.case-modal .case-nav-links .case-talk:hover,
+.case-modal .case-nav-links .case-talk:focus,
+.case-modal .case-nav-links .case-talk:focus-visible{
+  text-decoration:none!important;
+  box-shadow:none!important;
+  border-bottom:1px solid var(--green)!important;
+  background-image:none!important;
+}
+.case-modal .case-nav-links .case-talk::before,
+.case-modal .case-nav-links .case-talk::after{
+  content:none!important;display:none!important;
+}
+.case-modal .case-bottom-fixed .case-nav-divider{
+  display:block!important;
+  width:1px!important;height:40px!important;min-height:40px!important;
+  align-self:center!important;flex:0 0 1px!important;
+  background:#dedede!important;margin:0 16px!important;
+}
+.case-modal .case-bottom-fixed .case-nav-btn{
+  border-left:0!important;
+  border-right:0!important;
+  box-shadow:none!important;
+}
+.case-modal .case-bottom-fixed .case-counter{
+  border-left:0!important;border-right:0!important;
+}
+@media(max-width:480px){
+  .case-modal .case-bottom-fixed .case-nav-divider{height:34px!important;min-height:34px!important;margin:0 8px!important}
+}
+
 </style>
 </head>
 <body>
