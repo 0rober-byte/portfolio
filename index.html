@@ -1445,6 +1445,13 @@ body:after{background:radial-gradient(circle at var(--ambient-x,50%) var(--ambie
 .hero-art{padding-right:8px}
 .hero-person{max-width:590px;transform:translate(-8px,-2px)}
 @media(max-width:900px){.hero-art{padding-right:4px}.hero-person{max-width:100%;transform:translate(-3px,-2px)}}
+
+/* Hero portrait: +1% scale, slightly higher, never clipped by its visual wrapper */
+.hero-art{overflow:visible!important;min-width:0}
+.hero-art .hero-person{width:101%!important;max-width:576px!important;height:auto!important;object-fit:contain!important;object-position:center bottom!important;transform:translateY(-2px)!important;margin-left:0!important;margin-right:0!important}
+@media(min-width:1500px){.hero-art .hero-person{max-width:646px!important;transform:translateY(-22px)!important}}
+@media(max-width:900px){.hero-art .hero-person{width:95%!important;max-width:485px!important;transform:translateY(-12px)!important;margin-inline:auto!important}}
+@media(max-width:600px){.hero-art .hero-person{width:93%!important;max-width:394px!important;max-height:360px!important;transform:translateY(-8px)!important;margin-inline:auto!important}}
 </style>
 </head>
 <body>
