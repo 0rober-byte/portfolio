@@ -1452,6 +1452,14 @@ body:after{background:radial-gradient(circle at var(--ambient-x,50%) var(--ambie
 @media(min-width:1500px){.hero-art .hero-person{max-width:646px!important;transform:translateY(-22px)!important}}
 @media(max-width:900px){.hero-art .hero-person{width:95%!important;max-width:485px!important;transform:translateY(-12px)!important;margin-inline:auto!important}}
 @media(max-width:600px){.hero-art .hero-person{width:93%!important;max-width:394px!important;max-height:360px!important;transform:translateY(-8px)!important;margin-inline:auto!important}}
+
+/* Hero portrait correction: smaller, lifted, and shifted inward to avoid right-edge clipping */
+.hero{overflow:hidden}
+.hero-art{min-width:0!important;min-height:0!important;overflow:visible!important;justify-self:stretch;padding-right:clamp(18px,3vw,46px)!important;box-sizing:border-box}
+.hero-art .hero-person{display:block;width:88%!important;max-width:510px!important;height:auto!important;max-height:none!important;object-fit:contain!important;object-position:center bottom!important;transform:translate(-12px,-16px)!important;margin:0 auto!important}
+@media(min-width:1500px){.hero-art{padding-right:clamp(36px,5vw,76px)!important}.hero-art .hero-person{width:88%!important;max-width:520px!important;transform:translate(-18px,-18px)!important}}
+@media(max-width:900px){.hero-art{padding:0 28px 0 8px!important}.hero-art .hero-person{width:88%!important;max-width:430px!important;transform:translate(-6px,-12px)!important;margin-inline:auto!important}}
+@media(max-width:600px){.hero-art{padding:0 18px 0 0!important;min-height:280px!important}.hero-art .hero-person{width:88%!important;max-width:350px!important;max-height:340px!important;transform:translate(-4px,-8px)!important;margin-inline:auto!important}}
 </style>
 </head>
 <body>
