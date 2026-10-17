@@ -1440,6 +1440,11 @@ body:after{background:radial-gradient(circle at var(--ambient-x,50%) var(--ambie
 @media(min-width:1500px){.hero-art .hero-person{max-width:640px!important;transform:translateY(-20px)!important;}}
 @media(max-width:900px){.hero-art .hero-person{width:94%!important;max-width:480px!important;transform:translateY(-10px)!important;margin:0 auto!important;}}
 @media(max-width:600px){.hero-art .hero-person{width:92%!important;max-width:390px!important;max-height:360px!important;transform:translateY(-6px)!important;margin:0 auto!important;}}
+
+/* Hero portrait: slightly larger and higher, with safe space on the right */
+.hero-art{padding-right:8px}
+.hero-person{max-width:590px;transform:translate(-8px,-2px)}
+@media(max-width:900px){.hero-art{padding-right:4px}.hero-person{max-width:100%;transform:translate(-3px,-2px)}}
 </style>
 </head>
 <body>
