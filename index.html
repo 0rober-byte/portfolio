@@ -1471,22 +1471,13 @@ body:after{background:radial-gradient(circle at var(--ambient-x,50%) var(--ambie
 
 .language-switcher{display:inline-flex;align-items:center;gap:3px;padding:3px;border:1px solid rgba(10,10,10,.14);border-radius:999px;flex-shrink:0}.language-switcher button{font:600 10px 'DM Mono',monospace;letter-spacing:.04em;background:transparent;border:0;color:var(--muted);border-radius:999px;padding:6px 7px;cursor:pointer;transition:background .2s,color .2s}.language-switcher button[aria-pressed="true"]{background:var(--black);color:#fff}.language-switcher button:focus-visible{outline:2px solid #A64DFF;outline-offset:2px}@media(max-width:600px){.language-switcher{align-self:flex-start;margin:6px 0}}
 
-/* Make the language selector clearly visible in the top navigation */
-header.topbar .language-switcher{display:inline-flex!important;align-items:center;justify-content:center;gap:2px;padding:4px 5px!important;border:1px solid rgba(166,77,255,.48)!important;border-radius:999px!important;background:#fff!important;box-shadow:0 2px 10px rgba(10,10,10,.045);white-space:nowrap;visibility:visible!important;opacity:1!important}
-header.topbar .language-label{display:inline-block!important;padding:0 5px 0 4px;color:#6b6174!important;font:500 9px 'DM Mono',monospace!important;letter-spacing:.08em!important}
-header.topbar .language-switcher button{display:inline-flex!important;align-items:center;justify-content:center;min-width:30px;min-height:28px;padding:6px 8px!important;border:0!important;border-radius:999px!important;background:transparent!important;color:#35313a!important;font:600 10px 'DM Mono',monospace!important;cursor:pointer;opacity:1!important}
-header.topbar .language-switcher button[aria-pressed="true"]{background:#A64DFF!important;color:#fff!important}
-header.topbar .language-switcher button:hover{background:rgba(166,77,255,.12)!important;color:#0A0A0A!important}
-header.topbar .language-switcher button[aria-pressed="true"]:hover{background:#9139ed!important;color:#fff!important}
-@media(max-width:900px){header.topbar .nav{gap:clamp(12px,2vw,22px)}header.topbar .language-switcher{order:0}}
-@media(max-width:600px){header.topbar .nav .language-switcher{display:inline-flex!important;align-self:flex-start!important;margin:8px 0!important}header.topbar .nav.open{align-items:flex-start}}
 </style>
 </head>
 <body>
 <header class="wrap topbar">
   <a class="brand" href="#home" aria-label="RobGD, home"><img src="assets/logos/Rob_negro.svg" alt="RobGD"></a>
   <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
-  <nav class="nav" aria-label="Main navigation"><a href="#about" data-i18n="navAbout">About</a><a href="#services" data-i18n="navServices">Services</a><a href="#contact" data-i18n="navContact">Contact</a><div class="language-switcher" role="group" aria-label="Choose language"><span class="language-label">LANG</span><button type="button" data-lang="en" aria-label="English" aria-pressed="true">EN</button><button type="button" data-lang="es" aria-label="Español" aria-pressed="false">ES</button><button type="button" data-lang="it" aria-label="Italiano" aria-pressed="false">IT</button></div><a class="pill main-talk" href="https://wa.me/3513848087" target="_blank" rel="noreferrer" data-i18n-html="talkButton">Let’s talk <span class="arrow">↗</span></a></nav>
+  <nav class="nav" aria-label="Main navigation"><a href="#about" data-i18n="navAbout">About</a><a href="#services" data-i18n="navServices">Services</a><a href="#contact" data-i18n="navContact">Contact</a><div class="language-switcher" role="group" aria-label="Choose language"><button type="button" data-lang="en" aria-pressed="true">EN</button><button type="button" data-lang="es" aria-pressed="false">ES</button><button type="button" data-lang="it" aria-pressed="false">IT</button></div><a class="pill main-talk" href="https://wa.me/3513848087" target="_blank" rel="noreferrer" data-i18n-html="talkButton">Let’s talk <span class="arrow">↗</span></a></nav>
 </header>
 <main id="home">
 <section class="wrap hero">
