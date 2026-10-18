@@ -1471,6 +1471,19 @@ body:after{background:radial-gradient(circle at var(--ambient-x,50%) var(--ambie
 
 .language-switcher{display:inline-flex;align-items:center;gap:3px;padding:3px;border:1px solid rgba(10,10,10,.14);border-radius:999px;flex-shrink:0}.language-switcher button{font:600 10px 'DM Mono',monospace;letter-spacing:.04em;background:transparent;border:0;color:var(--muted);border-radius:999px;padding:6px 7px;cursor:pointer;transition:background .2s,color .2s}.language-switcher button[aria-pressed="true"]{background:var(--black);color:#fff}.language-switcher button:focus-visible{outline:2px solid #A64DFF;outline-offset:2px}@media(max-width:600px){.language-switcher{align-self:flex-start;margin:6px 0}}
 
+
+/* Micro-interactions: restrained portrait tilt, slow project drift, playful service icons, shuffled CTA words */
+.hero-art .hero-person{transform-style:preserve-3d;transform-origin:50% 55%;transition:transform .22s ease-out;will-change:transform}
+.hero-art{perspective:1000px}
+.service-icon{cursor:pointer;transform-style:preserve-3d;transition:transform .65s cubic-bezier(.2,.8,.2,1)}
+.service-icon:hover,.service-icon:focus-visible{transform:rotate(12deg) scale(1.04)}
+.service-icon.is-spinning{transform:rotate(360deg)}
+.project-viewport{scroll-behavior:auto}
+.project-carousel.is-auto-paused .projects{animation-play-state:paused}
+.cta-tags{display:flex;flex-direction:column;align-items:flex-start;gap:0;line-height:2}
+.cta-tags .cta-word{display:block;transition:transform .45s ease,opacity .45s ease;will-change:transform}
+.cta-tags .cta-word.is-moving{transform:translateY(5px);opacity:.35}
+@media(hover:none),(prefers-reduced-motion:reduce){.hero-art .hero-person{transition:none}.service-icon{transition:none}.cta-tags .cta-word{transition:none}}
 </style>
 </head>
 <body>
@@ -1777,6 +1790,16 @@ function applyLanguage(lang){
 document.querySelectorAll('[data-lang]').forEach(b=>b.addEventListener('click',()=>{applyLanguage(b.dataset.lang);if(nav?.classList.contains('open')){nav.classList.remove('open');menuButton?.setAttribute('aria-expanded','false');if(menuButton)menuButton.textContent='☰'}}));
 
 try{const saved=localStorage.getItem('robGD-language');if(saved&&i18n[saved])currentLanguage=saved}catch(e){}applyLanguage(currentLanguage);
+
+/* 1) Tiny user-controlled portrait tilt: mouse left/right rotates the portrait by only 2 degrees */
+(()=>{const art=document.querySelector('.hero-art'),portrait=art?.querySelector('.hero-person');if(!art||!portrait)return;let reset;art.addEventListener('pointermove',e=>{if(e.pointerType==='touch'||matchMedia('(prefers-reduced-motion: reduce)').matches)return;const r=art.getBoundingClientRect();const n=(e.clientX-r.left)/r.width;const ry=Math.max(-2,Math.min(2,(n-.5)*4));portrait.style.transform='translateY(5px) scale(.94) rotateY('+ry.toFixed(2)+'deg)';});art.addEventListener('pointerleave',()=>{portrait.style.transform='translateY(5px) scale(.94) rotateY(0deg)'});})();
+ /* 2) Slow continuous project drift, while preserving the existing arrow controls */
+(()=>{const viewport=document.querySelector('.project-viewport'),carousel=document.querySelector('.project-carousel');if(!viewport||!carousel)return;let frame,last=0;const speed=.22;function tick(now){if(!last)last=now;const dt=Math.min(now-last,40);last=now;if(!carousel.matches(':hover')&&!viewport.matches(':focus-within')&&!document.hidden&&viewport.scrollWidth>viewport.clientWidth){viewport.scrollLeft+=speed*dt/16.67;if(viewport.scrollLeft>=viewport.scrollWidth-viewport.clientWidth-1)viewport.scrollLeft=0}frame=requestAnimationFrame(tick)}if(!matchMedia('(prefers-reduced-motion: reduce)').matches)frame=requestAnimationFrame(tick);carousel.addEventListener('mouseenter',()=>carousel.classList.add('is-auto-paused'));carousel.addEventListener('mouseleave',()=>carousel.classList.remove('is-auto-paused'));})();
+ /* 3) Rotate only the service icon on hover or click/tap */
+(()=>{document.querySelectorAll('.service-icon').forEach(icon=>{icon.setAttribute('tabindex','0');icon.setAttribute('role','button');icon.setAttribute('aria-label','Animate service icon');const spin=()=>{if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;icon.classList.remove('is-spinning');void icon.offsetWidth;icon.classList.add('is-spinning');window.setTimeout(()=>icon.classList.remove('is-spinning'),700)};icon.addEventListener('click',spin);icon.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();spin()}})});})();
+ /* 4) Move one CTA word at a time, every two seconds */
+function setupCtaWordMotion(){const box=document.querySelector('.cta-tags');if(!box)return;const words=box.innerHTML.split(/<br\s*\/?\s*>/i).map(x=>x.trim()).filter(Boolean);if(!words.length)return;box.innerHTML='';words.forEach(word=>{const span=document.createElement('span');span.className='cta-word';span.innerHTML=word;box.appendChild(span)});if(box.dataset.motionReady==='true')return;box.dataset.motionReady='true';let index=0;window.setInterval(()=>{const items=[...box.querySelectorAll('.cta-word')];if(items.length<2)return;const from=index%items.length,to=(from+1)%items.length;const a=items[from],b=items[to];a.classList.add('is-moving');b.classList.add('is-moving');window.setTimeout(()=>{if(a.parentNode===box&&b.parentNode===box){if(to===from+1)box.insertBefore(b,a);else if(from===items.length-1&&to===0)box.insertBefore(a,b);else{const next=a.nextSibling;box.insertBefore(b,a);box.insertBefore(a,next)}a.classList.remove('is-moving');b.classList.remove('is-moving');index=(index+1)%items.length}},230)},2000)}
+setupCtaWordMotion();
 </script>
 </body></html>
 <!-- Preview refinement: monochrome hero portrait, no signature, reduced hero scale and work-section whitespace. -->
