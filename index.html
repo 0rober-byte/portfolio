@@ -16,6 +16,12 @@
 @media(max-width:600px){:root{--pad:21px}.topbar{height:68px}.brand{width:88px}.menu-toggle{display:block}.nav{display:none;position:absolute;top:62px;left:14px;right:14px;background:white;padding:22px;border:1px solid var(--line);border-radius:12px;box-shadow:0 15px 35px #00000012;z-index:20;flex-direction:column;align-items:stretch;gap:20px}.nav.open{display:flex}.nav .pill{align-self:flex-start}.hero{display:flex;flex-direction:column;align-items:stretch;padding-top:28px;padding-bottom:36px}.hero-copy{padding:0}.hero h1{font-size:clamp(46px,13.2vw,72px);margin-top:21px;max-width:540px}.hero-description{font-size:15px;max-width:340px}.hero-art{min-height:300px;margin-top:4px;margin-inline:-7px}.hero-person{width:100%;max-width:420px;max-height:360px;object-fit:contain;object-position:center bottom}.aura{width:100%;height:90%;top:0;left:0;filter:blur(15px)}.hero-side-note{right:3%;top:14%;font-size:8px}.hero-side-note strong{font-size:10px}.signature{right:5%;bottom:17%;font-size:22px}.scroll-link{margin-top:24px}.section{padding-block:36px 55px}.section-head{align-items:flex-end;margin-bottom:19px}.section-title .eyebrow{font-size:9px}.text-link{font-size:10px;gap:6px}.projects{gap:22px 12px}.project-image{aspect-ratio:1/1.03;border-radius:5px}.project h3{font-size:14px;margin-top:10px}.project p{font-size:10px;line-height:1.4}.project-image:after{width:30px;height:30px;right:8px;bottom:8px}.services{border-radius:12px;padding:25px 20px;gap:26px 14px}.services-intro h2{font-size:35px;margin-top:18px}.service{padding-left:12px}.service-icon{width:42px;height:42px;border-radius:10px;margin-bottom:12px}.service-icon svg{width:22px;height:22px}.service h3{font-size:12px}.service p{font-size:10px}.about{grid-template-columns:1fr;gap:25px;padding-block:55px 48px}.about-photo{aspect-ratio:1.15;max-height:340px}.about-photo img{object-position:center 23%}.about-copy h2{font-size:38px}.about-copy>p{font-size:14px}.facts{grid-template-columns:1fr;gap:18px;padding-top:23px}.fact{grid-template-columns:28px 1fr}.clients{padding-block:24px 40px}.client-row{display:grid;grid-template-columns:repeat(3,1fr);gap:26px 12px;justify-items:center}.client-wordmark{font-size:17px;text-align:center}.client-wordmark.script{font-size:25px}.client-wordmark.long{font-size:11px}.cta-inner{grid-template-columns:1fr;gap:24px;padding-block:48px}.cta h2{font-size:clamp(42px,12vw,60px)}.cta-middle p{font-size:14px}.footer-top{flex-wrap:wrap;gap:22px}.footer-logo{width:80px}.footer-links{order:3;width:100%;justify-content:space-between}.socials{gap:13px;font-size:10px}.footer-bottom{font-size:9px;flex-direction:column;gap:8px}.pill{padding:13px 17px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
 
+
+/* Final interaction refinements: stronger horizontal 3D tilt, no carousel progress indicator. */
+.hero-art{perspective:1200px;perspective-origin:50% 42%;transform-style:preserve-3d}
+.hero-art .hero-person{transform-style:preserve-3d;transform-origin:50% 55%;backface-visibility:visible}
+.carousel-progress{display:none!important}
+
 /* PREMIUM ATMOSPHERE + MOTION LAYER */
 body{position:relative;isolation:isolate;background:#fff}
 body:before{content:"";position:fixed;inset:-12vh -8vw;z-index:-1;pointer-events:none;background:radial-gradient(ellipse 30% 27% at 76% 11%,rgba(0,240,96,.15),transparent 72%),radial-gradient(ellipse 24% 30% at 88% 18%,rgba(166,77,255,.14),transparent 73%),radial-gradient(ellipse 27% 22% at 8% 43%,rgba(0,240,96,.12),transparent 74%),radial-gradient(ellipse 26% 24% at 91% 55%,rgba(166,77,255,.13),transparent 72%),radial-gradient(ellipse 29% 23% at 5% 78%,rgba(0,240,96,.10),transparent 73%);filter:blur(24px);opacity:.9;animation:ambientDrift 24s ease-in-out infinite alternate;transform:translate3d(0,0,0)}
@@ -74,8 +80,6 @@ body:after{background:linear-gradient(115deg,rgba(255,255,255,.12),transparent 3
 .carousel-arrow:hover:not(:disabled){transform:scale(1.06);background:rgba(255,255,255,.92);border-color:rgba(10,10,10,.34);color:var(--black)}
 .carousel-arrow:disabled{opacity:.2;cursor:default}.carousel-arrow:focus-visible{outline:2px solid var(--green);outline-offset:3px}
 .carousel-prev{left:-20px}.carousel-next{right:-20px}
-.carousel-progress{height:2px;background:rgba(10,10,10,.10);overflow:hidden;margin-top:2px}
-.carousel-progress span{display:block;width:25%;height:100%;background:var(--green);transform-origin:left;transition:width .35s var(--ease)}
 .typographic-cover{display:flex;flex-direction:column;align-items:flex-start;justify-content:space-between;padding:clamp(16px,2vw,28px);color:#0a0a0a;isolation:isolate}
 .typographic-cover:before{content:"";position:absolute;z-index:-1;inset:0;opacity:.9;transition:transform .8s cubic-bezier(.16,1,.3,1)}
 .project:hover .typographic-cover:before{transform:scale(1.08)}
@@ -95,7 +99,7 @@ body:after{background:linear-gradient(115deg,rgba(255,255,255,.12),transparent 3
 .service h3{font-size:clamp(14px,1.1vw,17px);margin-bottom:11px}
 .service p{font-size:13px;line-height:1.65;max-width:200px}
 @media(max-width:900px){.project{flex-basis:calc((100% - 16px)/2)}.carousel-arrow{top:38%}.services{grid-template-columns:repeat(2,minmax(0,1fr));padding:34px;gap:0}.services-intro{grid-column:1/-1;padding:0 0 26px}.services-intro h2{max-width:500px}.service{padding:22px 20px;min-height:190px;border-top:1px solid rgba(10,10,10,.12)}.service:nth-of-type(2n){border-left:0}.service-icon{margin-bottom:16px}}
-@media(max-width:600px){.client-logo{min-width:122px;min-height:50px}.client-row{gap:32px;animation-duration:27s}.client-row[aria-hidden="true"]{margin-left:32px}body:before{inset:-6vh -30vw;filter:blur(30px);opacity:.95}.cta:before,.cta:after{filter:blur(24px);opacity:.85}.footer:before{filter:blur(25px)}.project{flex-basis:82%;}.projects{gap:13px}.carousel-arrow{width:38px;height:38px;top:37%;font-size:19px}.carousel-prev{left:-9px}.carousel-next{right:-9px}.carousel-progress{margin-top:0}.typographic-cover{padding:20px}.typographic-cover strong{font-size:clamp(36px,11vw,54px)}#services.section{padding-top:25px;padding-bottom:55px}.services{padding:25px 21px;grid-template-columns:1fr 1fr;border-radius:16px}.services-intro{padding-bottom:20px}.services-intro h2{font-size:clamp(32px,9vw,42px);max-width:320px}.service{padding:20px 12px;min-height:205px}.service:nth-of-type(2n){border-left:1px solid rgba(10,10,10,.13)}.service:nth-of-type(odd){border-left:0}.service-icon{width:46px;height:46px;margin-bottom:14px}.service h3{font-size:13px}.service p{font-size:11px}.project-image{aspect-ratio:1.02}}
+@media(max-width:600px){.client-logo{min-width:122px;min-height:50px}.client-row{gap:32px;animation-duration:27s}.client-row[aria-hidden="true"]{margin-left:32px}body:before{inset:-6vh -30vw;filter:blur(30px);opacity:.95}.cta:before,.cta:after{filter:blur(24px);opacity:.85}.footer:before{filter:blur(25px)}.project{flex-basis:82%;}.projects{gap:13px}.carousel-arrow{width:38px;height:38px;top:37%;font-size:19px}.carousel-prev{left:-9px}.carousel-next{right:-9px}.typographic-cover{padding:20px}.typographic-cover strong{font-size:clamp(36px,11vw,54px)}#services.section{padding-top:25px;padding-bottom:55px}.services{padding:25px 21px;grid-template-columns:1fr 1fr;border-radius:16px}.services-intro{padding-bottom:20px}.services-intro h2{font-size:clamp(32px,9vw,42px);max-width:320px}.service{padding:20px 12px;min-height:205px}.service:nth-of-type(2n){border-left:1px solid rgba(10,10,10,.13)}.service:nth-of-type(odd){border-left:0}.service-icon{width:46px;height:46px;margin-bottom:14px}.service h3{font-size:13px}.service p{font-size:11px}.project-image{aspect-ratio:1.02}}
 @media(prefers-reduced-motion:reduce){body:before,.footer:before,.cta:before,.cta:after{animation:none!important}.project-viewport{scroll-behavior:auto}}
 
 
@@ -1556,7 +1560,6 @@ body:after{background:radial-gradient(circle at var(--ambient-x,50%) var(--ambie
     </div>
     <button class="carousel-arrow carousel-next" type="button" aria-label="Next projects"><span aria-hidden="true">›</span></button>
   </div>
-  <div class="carousel-progress" aria-hidden="true"><span></span></div>
 </section>
 <section class="wrap section" id="services">
   <div class="services reveal">
@@ -1592,12 +1595,9 @@ const viewport=document.querySelector('.project-viewport');
 const track=document.querySelector('.projects');
 const prevButton=document.querySelector('.carousel-prev');
 const nextButton=document.querySelector('.carousel-next');
-const progress=document.querySelector('.carousel-progress span');
 function updateCarousel(){
   if(!viewport||!track)return;
   const maxScroll=Math.max(0,viewport.scrollWidth-viewport.clientWidth);
-  const progressValue=maxScroll?viewport.scrollLeft/maxScroll:0;
-  if(progress)progress.style.width=`${Math.max(25,25+progressValue*75)}%`;
   if(prevButton)prevButton.disabled=viewport.scrollLeft<=3;
   if(nextButton)nextButton.disabled=viewport.scrollLeft>=maxScroll-3;
 }
@@ -1824,10 +1824,7 @@ document.querySelectorAll('[data-lang]').forEach(b=>b.addEventListener('click',(
 
 try{const saved=localStorage.getItem('robGD-language');if(saved&&i18n[saved])currentLanguage=saved}catch(e){}applyLanguage(currentLanguage);
 
-/* 1) Portrait tilt: use !important because legacy responsive rules set transform!important. */
-(()=>{const art=document.querySelector('.hero-art'),portrait=art?.querySelector('.hero-person');if(!art||!portrait)return;const reduce=matchMedia('(prefers-reduced-motion: reduce)');const apply=ry=>portrait.style.setProperty('transform','translate(-2px,-8px) scale(1) rotateY('+ry.toFixed(2)+'deg)','important');art.addEventListener('pointermove',e=>{if(e.pointerType==='touch'||reduce.matches)return;const r=art.getBoundingClientRect();const n=(e.clientX-r.left)/r.width;apply(Math.max(-5,Math.min(5,(n-.5)*10)));});art.addEventListener('pointerleave',()=>apply(0));})();
-/* 2) Automatic project drift: visibly slow, pauses on hover/focus, arrows still work. */
-(()=>{const viewport=document.querySelector('.project-viewport'),carousel=document.querySelector('.project-carousel');if(!viewport||!carousel)return;let last=0;const speed=.65;function tick(now){if(!last)last=now;const dt=Math.min(now-last,40);last=now;if(!matchMedia('(prefers-reduced-motion: reduce)').matches&&!carousel.matches(':hover')&&!viewport.matches(':focus-within')&&!document.hidden){const max=viewport.scrollWidth-viewport.clientWidth;if(max>2){if(viewport.scrollLeft>=max-1)viewport.scrollLeft=0;else viewport.scrollLeft+=speed*dt/16.67;}}requestAnimationFrame(tick)}requestAnimationFrame(tick);})();
+/* Duplicate legacy portrait/carousel loops removed; see the single motion implementation below. */
 /* 3) Rotate the service glyph on hover and click/tap; keep the white tile stationary. */
 (()=>{document.querySelectorAll('.service-icon').forEach(icon=>{const glyph=icon.querySelector('svg');if(!glyph)return;icon.setAttribute('tabindex','0');icon.setAttribute('role','button');icon.setAttribute('aria-label','Animate service icon');const spin=()=>{if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;glyph.animate([{transform:'rotate(0deg) scale(1)'},{transform:'rotate(180deg) scale(1.08)'},{transform:'rotate(360deg) scale(1)'}],{duration:650,easing:'cubic-bezier(.2,.8,.2,1)'});};icon.addEventListener('pointerenter',e=>{if(e.pointerType!=='touch')glyph.animate([{transform:'rotate(0deg)'},{transform:'rotate(14deg) scale(1.05)'}],{duration:280,fill:'forwards',easing:'ease-out'});});icon.addEventListener('pointerleave',()=>{glyph.getAnimations().forEach(a=>a.cancel());glyph.style.transform='';});icon.addEventListener('click',spin);icon.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();spin()}})});})(); 
  /* 4) Move one CTA word at a time, every two seconds */
@@ -1835,33 +1832,33 @@ try{const saved=localStorage.getItem('robGD-language');if(saved&&i18n[saved])cur
 /* Motion interactions — one implementation per component. */
 const motionReduced=window.matchMedia('(prefers-reduced-motion: reduce)');
 
-/* 1. Portrait tilts subtly with horizontal pointer position, then recentres. */
+/* 1. Portrait rotates only around its horizontal Y axis, then recentres. */
 (()=> {
  const art=document.querySelector('.hero-art');
  const portrait=art?.querySelector('.hero-person');
  if(!art||!portrait)return;
  const finePointer=window.matchMedia('(hover:hover) and (pointer:fine)');
- const setTilt=(angle)=>portrait.style.setProperty('transform','translateY(5px) rotateY('+angle+'deg) rotateZ('+(-angle*.16)+'deg) scale(1.015)','important');
+ const setTilt=(angle)=>portrait.style.setProperty('transform','translateY(5px) rotateY('+angle+'deg) scale(1.015)','important');
  portrait.style.transition=motionReduced.matches?'none':'transform .38s cubic-bezier(.2,.7,.2,1)';
  if(finePointer.matches&&!motionReduced.matches){
   art.addEventListener('pointermove',e=>{
    if(e.pointerType==='touch')return;
    const r=art.getBoundingClientRect();
    const position=Math.max(0,Math.min(1,(e.clientX-r.left)/r.width));
-   setTilt(((position-.5)*24).toFixed(2));
+   setTilt(((position-.5)*30).toFixed(2));
   });
   art.addEventListener('pointerleave',()=>setTilt(0));
  }
 })();
 
-/* 2. Drift the projects left at a constant slow pace. Hovering any project pauses it;
+/* 2. Drift the projects left at 20 px/s. Hovering or focusing the carousel pauses it;
       the existing previous/next buttons and keyboard scrolling remain available. */
 (()=> {
  const viewport=document.querySelector('.project-viewport');
  const carousel=document.querySelector('.project-carousel');
  if(!viewport||!carousel)return;
  let lastTime=0,raf=0;
- const speed=24; // pixels per second — slow but visibly moving
+ const speed=20; // pixels per second — slow, continuous movement
  function tick(now){
   if(!lastTime)lastTime=now;
   const dt=Math.min(50,now-lastTime);lastTime=now;
