@@ -1893,29 +1893,25 @@ const motionReduced=window.matchMedia('(prefers-reduced-motion: reduce)');
       exchange positions, not the whole list. */
 (()=> {
  const box=document.querySelector('.cta-tags');if(!box)return;
- const words=[...box.querySelectorAll('.cta-tag')];
- if(words.length<2)return;
  let pair=0;
  const swapNext=()=>{
-  const a=words[pair%words.length];
-  const b=words[(pair+1)%words.length];
-  if(!a?.isConnected||!b?.isConnected)return;
+  const items=[...box.querySelectorAll('.cta-tag')];
+  if(items.length<2)return;
+  const index=pair%(items.length-1),a=items[index],b=items[index+1];
+  const beforeA=a.getBoundingClientRect(),beforeB=b.getBoundingClientRect();
   if(!motionReduced.matches){
-   const beforeA=a.getBoundingClientRect(),beforeB=b.getBoundingClientRect();
-   const next=a.nextElementSibling;
-   if(next===b)box.insertBefore(b,a);
-   else if(b.nextElementSibling===a)box.insertBefore(a,b);
-   else {box.insertBefore(b,a);}
+   const marker=document.createComment('cta-swap');
+   box.insertBefore(marker,a);box.insertBefore(a,b);box.insertBefore(b,marker);marker.remove();
    const afterA=a.getBoundingClientRect(),afterB=b.getBoundingClientRect();
    for(const [el,before,after] of [[a,beforeA,afterA],[b,beforeB,afterB]]){
     const dy=before.top-after.top;
     if(Math.abs(dy)>1)el.animate([{transform:'translateY('+dy+'px)'},{transform:'translateY(0)'}],{duration:420,easing:'cubic-bezier(.2,.75,.25,1)'});
    }
-  } else {
-   const next=a.nextElementSibling;
-   if(next===b)box.insertBefore(b,a);else box.insertBefore(b,a);
+  }else{
+   const marker=document.createComment('cta-swap');
+   box.insertBefore(marker,a);box.insertBefore(a,b);box.insertBefore(b,marker);marker.remove();
   }
-  pair=(pair+1)%words.length;
+  pair=(pair+1)%(items.length-1);
  };
  window.setInterval(swapNext,2000);
 })();
