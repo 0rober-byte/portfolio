@@ -1499,6 +1499,18 @@ body:after{background:radial-gradient(circle at var(--ambient-x,50%) var(--ambie
 .cta-tags .cta-tag{display:block;line-height:2;transition:opacity .35s,transform .35s}
 .cta-tags .cta-tag.is-shifting{opacity:.25;transform:translateX(8px)}
 @media(prefers-reduced-motion:reduce){.hero-art .hero-person,.service-icon svg,.cta-tags .cta-tag{transition:none!important;animation:none!important}}
+
+/* Verified motion overrides: each effect is isolated to its intended element. */
+.hero-art{perspective:1000px}
+.hero-art .hero-person{transform-style:preserve-3d;transform-origin:50% 55%;will-change:transform}
+.service-icon{cursor:pointer}
+.service-icon svg{transform-origin:50% 50%;will-change:transform}
+.service-icon:hover svg,.service-icon:focus-visible svg{transform:rotate(12deg) scale(1.04)}
+.service-icon.is-spinning svg{transform:rotate(360deg)}
+.cta-tags{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:0}
+.cta-tags .cta-tag{display:block;position:relative;line-height:2;will-change:transform;transition:transform .42s cubic-bezier(.2,.75,.25,1),opacity .42s ease}
+.cta-tags .cta-tag.is-moving{opacity:.5}
+@media(prefers-reduced-motion:reduce){.hero-art .hero-person{transition:none!important}.service-icon svg,.cta-tags .cta-tag{transition:none!important}}
 </style>
 </head>
 <body>
@@ -1813,55 +1825,101 @@ try{const saved=localStorage.getItem('robGD-language');if(saved&&i18n[saved])cur
 /* 3) Rotate the service glyph on hover and click/tap; keep the white tile stationary. */
 (()=>{document.querySelectorAll('.service-icon').forEach(icon=>{const glyph=icon.querySelector('svg');if(!glyph)return;icon.setAttribute('tabindex','0');icon.setAttribute('role','button');icon.setAttribute('aria-label','Animate service icon');const spin=()=>{if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;glyph.animate([{transform:'rotate(0deg) scale(1)'},{transform:'rotate(180deg) scale(1.08)'},{transform:'rotate(360deg) scale(1)'}],{duration:650,easing:'cubic-bezier(.2,.8,.2,1)'});};icon.addEventListener('pointerenter',e=>{if(e.pointerType!=='touch')glyph.animate([{transform:'rotate(0deg)'},{transform:'rotate(14deg) scale(1.05)'}],{duration:280,fill:'forwards',easing:'ease-out'});});icon.addEventListener('pointerleave',()=>{glyph.getAnimations().forEach(a=>a.cancel());glyph.style.transform='';});icon.addEventListener('click',spin);icon.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();spin()}})});})(); 
  /* 4) Move one CTA word at a time, every two seconds */
-function setupCtaWordMotion(){const box=document.querySelector('.cta-tags');if(!box)return;const words=box.innerHTML.split(/<br\s*\/?\s*>/i).map(x=>x.trim()).filter(Boolean);if(!words.length)return;box.innerHTML='';words.forEach(word=>{const span=document.createElement('span');span.className='cta-word';span.innerHTML=word;box.appendChild(span)});if(box.dataset.motionReady==='true')return;box.dataset.motionReady='true';let index=0;window.setInterval(()=>{const items=[...box.querySelectorAll('.cta-word')];if(items.length<2)return;const from=index%items.length,to=(from+1)%items.length;const a=items[from],b=items[to];a.classList.add('is-moving');b.classList.add('is-moving');window.setTimeout(()=>{if(a.parentNode===box&&b.parentNode===box){if(to===from+1)box.insertBefore(b,a);else if(from===items.length-1&&to===0)box.insertBefore(a,b);else{const next=a.nextSibling;box.insertBefore(b,a);box.insertBefore(a,next)}a.classList.remove('is-moving');b.classList.remove('is-moving');index=(index+1)%items.length}},230)},2000)}
-setupCtaWordMotion();
 
-/* 1. Portrait follows horizontal pointer position with a restrained tilt and recentres on leave. */
-(function(){
- const art=document.querySelector('.hero-art'),photo=art?.querySelector('.hero-person');
- if(!art||!photo||!motionOK)return;
+/* Motion interactions — one implementation per component. */
+const motionReduced=window.matchMedia('(prefers-reduced-motion: reduce)');
+
+/* 1. Portrait tilts subtly with horizontal pointer position, then recentres. */
+(()=> {
+ const art=document.querySelector('.hero-art');
+ const portrait=art?.querySelector('.hero-person');
+ if(!art||!portrait)return;
  const finePointer=window.matchMedia('(hover:hover) and (pointer:fine)');
- if(!finePointer.matches)return;
- photo.style.transition='transform .35s cubic-bezier(.2,.7,.2,1)';
- art.addEventListener('pointermove',e=>{
-  const r=art.getBoundingClientRect();const horizontal=Math.max(-1,Math.min(1,((e.clientX-r.left)/r.width-.5)*2));
-  photo.style.transform='translateY(5px) scale(.94) rotate('+(-horizontal*2.2)+'deg)';
- });
- art.addEventListener('pointerleave',()=>{photo.style.transform='translateY(5px) scale(.94) rotate(0deg)'});
-})();
-/* 2. Slowly auto-advance project carousel; manual arrows remain available and hover/focus/touch pauses it. */
-(function(){
- const viewport=document.querySelector('.project-viewport'),track=document.querySelector('.projects'),carousel=document.querySelector('.project-carousel');
- if(!viewport||!track||!carousel||!motionOK)return;
- let paused=false,last=0,frame=0;
- const pause=()=>{paused=true};const resume=()=>{paused=false};
- carousel.addEventListener('mouseenter',pause);carousel.addEventListener('mouseleave',resume);
- carousel.addEventListener('focusin',pause);carousel.addEventListener('focusout',e=>{if(!carousel.contains(e.relatedTarget))resume()});
- carousel.addEventListener('touchstart',pause,{passive:true});carousel.addEventListener('touchend',()=>{window.setTimeout(resume,1800)},{passive:true});
- function tick(now){if(!last)last=now;const delta=Math.min(50,now-last);last=now;
-  if(!paused&&document.visibilityState==='visible'&&viewport.scrollWidth>viewport.clientWidth){
-   viewport.scrollLeft+=delta*0.018;
-   const max=viewport.scrollWidth-viewport.clientWidth;
-   if(viewport.scrollLeft>=max-1)viewport.scrollTo({left:0,behavior:'auto'});
-  }
-  frame=requestAnimationFrame(tick);
+ const setTilt=(angle)=>portrait.style.setProperty('transform','translateY(5px) rotateY('+angle+'deg)','important');
+ portrait.style.transition=motionReduced.matches?'none':'transform .32s cubic-bezier(.2,.7,.2,1)';
+ if(finePointer.matches&&!motionReduced.matches){
+  art.addEventListener('pointermove',e=>{
+   if(e.pointerType==='touch')return;
+   const r=art.getBoundingClientRect();
+   const position=Math.max(0,Math.min(1,(e.clientX-r.left)/r.width));
+   setTilt(((position-.5)*5).toFixed(2));
+  });
+  art.addEventListener('pointerleave',()=>setTilt(0));
  }
- frame=requestAnimationFrame(tick);
- window.addEventListener('pagehide',()=>cancelAnimationFrame(frame),{once:true});
 })();
-/* 3. Only the service symbol rotates. Click/tap triggers one full turn without moving the white tile. */
-document.querySelectorAll('.service-icon').forEach(icon=>{
- icon.setAttribute('tabindex','0');icon.setAttribute('role','button');icon.setAttribute('aria-label',(icon.parentElement?.querySelector('h3')?.textContent||'Service')+' icon animation');
- const spin=()=>{icon.classList.remove('is-spinning');void icon.offsetWidth;icon.classList.add('is-spinning')};
- icon.addEventListener('click',spin);icon.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();spin()}});
- icon.querySelector('svg')?.addEventListener('animationend',()=>icon.classList.remove('is-spinning'));
-});
-/* 4. Shift one CTA word at a time every two seconds, never moving the whole list together. */
-(function(){
- const words=[...document.querySelectorAll('.cta-tags .cta-tag')];if(words.length<2||!motionOK)return;
- let index=0;
- window.setInterval(()=>{words[index].classList.remove('is-shifting');index=(index+1)%words.length;words[index].classList.add('is-shifting');window.setTimeout(()=>words[index]?.classList.remove('is-shifting'),550)},2000);
+
+/* 2. Drift the projects left at a constant slow pace. Hovering any project pauses it;
+      the existing previous/next buttons and keyboard scrolling remain available. */
+(()=> {
+ const viewport=document.querySelector('.project-viewport');
+ const carousel=document.querySelector('.project-carousel');
+ if(!viewport||!carousel)return;
+ let lastTime=0,raf=0;
+ const speed=10; // pixels per second
+ function tick(now){
+  if(!lastTime)lastTime=now;
+  const dt=Math.min(50,now-lastTime);lastTime=now;
+  const max=viewport.scrollWidth-viewport.clientWidth;
+  const paused=carousel.matches(':hover')||carousel.matches(':focus-within')||document.hidden;
+  if(!motionReduced.matches&&!paused&&max>2){
+   if(viewport.scrollLeft>=max-1)viewport.scrollLeft=0;
+   else viewport.scrollLeft+=speed*dt/1000;
+  }
+  raf=requestAnimationFrame(tick);
+ }
+ raf=requestAnimationFrame(tick);
+ window.addEventListener('pagehide',()=>cancelAnimationFrame(raf),{once:true});
 })();
+
+/* 3. Hover = restrained glyph-only rotation. Click/tap = one full turn of the glyph.
+      The white icon tile itself never transforms. */
+(()=> {
+ document.querySelectorAll('.service-icon').forEach(icon=>{
+  const glyph=icon.querySelector('svg');if(!glyph)return;
+  icon.setAttribute('tabindex','0');icon.setAttribute('role','button');
+  const heading=icon.parentElement?.querySelector('h3')?.textContent?.trim();
+  icon.setAttribute('aria-label','Animate '+(heading||'service')+' icon');
+  const spin=()=>{
+   if(motionReduced.matches)return;
+   glyph.getAnimations().forEach(a=>a.cancel());
+   glyph.animate([{transform:'rotate(0deg)'},{transform:'rotate(360deg)'}],{duration:650,easing:'cubic-bezier(.2,.75,.25,1)'});
+  };
+  icon.addEventListener('click',spin);
+  icon.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();spin()}});
+ });
+})();
+
+/* 4. Reorder one adjacent pair every two seconds. FLIP animates only the words that
+      exchange positions, not the whole list. */
+(()=> {
+ const box=document.querySelector('.cta-tags');if(!box)return;
+ const words=[...box.querySelectorAll('.cta-tag')];
+ if(words.length<2)return;
+ let pair=0;
+ const swapNext=()=>{
+  const a=words[pair%words.length];
+  const b=words[(pair+1)%words.length];
+  if(!a?.isConnected||!b?.isConnected)return;
+  if(!motionReduced.matches){
+   const beforeA=a.getBoundingClientRect(),beforeB=b.getBoundingClientRect();
+   const next=a.nextElementSibling;
+   if(next===b)box.insertBefore(b,a);
+   else if(b.nextElementSibling===a)box.insertBefore(a,b);
+   else {box.insertBefore(b,a);}
+   const afterA=a.getBoundingClientRect(),afterB=b.getBoundingClientRect();
+   for(const [el,before,after] of [[a,beforeA,afterA],[b,beforeB,afterB]]){
+    const dy=before.top-after.top;
+    if(Math.abs(dy)>1)el.animate([{transform:'translateY('+dy+'px)'},{transform:'translateY(0)'}],{duration:420,easing:'cubic-bezier(.2,.75,.25,1)'});
+   }
+  } else {
+   const next=a.nextElementSibling;
+   if(next===b)box.insertBefore(b,a);else box.insertBefore(b,a);
+  }
+  pair=(pair+1)%words.length;
+ };
+ window.setInterval(swapNext,2000);
+})();
+
 </script>
 </body></html>
 <!-- Preview refinement: monochrome hero portrait, no signature, reduced hero scale and work-section whitespace. -->
