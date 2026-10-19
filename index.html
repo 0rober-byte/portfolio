@@ -1539,7 +1539,7 @@ body:after{background:radial-gradient(circle at var(--ambient-x,50%) var(--ambie
     <a class="scroll-link" href="#work"><span>↓</span> Scroll to explore</a>
   </div>
   <div class="hero-art" aria-label="Portrait of Robertino Marrazzo">
-    <div class="aura"></div><img class="hero-person" src="assets/images/Foto%201.png" alt="Robertino Marrazzo, graphic designer"><div class="hero-side-note"><span class="hero-location">Argentina,<br>Italy</span><span class="hero-note-rule" aria-hidden="true"></span><strong>15+<br>years<br>in design</strong></div>
+    <div class="aura"></div><img class="hero-person" src="assets/images/Foto%201.png" alt="Robertino Marrazzo, graphic designer"><div class="hero-side-note"><span class="hero-location" data-i18n="heroLocation">Argentina,<br>Italy</span><span class="hero-note-rule" aria-hidden="true"></span><strong class="hero-experience" data-i18n="heroExperience">15+<br>years<br>in design</strong></div>
   </div>
 </section>
 <section class="wrap section" id="work">
@@ -1735,14 +1735,14 @@ const aboutExpanded=document.getElementById('about-expanded');
 if(aboutToggle&&aboutTitle&&aboutSummary&&aboutExpanded){
   const defaultTitle="I’m Robertino, a graphic designer with 15+ years of experience.";
   const defaultSummary="I help brands communicate, connect and grow through strategic and thoughtful visual design.";
-  const expandedTitle="I help brands communicate, connect and grow through strategic and thoughtful visual design.";
+  const expandedTitleByLanguage={en:'I help brands communicate, connect and grow through strategic and thoughtful visual design.',es:'Ayudo a las marcas a comunicar, conectar y crecer mediante un diseño visual estratégico y cuidado.',it:'Aiuto i brand a comunicare, connettersi e crescere attraverso un design visivo strategico e curato.'};
   aboutToggle.addEventListener('click',()=>{
     const isExpanded=aboutToggle.getAttribute('aria-expanded')==='true';
     if(!isExpanded){
-      aboutTitle.textContent=expandedTitle;
+      aboutTitle.textContent=expandedTitleByLanguage[currentLanguage]||expandedTitleByLanguage.en;
       aboutSummary.hidden=true;
       aboutExpanded.hidden=false;
-      aboutToggle.innerHTML='Less <span>↑</span>';
+      aboutToggle.innerHTML=(currentLanguage==='es'?'Menos':currentLanguage==='it'?'Meno':'Less')+' <span>↑</span>';
       aboutToggle.setAttribute('aria-expanded','true');
     }else{
       aboutTitle.textContent=defaultTitle;
@@ -1806,12 +1806,18 @@ function applyLanguage(lang){
  document.querySelectorAll('.nav [data-i18n="navAbout"],.nav [data-i18n="navServices"],.nav [data-i18n="navContact"]').forEach((el,i)=>setTxt(el,t.nav[i]));
  setHtml(document.querySelector('.main-talk'),t.talk+' <span class="arrow">↗</span>');
  setTxt(document.querySelector('.hero-copy .eyebrow'),t.heroEyebrow);document.querySelectorAll('.hero h1 span').forEach((el,i)=>setTxt(el,t.headline[i]));
+ const heroLocation=currentLanguage==='es'?'Argentina,<br>Italia':currentLanguage==='it'?'Argentina,<br>Italia':'Argentina,<br>Italy';
+ const heroExperience=currentLanguage==='es'?'15+<br>años<br>en diseño':currentLanguage==='it'?'15+<br>anni<br>nel design':'15+<br>years<br>in design';
+ setHtml(document.querySelector('.hero-location'),heroLocation);setHtml(document.querySelector('.hero-experience'),heroExperience);
  setTxt(document.querySelector('.hero-description'),t.hero);setHtml(document.querySelector('.hero-actions .pill'),t.work+' <span class="arrow">→</span>');setHtml(document.querySelector('.scroll-link'),'<span>↓</span> '+t.scroll);
  setTxt(document.querySelector('#work .section-title .eyebrow'),t.featured);setHtml(document.querySelector('#work .section-head .text-link'),t.moreProjects+' <span>→</span>');
  document.querySelectorAll('.project').forEach((el,i)=>setTxt(el.querySelector('p'),t.categories[i]));
  setTxt(document.querySelector('.services-intro .eyebrow'),t.services[0]);setTxt(document.querySelector('.services-intro h2'),t.services[1]);document.querySelectorAll('.service').forEach((el,i)=>{setTxt(el.querySelector('h3'),t.services[2][i]);setTxt(el.querySelector('p'),t.services[3][i])});
  const expandedCopy=currentLanguage==='es'?['Soy Robertino Marrazzo.','Soy ciudadano argentino e italiano naturalizado, resido en Italia y tengo una licenciatura en Diseño de Comunicación Visual.','Trabajo como diseñador freelance, potenciando marcas y redes sociales mediante soluciones visuales estratégicas y bien ejecutadas.','Tengo un perfil eficiente, autónomo y colaborativo. Valoro el trabajo en equipo y el intercambio de conocimientos como motores de la excelencia creativa y el crecimiento personal.']:currentLanguage==='it'?['Mi chiamo Robertino Marrazzo.','Sono cittadino argentino e cittadino italiano naturalizzato, vivo in Italia e ho una laurea in Design della Comunicazione Visiva.','Lavoro come designer freelance, valorizzando brand e social media con soluzioni visive strategiche e curate.','Ho un profilo efficiente, autonomo e collaborativo. Considero il lavoro di squadra e lo scambio di conoscenze fondamentali per l’eccellenza creativa e la crescita personale.']:['My name is Robertino Marrazzo.','I am an Argentine citizen and a naturalized Italian citizen currently residing in Italy, and I hold a Bachelor’s Degree in Visual Communication Design.','I work as a freelance designer, enhancing brands and social media through strategic, well-crafted visual solutions.','I have an efficient, self-motivated, and collaborative profile. I value teamwork and the exchange of knowledge as key drivers of creative excellence and personal growth.'];document.querySelectorAll('#about-expanded p').forEach((el,i)=>setTxt(el,expandedCopy[i]));
- setTxt(document.querySelector('#about-copy .eyebrow'),t.about[0]);setTxt(document.querySelector('#about-title'),t.about[1]);setTxt(document.querySelector('#about-summary'),t.about[2]);setHtml(document.querySelector('#about-toggle'),t.about[3]+' <span>→</span>');
+ setTxt(document.querySelector('#about-copy .eyebrow'),t.about[0]);
+ const aboutIsExpanded=document.querySelector('#about-toggle')?.getAttribute('aria-expanded')==='true';
+ setTxt(document.querySelector('#about-title'),aboutIsExpanded?t.about[2]:t.about[1]);setTxt(document.querySelector('#about-summary'),t.about[2]);
+ setHtml(document.querySelector('#about-toggle'),(aboutIsExpanded?(currentLanguage==='es'?'Menos':currentLanguage==='it'?'Meno':'Less'):t.about[3])+' <span>'+(aboutIsExpanded?'↑':'→')+'</span>');
  const facts=document.querySelectorAll('.facts .fact');if(facts[0]){setTxt(facts[0].querySelector('strong'),t.facts[0]);setTxt(facts[0].querySelector('p'),t.facts[1])}if(facts[1]){setTxt(facts[1].querySelector('strong'),t.facts[2]);setTxt(facts[1].querySelector('p'),t.facts[3])}if(facts[2])setTxt(facts[2].querySelector('strong'),t.facts[4]);
  setTxt(document.querySelector('.clients>.eyebrow'),t.brands);setTxt(document.querySelector('.cta .eyebrow'),t.cta[0]);setHtml(document.querySelector('.cta-inner h2'),t.cta[1]);setHtml(document.querySelector('.cta-middle p'),t.cta[2]);setHtml(document.querySelector('.cta-middle .pill'),t.cta[3]+' <span class="arrow">→</span>');
  const tagWords=currentLanguage==='es'?['Marcas','Personas','Ideas','Culturas','Impacto global']:currentLanguage==='it'?['Brand','Persone','Idee','Culture','Impatto globale']:['Brands','People','Ideas','Cultures','Global impact'];document.querySelectorAll('.cta-tags .cta-tag').forEach((el,i)=>setTxt(el,tagWords[i]));
