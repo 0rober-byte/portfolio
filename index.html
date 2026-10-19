@@ -17,10 +17,10 @@
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
 
 
-/* Final interaction refinements: stronger horizontal 3D tilt, no carousel progress indicator. */
-.hero-art{perspective:1200px;perspective-origin:50% 42%;transform-style:preserve-3d}
+/* Final interaction refinements: horizontal-only portrait tilt and no carousel progress line. */
+.hero-art{perspective:1500px;perspective-origin:50% 42%;transform-style:preserve-3d}
 .hero-art .hero-person{transform-style:preserve-3d;transform-origin:50% 55%;backface-visibility:visible}
-.carousel-progress{display:none!important}
+.carousel-progress,.project-carousel-progress,.project-progress,.carousel-progress-bar{display:none!important}
 
 /* PREMIUM ATMOSPHERE + MOTION LAYER */
 body{position:relative;isolation:isolate;background:#fff}
@@ -1858,7 +1858,7 @@ const motionReduced=window.matchMedia('(prefers-reduced-motion: reduce)');
  const carousel=document.querySelector('.project-carousel');
  if(!viewport||!carousel)return;
  let lastTime=0,raf=0;
- const speed=20; // pixels per second — slow, continuous movement
+ const speed=24; // pixels per second — requested continuous movement
  function tick(now){
   if(!lastTime)lastTime=now;
   const dt=Math.min(50,now-lastTime);lastTime=now;
