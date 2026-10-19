@@ -1500,7 +1500,11 @@ body:after{background:radial-gradient(circle at var(--ambient-x,50%) var(--ambie
 .cta-tags .cta-tag.is-shifting{opacity:.25;transform:translateX(8px)}
 @media(prefers-reduced-motion:reduce){.hero-art .hero-person,.service-icon svg,.cta-tags .cta-tag{transition:none!important;animation:none!important}}
 
-/* Verified motion overrides: each effect is isolated to its intended element. */
+/* Verified motion overrides: 3D portrait and reliable auto-scroll without scroll-snap fighting it. */
+.hero-art{perspective:900px;perspective-origin:50% 45%}
+.hero-art .hero-person{transform-style:preserve-3d;transform-origin:50% 55%;backface-visibility:visible;will-change:transform}
+.project-viewport{scroll-snap-type:none!important;scroll-behavior:auto!important;overscroll-behavior-x:contain}
+.project-viewport .project{scroll-snap-align:none!important}
 .service:hover .service-icon{transform:none!important;background:#fff!important}
 .service-icon:hover,.service-icon:focus-visible{transform:none!important;background:#fff!important}
 .hero-art{perspective:1000px}
@@ -1837,14 +1841,14 @@ const motionReduced=window.matchMedia('(prefers-reduced-motion: reduce)');
  const portrait=art?.querySelector('.hero-person');
  if(!art||!portrait)return;
  const finePointer=window.matchMedia('(hover:hover) and (pointer:fine)');
- const setTilt=(angle)=>portrait.style.setProperty('transform','translateY(5px) rotateY('+angle+'deg)','important');
- portrait.style.transition=motionReduced.matches?'none':'transform .32s cubic-bezier(.2,.7,.2,1)';
+ const setTilt=(angle)=>portrait.style.setProperty('transform','translateY(5px) rotateY('+angle+'deg) rotateZ('+(-angle*.16)+'deg) scale(1.015)','important');
+ portrait.style.transition=motionReduced.matches?'none':'transform .38s cubic-bezier(.2,.7,.2,1)';
  if(finePointer.matches&&!motionReduced.matches){
   art.addEventListener('pointermove',e=>{
    if(e.pointerType==='touch')return;
    const r=art.getBoundingClientRect();
    const position=Math.max(0,Math.min(1,(e.clientX-r.left)/r.width));
-   setTilt(((position-.5)*5).toFixed(2));
+   setTilt(((position-.5)*24).toFixed(2));
   });
   art.addEventListener('pointerleave',()=>setTilt(0));
  }
@@ -1857,7 +1861,7 @@ const motionReduced=window.matchMedia('(prefers-reduced-motion: reduce)');
  const carousel=document.querySelector('.project-carousel');
  if(!viewport||!carousel)return;
  let lastTime=0,raf=0;
- const speed=10; // pixels per second
+ const speed=24; // pixels per second — slow but visibly moving
  function tick(now){
   if(!lastTime)lastTime=now;
   const dt=Math.min(50,now-lastTime);lastTime=now;
