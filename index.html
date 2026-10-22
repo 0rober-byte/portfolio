@@ -127,6 +127,7 @@ body:after{background:linear-gradient(115deg,rgba(255,255,255,.12),transparent 3
 .design-preview-lightbox[hidden]{display:none!important}
 .design-preview-full{display:block;max-width:min(100%,1600px);max-height:calc(100dvh - 48px);width:auto;height:auto;object-fit:contain;box-shadow:0 20px 80px rgba(0,0,0,.3)}
 .design-preview-close{position:absolute;top:18px;right:20px;width:44px;height:44px;border:1px solid rgba(255,255,255,.45);border-radius:50%;background:rgba(255,255,255,.12);color:#fff;font-size:30px;line-height:1;cursor:pointer}
+.case-gallery{grid-template-columns:repeat(4,minmax(0,1fr))}.case-gallery-item{aspect-ratio:1/1;border:0;padding:0;cursor:zoom-in}.case-gallery[hidden]{display:none!important}.case-hero-media{display:block;width:100%;height:100%;object-fit:cover}.case-hero-expand{position:absolute;right:14px;bottom:14px;width:44px;height:44px;border:1px solid rgba(255,255,255,.65);border-radius:50%;background:rgba(10,10,10,.72);color:#fff;font-size:25px;display:grid;place-items:center;cursor:zoom-in;z-index:2}.case-hero-expand:hover{background:#00f060;color:#0a0a0a}.design-preview-stage{display:grid;place-items:center;width:100%;height:100%;min-height:0}.design-preview-full{max-width:min(100%,1600px);max-height:calc(100dvh - 64px);width:auto;height:auto;object-fit:contain}.design-preview-stage video.design-preview-full{width:min(100%,1600px);height:auto;max-height:calc(100dvh - 64px);background:#000}
 /* Asset placeholders: the layout stays polished while the owner uploads final images. */
 .asset-empty{position:relative!important;isolation:isolate;background:radial-gradient(ellipse at 18% 22%,rgba(0,240,96,.24),transparent 43%),radial-gradient(ellipse at 82% 78%,rgba(166,77,255,.22),transparent 48%),#f2f2f2!important;overflow:hidden}
 .asset-placeholder-label{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:24px;text-align:center;color:#0a0a0a;font:500 10px 'DM Mono',monospace;letter-spacing:.1em;text-transform:uppercase;line-height:1.6;z-index:2}
@@ -1651,7 +1652,7 @@ const projectData=[
 const caseModal=document.querySelector('.case-modal');let activeProject=0;let previousFocus=null;
 const caseEls={counter:document.querySelector('#case-counter'),category:document.querySelector('#case-category'),title:document.querySelector('#case-title'),description:document.querySelector('#case-description'),client:document.querySelector('#case-client'),year:document.querySelector('#case-year'),services:document.querySelector('#case-services'),hero:document.querySelector('#case-hero-image'),gallery:document.querySelector('#case-gallery'),live:null};
 function coverMarkup(project){return `<div class="project-image typographic-cover ${project.cover}"><span class="cover-index">${project.coverIndex}</span><strong>${project.coverTitle}</strong><small>${project.coverFoot}</small></div>`}
-function renderCase(index){activeProject=(index+projectData.length)%projectData.length;const d=projectData[activeProject];const ct=caseI18n[currentLanguage]?.[activeProject];caseEls.counter.textContent=`${String(activeProject+1).padStart(2,'0')} / ${String(projectData.length).padStart(2,'0')}`;caseEls.category.textContent=ct?.[0]||d.category;caseEls.title.textContent=d.title;caseEls.description.textContent=ct?.[2]||d.description;caseEls.client.textContent=d.client;caseEls.year.textContent=d.year;caseEls.services.textContent=ct?.[1]||d.services;caseEls.hero.innerHTML=d.image?`<img src="${d.image}" alt="${d.title} project overview">`:coverMarkup(d);const finalPreviews=[...new Set((d.gallery||[]).filter(Boolean))];caseEls.gallery.innerHTML=finalPreviews.map((src,i)=>`<button class="case-gallery-item" type="button" data-preview-image="${src}" data-preview-alt="${d.title} — final design preview ${i+1}" aria-label="Open full-size preview ${i+1} of ${d.title}"><img src="${src}" alt="${d.title} — final design preview ${i+1}" loading="lazy"><span class="case-gallery-open" aria-hidden="true">↗</span></button>`).join('');caseEls.gallery.hidden=finalPreviews.length===0;caseModal.scrollTop=0;}
+function renderCase(index){activeProject=(index+projectData.length)%projectData.length;const d=projectData[activeProject];const ct=caseI18n[currentLanguage]?.[activeProject];caseEls.counter.textContent=`${String(activeProject+1).padStart(2,'0')} / ${String(projectData.length).padStart(2,'0')}`;caseEls.category.textContent=ct?.[0]||d.category;caseEls.title.textContent=d.title;caseEls.description.textContent=ct?.[2]||d.description;caseEls.client.textContent=d.client;caseEls.year.textContent=d.year;caseEls.services.textContent=ct?.[1]||d.services;caseEls.hero.innerHTML=d.video?`<video class="case-hero-media" src="${d.video}" poster="${d.image||''}" autoplay muted loop playsinline controls aria-label="${d.title} project video"></video>`:d.image?`<img class="case-hero-media" src="${d.image}" alt="${d.title} project overview">`:coverMarkup(d);if(d.image||d.video){caseEls.hero.insertAdjacentHTML('beforeend','<button type="button" class="case-hero-expand" aria-label="View main media full screen">⤢</button>');}const previews=(d.gallery||[]).filter(Boolean);const fourPreviews=Array.from({length:4},(_,i)=>previews[i]||d.image).filter(Boolean);caseEls.gallery.innerHTML=fourPreviews.map((src,i)=>`<button class="case-gallery-item" type="button" data-preview-image="${src}" data-preview-alt="${d.title} — design preview ${i+1}" aria-label="Open full-size preview ${i+1} of ${d.title}"><img src="${src}" alt="${d.title} — design preview ${i+1}" loading="lazy"><span class="case-gallery-open" aria-hidden="true">↗</span></button>`).join('');caseEls.gallery.hidden=false;caseModal.scrollTop=0;}
 /* Final-design preview lightbox: thumbnails open their image at a larger size. */
 const previewLightbox=document.createElement('div');
 previewLightbox.className='design-preview-lightbox';
@@ -1659,18 +1660,13 @@ previewLightbox.hidden=true;
 previewLightbox.setAttribute('role','dialog');
 previewLightbox.setAttribute('aria-modal','true');
 previewLightbox.setAttribute('aria-label','Full-size design preview');
-previewLightbox.innerHTML='<button type="button" class="design-preview-close" aria-label="Close image preview">×</button><img class="design-preview-full" alt="">';
+previewLightbox.innerHTML='<button type="button" class="design-preview-close" aria-label="Close media preview">×</button><div class="design-preview-stage"></div>';
 document.body.appendChild(previewLightbox);
-const previewFull=previewLightbox.querySelector('.design-preview-full');
-function closeDesignPreview(){previewLightbox.hidden=true;previewFull.removeAttribute('src');}
-caseEls.gallery.addEventListener('click',event=>{
- const button=event.target.closest('[data-preview-image]');
- if(!button)return;
- previewFull.src=button.dataset.previewImage;
- previewFull.alt=button.dataset.previewAlt||'Full-size design preview';
- previewLightbox.hidden=false;
- previewLightbox.querySelector('.design-preview-close').focus();
-});
+const previewStage=previewLightbox.querySelector('.design-preview-stage');
+function openDesignPreview(src,alt,isVideo=false){previewStage.innerHTML=isVideo?`<video class="design-preview-full" src="${src}" controls autoplay playsinline></video>`:`<img class="design-preview-full" src="${src}" alt="${alt||'Full-size design preview'}">`;previewLightbox.hidden=false;previewLightbox.querySelector('.design-preview-close').focus();}
+function closeDesignPreview(){previewLightbox.hidden=true;previewStage.innerHTML='';}
+caseEls.gallery.addEventListener('click',event=>{const button=event.target.closest('[data-preview-image]');if(!button)return;openDesignPreview(button.dataset.previewImage,button.dataset.previewAlt,false)});
+caseEls.hero.addEventListener('click',event=>{if(!event.target.closest('.case-hero-expand'))return;const media=caseEls.hero.querySelector('video,img.case-hero-media');if(!media)return;openDesignPreview(media.currentSrc||media.src,media.alt||'Project media',media.tagName==='VIDEO')});
 previewLightbox.querySelector('.design-preview-close').addEventListener('click',closeDesignPreview);
 previewLightbox.addEventListener('click',event=>{if(event.target===previewLightbox)closeDesignPreview()});
 document.addEventListener('keydown',event=>{if(!previewLightbox.hidden&&event.key==='Escape'){event.stopImmediatePropagation();closeDesignPreview()}});
