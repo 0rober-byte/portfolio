@@ -1850,6 +1850,28 @@ function applyLanguage(lang){
  const aboutIsExpanded=document.querySelector('#about-toggle')?.getAttribute('aria-expanded')==='true';
  setTxt(document.querySelector('#about-title'),aboutIsExpanded?t.about[2]:t.about[1]);setTxt(document.querySelector('#about-summary'),t.about[2]);
  setHtml(document.querySelector('#about-toggle'),(aboutIsExpanded?(currentLanguage==='es'?'Menos':currentLanguage==='it'?'Meno':'Less'):t.about[3])+' <span>'+(aboutIsExpanded?'↑':'→')+'</span>');
+ const uiText={
+ en:{menu:'Open navigation',mainNav:'Main navigation',language:'Choose language',carousel:'Featured projects carousel',prevProjects:'Previous projects',nextProjects:'Next projects',carouselHelp:'Swipe or use arrow keys to browse eight projects',caseHome:'RobGD home',projectNav:'Project navigation',prev:'Previous project',next:'Next project',footerNav:'Footer navigation',play:'Play main video',expand:'View main media full screen',close:'Close media preview',enlarge:'Enlarge media',reduce:'Reduce media size',image:'Click to enlarge image',video:'Click to enlarge video',caseLabels:['Client','Year','Services']},
+ es:{menu:'Abrir navegación',mainNav:'Navegación principal',language:'Elegir idioma',carousel:'Carrusel de proyectos destacados',prevProjects:'Proyectos anteriores',nextProjects:'Proyectos siguientes',carouselHelp:'Deslizá o usá las flechas del teclado para recorrer los ocho proyectos',caseHome:'Ir al inicio de RobGD',projectNav:'Navegación de proyectos',prev:'Proyecto anterior',next:'Proyecto siguiente',footerNav:'Navegación del pie de página',play:'Reproducir video principal',expand:'Ampliar contenido principal',close:'Cerrar vista ampliada',enlarge:'Ampliar contenido',reduce:'Reducir contenido',image:'Click para ampliar la imagen',video:'Click para ampliar el video',caseLabels:['Cliente','Año','Servicios']},
+ it:{menu:'Apri navigazione',mainNav:'Navigazione principale',language:'Scegli la lingua',carousel:'Carosello dei progetti in evidenza',prevProjects:'Progetti precedenti',nextProjects:'Progetti successivi',carouselHelp:'Scorri o usa le frecce della tastiera per esplorare gli otto progetti',caseHome:'Vai alla home di RobGD',projectNav:'Navigazione dei progetti',prev:'Progetto precedente',next:'Progetto successivo',footerNav:'Navigazione del piè di pagina',play:'Riproduci il video principale',expand:'Espandi il contenuto principale',close:'Chiudi la visualizzazione',enlarge:'Ingrandisci contenuto',reduce:'Riduci contenuto',image:'Clicca per ingrandire l’immagine',video:'Clicca per ingrandire il video',caseLabels:['Cliente','Anno','Servizi']}
+ }[currentLanguage];
+ document.querySelector('.menu-toggle')?.setAttribute('aria-label',uiText.menu);
+ document.querySelector('.nav')?.setAttribute('aria-label',uiText.mainNav);
+ document.querySelector('.language-switcher')?.setAttribute('aria-label',uiText.language);
+ document.querySelector('.project-carousel')?.setAttribute('aria-label',uiText.carousel);
+ document.querySelector('.project-viewport')?.setAttribute('aria-label',uiText.carouselHelp);
+ document.querySelectorAll('.carousel-arrow').forEach((el,i)=>el.setAttribute('aria-label',i===0?uiText.prevProjects:uiText.nextProjects));
+ document.querySelector('.case-topbar .case-brand')?.setAttribute('aria-label',uiText.caseHome);
+ document.querySelector('.case-nav-links')?.setAttribute('aria-label',uiText.projectNav);
+ document.querySelector('#case-prev')?.setAttribute('aria-label',uiText.prev);
+ document.querySelector('#case-next')?.setAttribute('aria-label',uiText.next);
+ document.querySelector('.footer-links')?.setAttribute('aria-label',uiText.footerNav);
+ document.querySelector('.case-hero-play')?.setAttribute('aria-label',uiText.play);
+ document.querySelector('.case-hero-expand')?.setAttribute('aria-label',uiText.expand);
+ document.querySelector('.design-preview-close')?.setAttribute('aria-label',uiText.close);
+ document.querySelectorAll('.design-preview-expand').forEach(el=>{const expanded=previewLightbox?.classList.contains('is-enlarged');el.setAttribute('aria-label',expanded?uiText.reduce:uiText.enlarge)});
+ document.querySelectorAll('.case-gallery-caption').forEach((el,i)=>setTxt(el,i%2===1?uiText.video:uiText.image));
+ document.querySelectorAll('.case-meta strong').forEach((el,i)=>setTxt(el,uiText.caseLabels[i]));
  const facts=document.querySelectorAll('.facts .fact');if(facts[0]){setTxt(facts[0].querySelector('strong'),t.facts[0]);setTxt(facts[0].querySelector('p'),t.facts[1])}if(facts[1]){setTxt(facts[1].querySelector('strong'),t.facts[2]);setTxt(facts[1].querySelector('p'),t.facts[3])}if(facts[2])setTxt(facts[2].querySelector('strong'),t.facts[4]);
  setTxt(document.querySelector('.clients>.eyebrow'),t.brands);setTxt(document.querySelector('.cta .eyebrow'),t.cta[0]);setHtml(document.querySelector('.cta-inner h2'),t.cta[1]);setHtml(document.querySelector('.cta-middle p'),t.cta[2]);setHtml(document.querySelector('.cta-middle .pill'),t.cta[3]+' <span class="arrow">→</span>');
  const tagWords=currentLanguage==='es'?['Marcas','Personas','Ideas','Culturas','Impacto global']:currentLanguage==='it'?['Brand','Persone','Idee','Culture','Impatto globale']:['Brands','People','Ideas','Cultures','Global impact'];document.querySelectorAll('.cta-tags .cta-tag').forEach((el,i)=>setTxt(el,tagWords[i]));
