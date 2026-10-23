@@ -1855,6 +1855,16 @@ function applyLanguage(lang){
  es:{menu:'Abrir navegación',mainNav:'Navegación principal',language:'Elegir idioma',carousel:'Carrusel de proyectos destacados',prevProjects:'Proyectos anteriores',nextProjects:'Proyectos siguientes',carouselHelp:'Deslizá o usá las flechas del teclado para recorrer los ocho proyectos',caseHome:'Ir al inicio de RobGD',projectNav:'Navegación de proyectos',prev:'Proyecto anterior',next:'Proyecto siguiente',footerNav:'Navegación del pie de página',play:'Reproducir video principal',expand:'Ampliar contenido principal',close:'Cerrar vista ampliada',enlarge:'Ampliar contenido',reduce:'Reducir contenido',image:'Click para ampliar la imagen',video:'Click para ampliar el video',caseLabels:['Cliente','Año','Servicios']},
  it:{menu:'Apri navigazione',mainNav:'Navigazione principale',language:'Scegli la lingua',carousel:'Carosello dei progetti in evidenza',prevProjects:'Progetti precedenti',nextProjects:'Progetti successivi',carouselHelp:'Scorri o usa le frecce della tastiera per esplorare gli otto progetti',caseHome:'Vai alla home di RobGD',projectNav:'Navigazione dei progetti',prev:'Progetto precedente',next:'Progetto successivo',footerNav:'Navigazione del piè di pagina',play:'Riproduci il video principale',expand:'Espandi il contenuto principale',close:'Chiudi la visualizzazione',enlarge:'Ingrandisci contenuto',reduce:'Riduci contenuto',image:'Clicca per ingrandire l’immagine',video:'Clicca per ingrandire il video',caseLabels:['Cliente','Anno','Servizi']}
  }[currentLanguage];
+ const pageMeta={
+ en:{title:'RobGD — Robertino Marrazzo',description:'Robertino Marrazzo — visual identity, editorial and digital design.',portrait:'Portrait of Robertino Marrazzo',aboutPortrait:'Robertino Marrazzo, graphic designer',brandLogos:'Logos of 15 brands I’ve worked with'},
+ es:{title:'RobGD — Robertino Marrazzo',description:'Robertino Marrazzo — identidad visual, diseño editorial y digital.',portrait:'Retrato de Robertino Marrazzo',aboutPortrait:'Robertino Marrazzo, diseñador gráfico',brandLogos:'Logotipos de 15 marcas con las que trabajé'},
+ it:{title:'RobGD — Robertino Marrazzo',description:'Robertino Marrazzo — identità visiva, design editoriale e digitale.',portrait:'Ritratto di Robertino Marrazzo',aboutPortrait:'Robertino Marrazzo, graphic designer',brandLogos:'Loghi di 15 brand con cui ho lavorato'}
+ }[currentLanguage];
+ document.title=pageMeta.title;
+ document.querySelector('meta[name="description"]')?.setAttribute('content',pageMeta.description);
+ document.querySelector('.hero-person')?.setAttribute('alt',pageMeta.portrait);
+ document.querySelector('.about-photo img')?.setAttribute('alt',pageMeta.aboutPortrait);
+ document.querySelector('.client-marquee')?.setAttribute('aria-label',pageMeta.brandLogos);
  document.querySelector('.menu-toggle')?.setAttribute('aria-label',uiText.menu);
  document.querySelector('.nav')?.setAttribute('aria-label',uiText.mainNav);
  document.querySelector('.language-switcher')?.setAttribute('aria-label',uiText.language);
