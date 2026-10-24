@@ -1566,6 +1566,11 @@ body:after{background:radial-gradient(circle at var(--ambient-x,50%) var(--ambie
  .case-language-switcher button{padding:5px 5px}
  .case-meta{gap:10px}
 }
+
+/* Prevent off-canvas effects from widening the document on mobile Safari. */
+html,body{width:100%;max-width:100%;overflow-x:clip}
+@supports not (overflow:clip){html,body{overflow-x:hidden}}
+img,video,svg,canvas{max-width:100%}
 </style>
 </head>
 <body>
