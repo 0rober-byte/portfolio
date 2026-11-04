@@ -2090,6 +2090,114 @@ html[data-theme="dark"] .case-modal .case-topbar{
 @media(prefers-reduced-motion:reduce){
  header.topbar .nav,.case-modal .case-topbar .case-nav-links{scroll-behavior:auto!important}
 }
+
+/* PROJECT DETAIL — focused mobile repair */
+@media(max-width:700px){
+ .case-modal{overflow-x:hidden!important;overscroll-behavior-x:none!important}
+ .case-modal .case-content{
+  box-sizing:border-box!important;width:100%!important;max-width:100%!important;
+  padding:74px 16px 112px!important;margin:0!important;overflow-x:hidden!important;
+ }
+ .case-modal .case-topbar{
+  position:fixed!important;inset:0 0 auto 0!important;width:100%!important;
+  min-height:64px!important;height:64px!important;box-sizing:border-box!important;
+  display:flex!important;align-items:center!important;justify-content:space-between!important;
+  gap:12px!important;padding:9px 16px!important;margin:0!important;
+  background:rgba(255,255,255,.98)!important;border-bottom:1px solid var(--line)!important;
+  box-shadow:0 4px 18px rgba(10,10,10,.06)!important;z-index:1200!important;
+ }
+ .case-modal .case-topbar .case-brand{display:block!important;width:76px!important;flex:0 0 76px!important}
+ .case-modal .case-topbar .case-menu-toggle{
+  display:grid!important;place-items:center!important;flex:0 0 42px!important;
+  width:42px!important;height:42px!important;margin-left:auto!important;padding:0!important;
+  border:1px solid var(--line)!important;border-radius:50%!important;
+  background:var(--white)!important;color:var(--ink)!important;
+  font-size:21px!important;line-height:1!important;z-index:1202!important;
+ }
+ .case-modal .case-topbar .case-nav-links{
+  display:none!important;position:absolute!important;top:calc(100% + 8px)!important;
+  left:12px!important;right:12px!important;width:auto!important;max-width:none!important;
+  max-height:calc(100svh - 88px)!important;overflow-y:auto!important;
+  box-sizing:border-box!important;padding:16px 18px 18px!important;margin:0!important;
+  flex-direction:column!important;align-items:stretch!important;justify-content:flex-start!important;
+  flex-wrap:nowrap!important;gap:0!important;white-space:normal!important;
+  background:#fff!important;color:#171917!important;border:1px solid #e6e8e6!important;
+  border-radius:16px!important;box-shadow:0 18px 46px rgba(0,0,0,.16)!important;
+  z-index:1201!important;
+ }
+ .case-modal .case-topbar .case-nav-links.open{display:flex!important}
+ .case-modal .case-topbar .case-nav-links>a:not(.case-talk){
+  display:flex!important;align-items:center!important;min-height:46px!important;
+  padding:11px 0!important;border-bottom:1px solid #e8eae8!important;
+  font-size:14px!important;line-height:1.3!important;
+ }
+ .case-modal .case-topbar .case-nav-links>a:not(.case-talk):after{display:none!important}
+ .case-modal .case-topbar .case-language-switcher{align-self:flex-start!important;margin:15px 0 10px!important}
+ .case-modal .case-topbar .case-theme-toggle{align-self:flex-start!important;margin:7px 0 14px!important}
+ .case-modal .case-topbar .case-talk{
+  display:flex!important;align-self:stretch!important;justify-content:space-between!important;
+  min-height:46px!important;margin:0!important;padding:13px 16px!important;
+ }
+ html[data-theme="dark"] .case-modal .case-topbar{background:rgba(17,19,21,.98)!important;border-color:#353a3e!important}
+ html[data-theme="dark"] .case-modal .case-topbar .case-menu-toggle{background:#191c1f!important;color:#f3f4f2!important;border-color:#454c50!important}
+ html[data-theme="dark"] .case-modal .case-topbar .case-nav-links{background:#191c1f!important;color:#f3f4f2!important;border-color:#353a3e!important}
+ html[data-theme="dark"] .case-modal .case-topbar .case-nav-links>a:not(.case-talk){color:#f3f4f2!important;border-color:#353a3e!important}
+ html[data-theme="dark"] .case-modal .case-topbar .case-talk{background:#f3f4f2!important;color:#111315!important}
+ .case-modal .case-main{display:flex!important;flex-direction:column!important;gap:24px!important;width:100%!important;min-width:0!important}
+ .case-modal .case-hero-image,.case-modal .case-copy,.case-modal .case-gallery{width:100%!important;min-width:0!important;max-width:100%!important}
+ .case-modal .case-hero-image{aspect-ratio:4/3!important;max-height:none!important}
+ .case-modal .case-hero-media{width:100%!important;height:100%!important;max-width:100%!important;object-fit:contain!important}
+ .case-modal .case-copy{padding:0!important}
+ .case-modal .case-copy h2{font-size:clamp(30px,8vw,46px)!important;line-height:1.02!important;overflow-wrap:anywhere!important}
+ .case-modal .case-description{font-size:14px!important;line-height:1.65!important}
+ .case-modal .case-meta{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:16px!important}
+ .case-modal .case-meta>div{min-width:0!important;overflow-wrap:anywhere!important}
+ .case-modal .case-gallery{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:16px 10px!important}
+ .case-modal .case-gallery-cell{min-width:0!important;width:100%!important}
+ .case-modal .case-gallery-item{width:100%!important;aspect-ratio:4/3!important;overflow:hidden!important}
+ .case-modal .case-gallery-item img,.case-modal .case-gallery-item video{display:block!important;width:100%!important;height:100%!important;object-fit:cover!important}
+ .case-modal .case-gallery-caption{font-size:9px!important;line-height:1.4!important;overflow-wrap:anywhere!important}
+ .case-modal .case-bottom-fixed{min-height:60px!important;padding:7px 10px!important}
+ .case-modal .case-bottom-fixed .case-nav{gap:12px!important;max-width:100%!important}
+ .case-modal .case-bottom-fixed .case-nav-btn{width:38px!important;height:38px!important;font-size:20px!important}
+ .case-modal .case-bottom-fixed .case-counter{min-width:68px!important;font-size:12px!important}
+ .case-modal .case-bottom-fixed .case-nav-divider{min-height:34px!important}
+ .design-preview-lightbox{box-sizing:border-box!important;width:100vw!important;max-width:100vw!important}
+ .design-preview-stage{padding:58px 12px 16px!important;min-height:100svh!important}
+ .design-preview-full{max-width:100%!important;max-height:calc(100svh - 84px)!important;object-fit:contain!important}
+}
+@media(max-width:390px){
+ .case-modal .case-content{padding-left:13px!important;padding-right:13px!important}
+ .case-modal .case-topbar{padding-left:13px!important;padding-right:13px!important}
+ .case-modal .case-gallery{gap:14px 8px!important}
+ .case-modal .case-gallery-caption{font-size:8px!important}
+ .case-modal .case-bottom-fixed .case-nav{gap:8px!important}
+ .case-modal .case-bottom-fixed .case-nav-btn{width:34px!important;height:34px!important}
+ .case-modal .case-bottom-fixed .case-counter{min-width:58px!important;font-size:11px!important}
+}
+@media(max-width:340px){
+ .case-modal .case-gallery{grid-template-columns:minmax(0,1fr)!important}
+}
+/* Flat, minimal play indicator — no gradients, shadows, blur or dimensional effects */
+.case-modal .case-gallery-play{
+ width:42px!important;height:42px!important;padding:0!important;
+ border:1px solid rgba(255,255,255,.9)!important;border-radius:50%!important;
+ display:grid!important;place-items:center!important;
+ background:rgba(15,17,16,.58)!important;color:#fff!important;
+ box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
+ font-size:0!important;transform:translate(-50%,-50%)!important;
+}
+.case-modal .case-gallery-play::before{
+ content:""!important;display:block!important;width:0!important;height:0!important;
+ margin-left:3px!important;border-top:7px solid transparent!important;
+ border-bottom:7px solid transparent!important;border-left:10px solid currentColor!important;
+}
+.case-modal .case-hero-play{
+ width:64px!important;height:64px!important;padding:0!important;
+ background:rgba(15,17,16,.58)!important;box-shadow:none!important;
+ backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
+}
+
 </style>
 </head>
 <body>
@@ -2237,7 +2345,7 @@ const projectData=[
 const caseModal=document.querySelector('.case-modal');let activeProject=0;let previousFocus=null;
 const caseEls={counter:document.querySelector('#case-counter'),category:document.querySelector('#case-category'),title:document.querySelector('#case-title'),description:document.querySelector('#case-description'),client:document.querySelector('#case-client'),year:document.querySelector('#case-year'),services:document.querySelector('#case-services'),hero:document.querySelector('#case-hero-image'),gallery:document.querySelector('#case-gallery'),live:null};
 function coverMarkup(project){return `<div class="project-image typographic-cover ${project.cover}"><span class="cover-index">${project.coverIndex}</span><strong>${project.coverTitle}</strong><small>${project.coverFoot}</small></div>`}
-function renderCase(index){activeProject=(index+projectData.length)%projectData.length;const d=projectData[activeProject];const ct=caseI18n[currentLanguage]?.[activeProject];const isVideoSrc=src=>/\.(mp4|webm|ogg)(?:[?#].*)?$/i.test(src||'');const heroSrc=d.video||d.image||'';const heroIsVideo=isVideoSrc(heroSrc);caseEls.counter.textContent=`${String(activeProject+1).padStart(2,'0')} / ${String(projectData.length).padStart(2,'0')}`;caseEls.category.textContent=ct?.[0]||d.category;caseEls.title.textContent=d.title;caseEls.description.textContent=ct?.[2]||d.description;caseEls.client.textContent=d.client;caseEls.year.textContent=d.year;caseEls.services.textContent=ct?.[1]||d.services;caseEls.hero.innerHTML=heroIsVideo?`<video class="case-hero-media" src="${heroSrc}" controls playsinline preload="metadata" aria-label="${d.title} project video"></video>`:heroSrc?`<img class="case-hero-media" src="${heroSrc}" alt="${d.title} project overview" loading="eager" decoding="async">`:coverMarkup(d);if(heroSrc){caseEls.hero.insertAdjacentHTML('beforeend','<button type="button" class="case-hero-expand" aria-label="View main media full screen">⤢</button>');}const previews=(d.gallery||[]).filter(Boolean).slice(0,4);const galleryCopy={en:{image:'Click to enlarge image',video:'Click to enlarge video'},es:{image:'Click para ampliar la imagen',video:'Click para ampliar el video'},it:{image:'Clicca per ingrandire l’immagine',video:'Clicca per ingrandire il video'}}[currentLanguage]||{image:'Click to enlarge image',video:'Click to enlarge video'};caseEls.gallery.innerHTML=previews.map((src,i)=>{const isVideo=isVideoSrc(src);const label=isVideo?galleryCopy.video:galleryCopy.image;return `<div class="case-gallery-cell"><button class="case-gallery-item" type="button" data-preview-image="${src}" data-preview-video="${isVideo}" data-preview-alt="${d.title} — design preview ${i+1}" aria-label="${label}">${isVideo?`<video src="${src}" controls playsinline preload="metadata" aria-label="${d.title} video preview ${i+1}"></video><span class="case-gallery-play" aria-hidden="true">▶</span>`:`<img src="${src}" alt="${d.title} — design preview ${i+1}" loading="lazy" decoding="async">`}<span class="case-gallery-open" aria-hidden="true">↗</span></button><p class="case-gallery-caption">${label}</p></div>`}).join('');caseEls.gallery.hidden=previews.length===0;caseModal.scrollTop=0;}
+function renderCase(index){activeProject=(index+projectData.length)%projectData.length;const d=projectData[activeProject];const ct=caseI18n[currentLanguage]?.[activeProject];const isVideoSrc=src=>/\.(mp4|webm|ogg)(?:[?#].*)?$/i.test(src||'');const heroSrc=d.video||d.image||'';const heroIsVideo=isVideoSrc(heroSrc);caseEls.counter.textContent=`${String(activeProject+1).padStart(2,'0')} / ${String(projectData.length).padStart(2,'0')}`;caseEls.category.textContent=ct?.[0]||d.category;caseEls.title.textContent=d.title;caseEls.description.textContent=ct?.[2]||d.description;caseEls.client.textContent=d.client;caseEls.year.textContent=d.year;caseEls.services.textContent=ct?.[1]||d.services;caseEls.hero.innerHTML=heroIsVideo?`<video class="case-hero-media" src="${heroSrc}" controls playsinline preload="metadata" aria-label="${d.title} project video"></video>`:heroSrc?`<img class="case-hero-media" src="${heroSrc}" alt="${d.title} project overview" loading="eager" decoding="async">`:coverMarkup(d);if(heroSrc){caseEls.hero.insertAdjacentHTML('beforeend','<button type="button" class="case-hero-expand" aria-label="View main media full screen">⤢</button>');}const previews=(d.gallery||[]).filter(Boolean).slice(0,4);const galleryCopy={en:{image:'Click to enlarge image',video:'Click to enlarge video'},es:{image:'Click para ampliar la imagen',video:'Click para ampliar el video'},it:{image:'Clicca per ingrandire l’immagine',video:'Clicca per ingrandire il video'}}[currentLanguage]||{image:'Click to enlarge image',video:'Click to enlarge video'};caseEls.gallery.innerHTML=previews.map((src,i)=>{const isVideo=isVideoSrc(src);const label=isVideo?galleryCopy.video:galleryCopy.image;return `<div class="case-gallery-cell"><button class="case-gallery-item" type="button" data-preview-image="${src}" data-preview-video="${isVideo}" data-preview-alt="${d.title} — design preview ${i+1}" aria-label="${label}">${isVideo?`<video src="${src}" controls playsinline preload="metadata" aria-label="${d.title} video preview ${i+1}"></video><span class="case-gallery-play" aria-hidden="true"></span>`:`<img src="${src}" alt="${d.title} — design preview ${i+1}" loading="lazy" decoding="async">`}<span class="case-gallery-open" aria-hidden="true">↗</span></button><p class="case-gallery-caption">${label}</p></div>`}).join('');caseEls.gallery.hidden=previews.length===0;caseModal.scrollTop=0;}
 /* Final-design preview lightbox: thumbnails open their image at a larger size. */
 const previewLightbox=document.createElement('div');
 previewLightbox.className='design-preview-lightbox';
