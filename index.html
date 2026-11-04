@@ -1672,6 +1672,77 @@ html[data-theme="dark"] .cover-red:before{background:radial-gradient(ellipse at 
 html[data-theme="dark"] .cover-nicanor:before{background:radial-gradient(ellipse at 80% 20%,rgba(166,77,255,.18),transparent 48%),linear-gradient(140deg,#202428,#292e32)}
 html[data-theme="dark"] .cover-ipi:before{background:radial-gradient(ellipse at 10% 80%,rgba(0,240,96,.22),transparent 44%),radial-gradient(ellipse at 90% 15%,rgba(166,77,255,.16),transparent 48%),#202428}
 
+
+/* Complete case-study dark theme: every detail-view surface and control follows the selected theme. */
+html[data-theme="dark"] .case-modal{
+  background:rgba(17,19,21,.98)!important;color:#f3f4f2!important;
+}
+html[data-theme="dark"] .case-modal .case-topbar{
+  background:rgba(17,19,21,.96)!important;background-color:#111315!important;
+  border-bottom:1px solid #353a3e!important;
+}
+html[data-theme="dark"] .case-modal .case-top{
+  background:rgba(17,19,21,.96)!important;border-bottom-color:#353a3e!important;
+}
+html[data-theme="dark"] .case-modal .case-content,
+html[data-theme="dark"] .case-modal .case-main,
+html[data-theme="dark"] .case-modal .case-copy{color:#f3f4f2!important}
+html[data-theme="dark"] .case-modal .case-copy h2,
+html[data-theme="dark"] .case-modal .case-eyebrow,
+html[data-theme="dark"] .case-modal .case-nav-links a,
+html[data-theme="dark"] .case-modal .case-bottom button{color:#f3f4f2!important}
+html[data-theme="dark"] .case-modal .case-description,
+html[data-theme="dark"] .case-modal .case-meta span,
+html[data-theme="dark"] .case-modal .case-gallery-caption,
+html[data-theme="dark"] .case-modal .case-counter{color:#aeb4b5!important}
+html[data-theme="dark"] .case-modal .case-meta,
+html[data-theme="dark"] .case-modal .case-bottom,
+html[data-theme="dark"] .case-modal .case-bottom-fixed,
+html[data-theme="dark"] .case-modal .case-nav-logo{
+  border-color:#353a3e!important;
+}
+html[data-theme="dark"] .case-modal .case-hero-image,
+html[data-theme="dark"] .case-modal .case-hero-media,
+html[data-theme="dark"] .case-modal .case-gallery-item,
+html[data-theme="dark"] .case-modal .case-gallery-cell,
+html[data-theme="dark"] .case-modal .typographic-cover{
+  background:#202428!important;
+}
+html[data-theme="dark"] .case-modal .case-back,
+html[data-theme="dark"] .case-modal .case-nav-btn,
+html[data-theme="dark"] .case-modal .case-close{
+  background:#1b1e21!important;color:#f3f4f2!important;border:1px solid #454c50!important;
+}
+html[data-theme="dark"] .case-modal .case-back:hover,
+html[data-theme="dark"] .case-modal .case-nav-btn:hover,
+html[data-theme="dark"] .case-modal .case-close:hover{
+  background:#292e32!important;border-color:#737b7f!important;
+}
+html[data-theme="dark"] .case-modal .case-bottom-fixed{
+  background:rgba(17,19,21,.97)!important;
+  border-top:1px solid #353a3e!important;
+  box-shadow:0 -8px 28px rgba(0,0,0,.28)!important;
+}
+html[data-theme="dark"] .case-modal .case-bottom-fixed .case-back,
+html[data-theme="dark"] .case-modal .case-bottom-fixed .case-nav-btn{
+  background:#1b1e21!important;color:#f3f4f2!important;border-color:#454c50!important;
+}
+html[data-theme="dark"] .case-modal .case-gallery-open{
+  background:rgba(17,19,21,.94)!important;color:#f3f4f2!important;
+}
+html[data-theme="dark"] .case-modal .case-live,
+html[data-theme="dark"] .case-modal .case-live.pill{
+  background:#f3f4f2!important;color:#111315!important;border-color:#f3f4f2!important;
+}
+html[data-theme="dark"] .case-modal .case-live:hover,
+html[data-theme="dark"] .case-modal .case-live.pill:hover{
+  background:var(--green)!important;color:#07130b!important;border-color:var(--green)!important;
+}
+html[data-theme="dark"] .case-modal .case-brand img,
+html[data-theme="dark"] .case-modal .case-nav-logo img,
+html[data-theme="dark"] .brand img{filter:none!important}
+html[data-theme="dark"] .design-preview-lightbox{background:rgba(5,6,7,.97)!important}
+
 </style>
 </head>
 <body>
@@ -2138,6 +2209,12 @@ const motionReduced=window.matchMedia('(prefers-reduced-motion: reduce)');
   toggle.setAttribute('aria-pressed',String(dark));
   toggle.setAttribute('aria-label',dark?'Activate light mode':'Activate dark mode');
   toggle.setAttribute('title',dark?'Activate light mode':'Activate dark mode');
+
+  const logoLight='assets/logos/Rob_negro.svg';
+  const logoDark='assets/logos/Rob_blanco.svg';
+  document.querySelectorAll('.brand img,.case-brand img,.case-nav-logo img').forEach(img=>{
+    img.src=dark?logoDark:logoLight;
+  });
   const glyph=toggle.querySelector('span');
   if(glyph)glyph.textContent=dark?'☼':'☾';
   const meta=document.querySelector('meta[name="theme-color"]');
