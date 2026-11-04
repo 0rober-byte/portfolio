@@ -1571,13 +1571,89 @@ body:after{background:radial-gradient(circle at var(--ambient-x,50%) var(--ambie
 html,body{width:100%;max-width:100%;overflow-x:clip}
 @supports not (overflow:clip){html,body{overflow-x:hidden}}
 img,video,svg,canvas{max-width:100%}
+
+
+/* RobGD theme experiment — color-only layer; light remains the default. */
+.theme-toggle{
+  width:38px;height:38px;flex:0 0 38px;display:inline-grid;place-items:center;
+  padding:0;border:1px solid var(--line);border-radius:50%;
+  background:transparent;color:var(--ink);font-size:19px;line-height:1;
+  cursor:pointer;transition:background .25s,border-color .25s,color .25s,transform .25s;
+}
+.theme-toggle:hover{background:var(--soft);transform:rotate(-12deg)}
+.theme-toggle:focus-visible{outline:2px solid var(--green);outline-offset:3px}
+@media(max-width:600px){.nav .theme-toggle{align-self:flex-start}}
+html[data-theme="dark"]{
+  color-scheme:dark;
+  --white:#111315;--soft:#1b1e21;--black:#f3f4f2;--ink:#f3f4f2;
+  --muted:#a5aaad;--line:#353a3e;
+}
+html[data-theme="dark"] body{background:#111315;color:#f3f4f2}
+html[data-theme="dark"] body:after{background:transparent}
+html[data-theme="dark"] body:before{opacity:.48}
+html[data-theme="dark"] .eyebrow{color:#d5d8d7}
+html[data-theme="dark"] .hero-description,
+html[data-theme="dark"] .about-copy>p,
+html[data-theme="dark"] .service p,
+html[data-theme="dark"] .project p,
+html[data-theme="dark"] .fact p{color:#aeb4b5}
+html[data-theme="dark"] .scroll-link{color:#aeb4b5}
+html[data-theme="dark"] .scroll-link span{color:#f3f4f2}
+html[data-theme="dark"] .brand img{filter:invert(1)}
+html[data-theme="dark"] .pill{background:#f3f4f2;color:#111315;border-color:#f3f4f2}
+html[data-theme="dark"] .pill:hover{background:var(--green);color:#07130b;border-color:var(--green)}
+html[data-theme="dark"] .text-link{border-color:#d8dcda}
+html[data-theme="dark"] .project-image{background:#202428;box-shadow:0 6px 24px rgba(0,0,0,.22)}
+html[data-theme="dark"] .project-image:after{background:#f3f4f2;color:#111315}
+html[data-theme="dark"] .services{
+  background:rgba(29,33,36,.9);border-color:rgba(255,255,255,.07);
+  box-shadow:0 18px 55px rgba(0,0,0,.18)
+}
+html[data-theme="dark"] .service{border-left-color:#3b4145}
+html[data-theme="dark"] .service-icon{background:#292e32}
+html[data-theme="dark"] .service-icon svg{stroke:#f3f4f2}
+html[data-theme="dark"] .outline-pill{border-color:#737b7f;color:#f3f4f2}
+html[data-theme="dark"] .outline-pill:hover{background:#f3f4f2;color:#111315;border-color:#f3f4f2}
+html[data-theme="dark"] .about-photo{background:#202428}
+html[data-theme="dark"] .about-photo img,
+html[data-theme="dark"] .hero-person{mix-blend-mode:normal}
+html[data-theme="dark"] .clients{border-top-color:#353a3e}
+html[data-theme="dark"] .client-logo{filter:grayscale(1) invert(1);opacity:.72}
+html[data-theme="dark"] .client-logo:hover{filter:grayscale(0) invert(0);opacity:1}
+html[data-theme="dark"] .cta{background:#080a0b}
+html[data-theme="dark"] .cta .pill{background:#f3f4f2;color:#111315;border-color:#f3f4f2}
+html[data-theme="dark"] .cta .pill:hover{background:var(--green);border-color:var(--green)}
+html[data-theme="dark"] .footer{background:#080a0b;border-top-color:#303538}
+html[data-theme="dark"] .footer-bottom{border-top-color:#303538}
+html[data-theme="dark"] .nav{color:#f3f4f2}
+@media(max-width:600px){
+ html[data-theme="dark"] .nav{background:#191c1f;border-color:#353a3e;box-shadow:0 15px 35px #0008}
+}
+html[data-theme="dark"] .theme-toggle{border-color:#4a5155;color:#f3f4f2}
+html[data-theme="dark"] .theme-toggle:hover{background:#292e32}
+html[data-theme="dark"] .case-modal{background:rgba(17,19,21,.97);color:#f3f4f2}
+html[data-theme="dark"] .case-top{background:rgba(17,19,21,.88);border-bottom-color:#353a3e}
+html[data-theme="dark"] .case-modal .case-brand img{filter:invert(1)}
+html[data-theme="dark"] .case-modal .case-meta,
+html[data-theme="dark"] .case-modal .case-description,
+html[data-theme="dark"] .case-modal .case-copy,
+html[data-theme="dark"] .case-modal .case-gallery-caption{color:#aeb4b5}
+html[data-theme="dark"] .case-modal .case-nav-btn,
+html[data-theme="dark"] .case-modal .case-close,
+html[data-theme="dark"] .case-modal .case-talk{color:#f3f4f2;border-color:#4a5155}
+html[data-theme="dark"] .case-modal .case-talk{background:#f3f4f2;color:#111315}
+html[data-theme="dark"] .case-modal .case-gallery-item{background:#202428}
+html[data-theme="dark"] .case-modal .case-bottom-fixed{background:rgba(17,19,21,.92);border-color:#353a3e}
+html[data-theme="dark"] .case-modal .case-hero-media{background:#202428}
+@media(prefers-reduced-motion:reduce){.theme-toggle{transition:none}}
+
 </style>
 </head>
 <body>
 <header class="wrap topbar">
   <a class="brand" href="#home" aria-label="RobGD, home"><img src="assets/logos/Rob_negro.svg" alt="RobGD"></a>
   <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
-  <nav class="nav" aria-label="Main navigation"><a href="#about" data-i18n="navAbout">About</a><a href="#services" data-i18n="navServices">Services</a><a href="#contact" data-i18n="navContact">Contact</a><div class="language-switcher" role="group" aria-label="Choose language"><button type="button" data-lang="en" aria-pressed="true">EN</button><button type="button" data-lang="es" aria-pressed="false">ES</button><button type="button" data-lang="it" aria-pressed="false">IT</button></div><a class="pill main-talk" href="https://wa.me/3513848087" target="_blank" rel="noreferrer" data-i18n-html="talkButton">Let’s talk <span class="arrow">↗</span></a></nav>
+  <nav class="nav" aria-label="Main navigation"><a href="#about" data-i18n="navAbout">About</a><a href="#services" data-i18n="navServices">Services</a><a href="#contact" data-i18n="navContact">Contact</a><div class="language-switcher" role="group" aria-label="Choose language"><button type="button" data-lang="en" aria-pressed="true">EN</button><button type="button" data-lang="es" aria-pressed="false">ES</button><button type="button" data-lang="it" aria-pressed="false">IT</button></div><button class="theme-toggle" type="button" aria-label="Activate dark mode" aria-pressed="false" title="Activate dark mode"><span aria-hidden="true">☾</span></button><a class="pill main-talk" href="https://wa.me/3513848087" target="_blank" rel="noreferrer" data-i18n-html="talkButton">Let’s talk <span class="arrow">↗</span></a></nav>
 </header>
 <main id="home">
 <section class="wrap hero">
@@ -2023,6 +2099,30 @@ const motionReduced=window.matchMedia('(prefers-reduced-motion: reduce)');
   pair=(pair+1)%(items.length-1);
  };
  window.setInterval(swapNext,2000);
+})();
+
+
+
+// Accessible manual theme switch. No OS auto-dark: first visit always starts light.
+(()=>{
+ const root=document.documentElement;
+ const toggle=document.querySelector('.theme-toggle');
+ if(!toggle)return;
+ const paint=(dark,save)=>{
+  root.dataset.theme=dark?'dark':'light';
+  toggle.setAttribute('aria-pressed',String(dark));
+  toggle.setAttribute('aria-label',dark?'Activate light mode':'Activate dark mode');
+  toggle.setAttribute('title',dark?'Activate light mode':'Activate dark mode');
+  const glyph=toggle.querySelector('span');
+  if(glyph)glyph.textContent=dark?'☼':'☾';
+  const meta=document.querySelector('meta[name="theme-color"]');
+  if(meta)meta.setAttribute('content',dark?'#111315':'#ffffff');
+  if(save){try{localStorage.setItem('robGD-theme',dark?'dark':'light')}catch(e){}}
+ };
+ let initial='light';
+ try{const saved=localStorage.getItem('robGD-theme');if(saved==='dark'||saved==='light')initial=saved}catch(e){}
+ paint(initial==='dark',false);
+ toggle.addEventListener('click',()=>paint(root.dataset.theme!=='dark',true));
 })();
 
 </script>
