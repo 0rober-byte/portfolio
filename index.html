@@ -1647,6 +1647,31 @@ html[data-theme="dark"] .case-modal .case-bottom-fixed{background:rgba(17,19,21,
 html[data-theme="dark"] .case-modal .case-hero-media{background:#202428}
 @media(prefers-reduced-motion:reduce){.theme-toggle{transition:none}}
 
+
+/* Dark mode completion: header, navigation and every project surface follow the global theme. */
+html[data-theme="dark"] header.topbar{background:#111315!important;background-color:#111315!important;color:#f3f4f2!important;box-shadow:0 1px 0 rgba(255,255,255,.08)!important}
+html[data-theme="dark"] header.topbar .nav,html[data-theme="dark"] header.topbar .nav a:not(.pill){color:#f3f4f2!important}
+html[data-theme="dark"] header.topbar .language-switcher{background:#191c1f!important;border-color:#454c50!important}
+html[data-theme="dark"] header.topbar .language-switcher button{color:#aeb4b5!important}
+html[data-theme="dark"] header.topbar .language-switcher button[aria-pressed="true"]{background:#f3f4f2!important;color:#111315!important}
+html[data-theme="dark"] header.topbar .theme-toggle{background:#191c1f!important;border-color:#687176!important;color:#f3f4f2!important}
+html[data-theme="dark"] header.topbar .theme-toggle:hover{background:#292e32!important}
+html[data-theme="dark"] header.topbar .menu-toggle{color:#f3f4f2!important}
+html[data-theme="dark"] header.topbar .main-talk{background:#f3f4f2!important;color:#111315!important;border-color:#f3f4f2!important}
+html[data-theme="dark"] header.topbar .main-talk:hover{background:var(--green)!important;color:#07130b!important;border-color:var(--green)!important}
+html[data-theme="dark"] .project-image,html[data-theme="dark"] .case-modal .case-hero-image,html[data-theme="dark"] .case-modal .case-gallery-item{background:#202428!important;box-shadow:0 8px 26px rgba(0,0,0,.24)}
+html[data-theme="dark"] .project h3,html[data-theme="dark"] .case-modal .case-copy h2,html[data-theme="dark"] .case-modal .case-meta strong,html[data-theme="dark"] .case-modal .case-bottom-fixed,html[data-theme="dark"] .case-modal .case-back,html[data-theme="dark"] .case-modal .case-nav-btn{color:#f3f4f2!important}
+html[data-theme="dark"] .case-modal .case-meta,html[data-theme="dark"] .case-modal .case-bottom,html[data-theme="dark"] .case-modal .case-bottom-fixed,html[data-theme="dark"] .case-modal .case-nav-logo{border-color:#353a3e!important}
+html[data-theme="dark"] .case-modal .case-meta span,html[data-theme="dark"] .case-modal .case-description,html[data-theme="dark"] .case-modal .case-gallery-caption{color:#aeb4b5!important}
+html[data-theme="dark"] .case-modal .case-back,html[data-theme="dark"] .case-modal .case-nav-btn{background:#191c1f!important;border-color:#454c50!important}
+html[data-theme="dark"] .case-modal .case-gallery-open{background:rgba(17,19,21,.92)!important;color:#f3f4f2!important}
+html[data-theme="dark"] .case-modal .case-live.pill{background:#f3f4f2!important;color:#111315!important;border-color:#f3f4f2!important}
+html[data-theme="dark"] .case-modal .case-live.pill:hover{background:var(--green)!important;color:#07130b!important;border-color:var(--green)!important}
+html[data-theme="dark"] .typographic-cover{background:#202428!important;color:#f3f4f2!important}
+html[data-theme="dark"] .cover-red:before{background:radial-gradient(ellipse at 85% 15%,rgba(0,240,96,.22),transparent 42%),linear-gradient(135deg,#202428 15%,#292e32 65%)}
+html[data-theme="dark"] .cover-nicanor:before{background:radial-gradient(ellipse at 80% 20%,rgba(166,77,255,.18),transparent 48%),linear-gradient(140deg,#202428,#292e32)}
+html[data-theme="dark"] .cover-ipi:before{background:radial-gradient(ellipse at 10% 80%,rgba(0,240,96,.22),transparent 44%),radial-gradient(ellipse at 90% 15%,rgba(166,77,255,.16),transparent 48%),#202428}
+
 </style>
 </head>
 <body>
