@@ -2198,6 +2198,43 @@ html[data-theme="dark"] .case-modal .case-topbar{
  backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
 }
 
+
+/* Flat external-link arrow for the Let's talk CTA — avoid emoji-style glyph rendering on mobile. */
+.pill.main-talk .arrow,
+.pill.case-talk .arrow{
+  display:inline-block!important;
+  position:relative!important;
+  width:17px!important;
+  height:17px!important;
+  flex:0 0 17px!important;
+  font-size:0!important;
+  line-height:0!important;
+}
+.pill.main-talk .arrow::before,
+.pill.case-talk .arrow::before{
+  content:""!important;
+  position:absolute!important;
+  width:13px!important;
+  height:1.7px!important;
+  left:1px!important;
+  top:10px!important;
+  border-radius:2px!important;
+  background:currentColor!important;
+  transform:rotate(-45deg)!important;
+  transform-origin:center!important;
+}
+.pill.main-talk .arrow::after,
+.pill.case-talk .arrow::after{
+  content:""!important;
+  position:absolute!important;
+  width:7px!important;
+  height:7px!important;
+  right:1px!important;
+  top:1px!important;
+  border-top:1.7px solid currentColor!important;
+  border-right:1.7px solid currentColor!important;
+  border-radius:0!important;
+}
 </style>
 </head>
 <body>
