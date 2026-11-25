@@ -2413,6 +2413,27 @@ html:not([data-theme="dark"]) .case-modal.is-open{background:#fff!important;back
 html:not([data-theme="dark"]) .case-modal .case-topbar,
 html:not([data-theme="dark"]) .case-modal .case-bottom-fixed{background:#fff!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
 
+
+/* Flat dark canvas; keep existing contact/footer lighting and artwork intact. */
+html[data-theme="dark"] body{background:#111315!important}
+html[data-theme="dark"] body::before,
+html[data-theme="dark"] body::after,
+html[data-theme="dark"] .hero::before,
+html[data-theme="dark"] .hero::after,
+html[data-theme="dark"] .section::before,
+html[data-theme="dark"] .section::after,
+html[data-theme="dark"] .about::before,
+html[data-theme="dark"] .about::after,
+html[data-theme="dark"] .about-photo::before,
+html[data-theme="dark"] .about-photo::after,
+html[data-theme="dark"] .services::before,
+html[data-theme="dark"] .services::after{
+ content:none!important;display:none!important;animation:none!important;
+}
+html[data-theme="dark"] .services{background:#1d2124!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+html[data-theme="dark"] .case-modal,
+html[data-theme="dark"] .case-modal.is-open{background:#111315!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+
 </style>
 <script defer src="/_vercel/insights/script.js"></script>
 </head>
