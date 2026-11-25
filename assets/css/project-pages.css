@@ -38,3 +38,17 @@
  .gallery{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media(max-width:900px){.gallery{grid-template-columns:minmax(0,1fr)}.fact strong{font-size:11px}.fact span{font-size:13px}}
+
+/* Editorial process: three stages, open typography and responsive columns. */
+.project-process{padding:clamp(38px,5vw,74px) 0 clamp(34px,5vw,66px);color:inherit}
+.project-process .process-title{font-size:clamp(30px,4vw,54px);line-height:1.05;letter-spacing:-.06em;font-weight:800;margin:0 0 28px}
+.process-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,3vw,42px)}
+.process-step{min-width:0;border-top:1px solid var(--line);padding-top:18px}
+.process-index{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.09em;color:inherit;opacity:.72}
+.process-step h3{font-size:clamp(19px,2.15vw,28px);line-height:1.15;letter-spacing:-.035em;margin:15px 0 12px;font-weight:750}
+.process-step p{font-size:clamp(14px,1.25vw,16px);line-height:1.68;margin:0;color:inherit;opacity:.86}
+@media(max-width:900px){.process-grid{grid-template-columns:minmax(0,1fr);gap:26px}.project-process .process-title{margin-bottom:22px}.process-step{padding-top:15px}.process-step h3{margin:10px 0 8px}}
+
+.intro-grid .facts{grid-template-columns:minmax(0,.25fr) minmax(0,1.75fr)}
+.fact span{font-size:15px}
+@media(max-width:900px){.fact span{font-size:13px}}
