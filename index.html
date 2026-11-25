@@ -2375,6 +2375,12 @@ main#home .hero.hero-minimal .eyebrow{font-size:11px}
 .case-modal .case-gallery-cell .case-gallery-item img,.case-modal .case-gallery-cell .case-gallery-item video{display:block!important;width:100%!important;height:auto!important;max-height:none!important;aspect-ratio:auto!important;object-fit:contain!important;transform:none!important;cursor:default!important}
 .case-modal video{background:#111!important}
 @media(max-width:700px){.case-modal .case-topbar{justify-content:space-between!important}.case-modal .case-return{padding:9px 12px;font-size:11px;gap:5px}.case-modal .case-return .ui-icon{width:16px;height:16px}.case-modal .case-topbar .case-brand{width:75px!important}.case-modal .case-gallery{gap:16px!important}.case-modal .case-main{gap:20px!important}}
+
+/* Prevent the mobile Home header from intercepting project navigation. */
+body.modal-open>header.topbar{visibility:hidden!important;pointer-events:none!important}
+.case-modal.is-open{z-index:5000!important}
+.case-modal .case-return{position:relative!important;z-index:2!important}
+@media(max-width:360px){.case-modal .case-return{padding:8px!important;gap:4px!important;font-size:10px!important}.case-modal .case-topbar .case-brand{width:64px!important}}
 </style>
 <script defer src="/_vercel/insights/script.js"></script>
 </head>
