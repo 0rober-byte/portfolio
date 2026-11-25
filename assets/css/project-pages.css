@@ -6,3 +6,16 @@
 @media(max-width:780px){.header-nav{gap:12px}.header-inner{min-height:68px}.brand{width:86px}.header-nav .small-link{display:none}.intro{padding:40px 0}.intro-grid{grid-template-columns:1fr;gap:30px}.intro h1{font-size:clamp(46px,12vw,75px)}.lead{font-size:16px}.facts{border-top:1px solid var(--line);border-left:0;padding:22px 0 0;grid-template-columns:repeat(3,1fr);gap:15px}.cover{aspect-ratio:1/1;max-height:none}.gallery{gap:12px}.gallery img,.gallery video{aspect-ratio:1/1}.closing-inner{align-items:flex-start;flex-direction:column}}
 @media(max-width:480px){.header-nav .pill{padding:12px 14px;font-size:11px}.header-nav{gap:8px}.language-switcher button{padding:5px 7px}.facts{grid-template-columns:1fr;gap:13px}.intro h1{font-size:clamp(43px,12vw,60px)}.gallery{grid-template-columns:1fr}.gallery img,.gallery video{aspect-ratio:4/3}.section-head{padding-top:55px}.footer-inner{align-items:flex-start;flex-direction:column}.project-nav{gap:10px}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition-duration:.01ms!important}}
+
+/* Full artwork, not cropped thumbnails. */
+.ui-icon{width:20px;height:20px;display:inline-block;vertical-align:middle;flex:none;pointer-events:none}
+.pill .ui-icon,.project-nav .ui-icon{width:16px;height:16px}
+.header-nav .back-to-work{display:inline-flex;align-items:center;gap:6px;white-space:nowrap;font-size:12px;font-weight:700}
+.cover-wrap{background:transparent;border-radius:0;overflow:visible}
+.cover-wrap:before{display:none}
+.cover,.gallery img,.gallery video{width:100%;height:auto;max-height:none;aspect-ratio:auto;object-fit:contain}
+.gallery{grid-template-columns:minmax(0,1fr);gap:24px}
+.gallery .media{border-radius:0;overflow:visible;background:transparent;cursor:default}
+.gallery video{background:#111}
+@media(max-width:780px){.header-nav .back-to-work{display:inline-flex}.header-inner{gap:10px}.header-nav{gap:10px}.header-nav .pill{display:none}.gallery{gap:18px}}
+@media(max-width:480px){.header-inner .brand{width:73px}.header-nav .back-to-work{font-size:11px;gap:4px}.header-nav .back-to-work .ui-icon{width:16px;height:16px}.header-nav{gap:8px}}
