@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://robertinomarrazzo.vercel.app/</loc>
-  </url>
+  <url><loc>https://robertinomarrazzo.vercel.app/</loc></url>
+  <url><loc>https://robertinomarrazzo.vercel.app/projects/chana-resto/</loc></url>
+  <url><loc>https://robertinomarrazzo.vercel.app/projects/control-vehicular/</loc></url>
+  <url><loc>https://robertinomarrazzo.vercel.app/projects/gloow/</loc></url>
+  <url><loc>https://robertinomarrazzo.vercel.app/projects/buenos-aires-vending/</loc></url>
+  <url><loc>https://robertinomarrazzo.vercel.app/projects/red-mutual/</loc></url>
+  <url><loc>https://robertinomarrazzo.vercel.app/projects/nicanor/</loc></url>
+  <url><loc>https://robertinomarrazzo.vercel.app/projects/ipi-institute/</loc></url>
+  <url><loc>https://robertinomarrazzo.vercel.app/projects/eurorepar/</loc></url>
 </urlset>
