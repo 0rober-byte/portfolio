@@ -2263,7 +2263,7 @@ html[data-theme="dark"] .case-modal .case-topbar{
 .project-carousel .project-image{aspect-ratio:1 / 1;}
 .case-permalink{display:inline-flex;align-items:center;gap:10px;border-bottom:1px solid currentColor;font-size:12px;font-weight:800;padding-bottom:6px;margin-top:20px;text-decoration:none}.case-permalink:hover{color:#008c3c}
 
-/* RobGD editorial Home refresh (preview): existing content and identity retained. */
+/* RobGD editorial Home refresh (preview): original identity and imagery preserved. */
 @media(min-width:901px){
   .hero{min-height:490px;grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr);padding-top:9px;padding-bottom:20px}
   .hero-copy{padding-block:18px 24px}
@@ -2275,18 +2275,12 @@ html[data-theme="dark"] .case-modal .case-topbar{
 }
 #work .section-head{margin-bottom:25px}
 #work .section-title{gap:18px}
-#work .section-head:before{content:"";display:none}
 .project-carousel{position:relative}
 .project-viewport{overflow:visible;scroll-behavior:auto;scroll-snap-type:none;padding:0;outline:none}
-.projects{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:32px 20px;width:100%}
-.projects>.project{grid-column:span 4;min-width:0;flex:none;scroll-snap-align:none;display:block;transform:none}
-.projects>.project:nth-child(-n+2){grid-column:span 6}
-.projects>.project .project-image{aspect-ratio:1/1;border-radius:9px;overflow:hidden}
-.projects>.project:nth-child(-n+2) .project-image{aspect-ratio:1.20/1}
+.projects{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;width:100%}
+.projects>.project{display:block;min-width:0;grid-column:auto;flex:none;scroll-snap-align:none;transform:none;line-height:0}
+.projects>.project .project-image{aspect-ratio:1/1;border-radius:8px;overflow:hidden}
 .projects>.project .project-image img{width:100%;height:100%;object-fit:cover}
-.projects>.project h3{font-size:clamp(16px,1.55vw,22px);margin:14px 0 5px;line-height:1.1;letter-spacing:-.05em}
-.projects>.project p{font-size:12px;line-height:1.45}
-.projects>.project:nth-child(-n+2) h3{font-size:clamp(21px,2.25vw,29px);margin-top:17px}
 .projects>.project:hover{transform:none}
 .projects>.project:hover .project-image{box-shadow:0 20px 44px rgba(10,10,10,.11)}
 .carousel-arrow{display:none!important}
@@ -2294,11 +2288,7 @@ html[data-theme="dark"] .case-modal .case-topbar{
 .clients{border-top:1px solid var(--line);padding-top:32px;padding-bottom:34px}
 @media(min-width:901px) and (max-width:1100px){.hero{min-height:455px}.hero-art{min-height:390px}}
 @media(max-width:900px){
-  .projects{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 15px}
-  .projects>.project,.projects>.project:nth-child(-n+2){grid-column:span 1}
-  .projects>.project:nth-child(-n+2) .project-image{aspect-ratio:1/1}
-  .projects>.project .project-image{aspect-ratio:1/1}
-  .projects>.project:nth-child(-n+2) h3{font-size:19px}
+  .projects{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
   .hero{padding-bottom:16px}
 }
 @media(max-width:600px){
@@ -2312,12 +2302,7 @@ html[data-theme="dark"] .case-modal .case-topbar{
   #work.section{padding-top:24px;padding-bottom:40px}
   #work .section-head{margin-bottom:19px;align-items:center}
   #work .section-title .eyebrow{font-size:10px}
-  .projects{gap:25px 12px}
-  .projects>.project:nth-child(-n+2){grid-column:1/-1}
-  .projects>.project:nth-child(-n+2) .project-image{aspect-ratio:1.28/1}
-  .projects>.project:nth-child(-n+2) h3{font-size:21px;margin-top:12px}
-  .projects>.project h3{font-size:14px;margin-top:10px;line-height:1.18}
-  .projects>.project p{font-size:11px}
+  .projects{gap:12px}
   .projects>.project .project-image{border-radius:6px}
   .clients{padding-top:26px;padding-bottom:28px}
 }
@@ -2352,14 +2337,14 @@ html[data-theme="dark"] .case-modal .case-topbar{
     <button class="carousel-arrow carousel-prev" type="button" aria-label="Previous projects" disabled><span aria-hidden="true">‹</span></button>
     <div class="project-viewport" aria-label="Browse eight selected projects">
       <div class="projects">
-        <a class="project" href="/projects/gloow/" role="button" data-project-index="2"><div class="project-image"><img src="assets/images/covers/gloow.webp" alt="GLOOW agency identity" data-placeholder="GLOOW — upload assets/images/Gloow_portada.png" loading="lazy"></div><h3>GLOOW Agency</h3><p>Branding / Digital</p></a>
-        <a class="project" href="/projects/red-mutual/" role="button" data-project-index="4"><div class="project-image"><img src="assets/images/covers/red.webp" alt="Red Mutual identity" data-placeholder="Red — upload assets/images/Red_portada.png" loading="lazy"></div><h3>Red Mutual</h3><p>Brand Identity / Communication</p></a>
-        <a class="project" href="/projects/buenos-aires-vending/" role="button" data-project-index="3"><div class="project-image"><img src="assets/images/covers/bav.webp" alt="Buenos Aires Vending brand design" data-placeholder="BAV — upload assets/images/BAV_portada.png" loading="lazy"></div><h3>BAV</h3><p>Branding / Social Media</p></a>
-        <a class="project" href="/projects/chana-resto/" role="button" data-project-index="0"><div class="project-image"><img src="assets/images/covers/chana.webp" alt="Chaná Restó brand identity" data-placeholder="Chaná Restó — upload assets/images/Chana_portada.png" loading="lazy"></div><h3>Chaná Restó</h3><p>Branding / Social Media</p></a>
-        <a class="project" href="/projects/control-vehicular/" role="button" data-project-index="1"><div class="project-image"><img src="assets/images/covers/control.webp" alt="Control Vehicular visual identity and website" data-placeholder="Control Vehicular — upload assets/images/Control_portada.png" loading="lazy"></div><h3>Control Vehicular</h3><p>Branding / Web</p></a>
-        <a class="project" href="/projects/nicanor/" role="button" data-project-index="5"><div class="project-image"><img src="assets/images/covers/nicanor.webp" alt="Nicanor Resto brand design" data-placeholder="Nicanor — upload assets/images/Nicanor_portada.png" loading="lazy"></div><h3>Nicanor</h3><p>Branding / Art Direction</p></a>
-        <a class="project" href="/projects/ipi-institute/" role="button" data-project-index="6"><div class="project-image"><img src="assets/images/covers/ipi.webp" alt="IPI brand design" data-placeholder="IPI — upload assets/images/IPI_portada.png" loading="lazy"></div><h3>IPI Institute</h3><p>Brand Communication / Campaigns</p></a>
-        <a class="project" href="/projects/eurorepar/" role="button" data-project-index="7"><div class="project-image"><img src="assets/images/covers/eurorepar.webp" alt="Eurorepar identity" data-placeholder="Eurorepar — upload assets/images/Euro_portada.png" loading="lazy"></div><h3>Eurorepar</h3><p>Brand Communication / Campaigns</p></a>
+        <a class="project" aria-label="Open GLOOW Agency project" href="/projects/gloow/" role="button" data-project-index="2"><div class="project-image"><img src="assets/images/covers/gloow.webp" alt="GLOOW agency identity" data-placeholder="GLOOW — upload assets/images/Gloow_portada.png" loading="lazy"></div></a>
+        <a class="project" aria-label="Open Red Mutual project" href="/projects/red-mutual/" role="button" data-project-index="4"><div class="project-image"><img src="assets/images/covers/red.webp" alt="Red Mutual identity" data-placeholder="Red — upload assets/images/Red_portada.png" loading="lazy"></div></a>
+        <a class="project" aria-label="Open BAV project" href="/projects/buenos-aires-vending/" role="button" data-project-index="3"><div class="project-image"><img src="assets/images/covers/bav.webp" alt="Buenos Aires Vending brand design" data-placeholder="BAV — upload assets/images/BAV_portada.png" loading="lazy"></div></a>
+        <a class="project" aria-label="Open Chaná Restó project" href="/projects/chana-resto/" role="button" data-project-index="0"><div class="project-image"><img src="assets/images/covers/chana.webp" alt="Chaná Restó brand identity" data-placeholder="Chaná Restó — upload assets/images/Chana_portada.png" loading="lazy"></div></a>
+        <a class="project" aria-label="Open Control Vehicular project" href="/projects/control-vehicular/" role="button" data-project-index="1"><div class="project-image"><img src="assets/images/covers/control.webp" alt="Control Vehicular visual identity and website" data-placeholder="Control Vehicular — upload assets/images/Control_portada.png" loading="lazy"></div></a>
+        <a class="project" aria-label="Open Nicanor project" href="/projects/nicanor/" role="button" data-project-index="5"><div class="project-image"><img src="assets/images/covers/nicanor.webp" alt="Nicanor Resto brand design" data-placeholder="Nicanor — upload assets/images/Nicanor_portada.png" loading="lazy"></div></a>
+        <a class="project" aria-label="Open IPI Institute project" href="/projects/ipi-institute/" role="button" data-project-index="6"><div class="project-image"><img src="assets/images/covers/ipi.webp" alt="IPI brand design" data-placeholder="IPI — upload assets/images/IPI_portada.png" loading="lazy"></div></a>
+        <a class="project" aria-label="Open Eurorepar project" href="/projects/eurorepar/" role="button" data-project-index="7"><div class="project-image"><img src="assets/images/covers/eurorepar.webp" alt="Eurorepar identity" data-placeholder="Eurorepar — upload assets/images/Euro_portada.png" loading="lazy"></div></a>
       </div>
     </div>
     <button class="carousel-arrow carousel-next" type="button" aria-label="Next projects"><span aria-hidden="true">›</span></button>
