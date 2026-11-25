@@ -1,0 +1,8 @@
+{
+  "name": "robgd-portfolio-v2",
+  "private": true,
+  "version": "2.0.0",
+  "type": "module",
+  "scripts": {"build": "node v2/build.mjs", "test": "node --test v2/tests.mjs"},
+  "engines": {"node": ">=22"}
+}

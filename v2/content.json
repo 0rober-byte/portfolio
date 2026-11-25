@@ -1,0 +1,461 @@
+{
+  "projectData": [
+    {
+      "title": "Chaná Restó",
+      "category": "BRANDING / SOCIAL MEDIA / DIGITAL MARKETING",
+      "client": "Chaná Restó",
+      "year": "2026",
+      "services": "Branding, Art Direction, Social Media, Content Creation, Copywriting, Digital Marketing",
+      "description": "Building a distinctive brand through visual identity, creative content and digital marketing, combining art direction, social media and promotional campaigns.",
+      "image": "assets/images/chana-01.png",
+      "video": "assets/videos/Chana-Principal.mp4",
+      "gallery": [
+        "assets/images/chana-01.png",
+        "assets/videos/Chana-02.mp4",
+        "assets/images/chana-03.png",
+        "assets/videos/Chana-04.mp4"
+      ],
+      "live": "https://www.behance.net/robertinomarrazzo"
+    },
+    {
+      "title": "Control Vehicular",
+      "category": "SOCIAL MEDIA / ADVERTISING / CAMPAIGNS",
+      "client": "Control Vehicular",
+      "year": "2026",
+      "services": "Social Media, Digital Marketing, Advertising, Campaigns, Content Creation, Email Marketing",
+      "description": "Creating digital content and advertising campaigns to strengthen brand communication, engage audiences and promote services across digital channels.",
+      "image": "assets/videos/Control-Principal.mp4",
+      "gallery": [
+        "assets/images/Control-01.png",
+        "assets/videos/Control-02.mp4",
+        "assets/images/Control-03.png",
+        "assets/videos/Control-04.mp4"
+      ],
+      "live": "https://controlvehicular.com.ar/"
+    },
+    {
+      "title": "GLOOW Agency",
+      "category": "BRANDING / DIGITAL / ART DIRECTION",
+      "client": "GLOOW Agency",
+      "year": "2026",
+      "services": "Brand Identity, Digital Design, Social Media",
+      "description": "A flexible agency identity built around a bold typographic signature and a contemporary digital language, designed to stay recognizable across touchpoints.",
+      "image": "assets/images/Gloow-principal.png",
+      "gallery": [
+        "assets/images/Gloow-01.png",
+        "assets/videos/Gloow-02.mp4",
+        "assets/images/Gloow-03.png",
+        "assets/videos/Gloow-04.mp4"
+      ],
+      "live": "https://www.behance.net/robertinomarrazzo"
+    },
+    {
+      "title": "Buenos Aires Vending",
+      "category": "BRANDING / SOCIAL MEDIA / CAMPAIGNS",
+      "client": "BAV",
+      "year": "2026",
+      "services": "Brand Identity, Art Direction, Advertising, Social Media, Digital Marketing",
+      "description": "Developing a cohesive brand identity and communication system through art direction, advertising, social media and digital marketing.",
+      "image": "assets/images/bav-principal.png",
+      "gallery": [
+        "assets/images/bav-01.png",
+        "assets/videos/Bav-02.mp4",
+        "assets/images/bav-03.png",
+        "assets/videos/Bav-04.mp4"
+      ],
+      "live": "https://www.behance.net/robertinomarrazzo"
+    },
+    {
+      "title": "Red Mutual",
+      "category": "BRAND IDENTITY / INSTITUTIONAL COMMUNICATION",
+      "client": "Red Mutual",
+      "year": "2026",
+      "services": "Brand Identity, Institutional Communication, Campaigns",
+      "description": "Developing consistent brand communication through corporate identity, advertising campaigns, digital marketing and internal communications.",
+      "image": "assets/images/Red-principal.png",
+      "gallery": [
+        "assets/images/Red-01.png",
+        "assets/videos/Red-02.mp4",
+        "assets/images/Red-03.png",
+        "assets/videos/Red-04.mp4"
+      ],
+      "live": "https://www.behance.net/robertinomarrazzo"
+    },
+    {
+      "title": "Nicanor",
+      "category": "SOCIAL MEDIA / ADVERTISING",
+      "client": "Nicanor",
+      "year": "2026",
+      "services": "Social Media, Digital Marketing, Advertising, Campaigns, Menu Design, Promotional Materials, Email Marketing",
+      "description": "Creating engaging visual content and marketing campaigns through social media, advertising, promotional materials and brand communication.",
+      "image": "assets/videos/Nicanor-Principal.mp4",
+      "gallery": [
+        "assets/images/Nicanor-01.png",
+        "assets/videos/Nicanor-02.mp4",
+        "assets/images/Nicanor-03.png",
+        "assets/videos/Nicanor-04.mp4"
+      ],
+      "live": "https://www.behance.net/robertinomarrazzo"
+    },
+    {
+      "title": "IPI Institute",
+      "category": "BRANDING / EDUCATION / COMMUNICATION",
+      "client": "IPI",
+      "year": "2026",
+      "services": "Logo Design, Brand Identity, Social Media, Digital Marketing, Advertising, Campaigns, Internal Communications",
+      "description": "Building a cohesive institutional identity through branding, digital communication, advertising campaigns and educational content.",
+      "image": "assets/images/Ipi-principal.png",
+      "gallery": [
+        "assets/images/Ipi-01.png",
+        "assets/videos/Ipi-02.mp4",
+        "assets/images/Ipi-03.png",
+        "assets/videos/Ipi-04.mp4"
+      ],
+      "live": "https://www.behance.net/robertinomarrazzo"
+    },
+    {
+      "title": "Eurorepar",
+      "category": "BRANDING / SOCIAL MEDIA / CAMPAIGNS",
+      "client": "Eurorepar",
+      "year": "2025",
+      "services": "Brand Identity, Social Media, Digital Marketing, Advertising, Campaigns, Promotional Materials",
+      "description": "Developing brand communication through visual identity, advertising, social media and digital marketing, strengthening brand presence across multiple channels.",
+      "image": "assets/videos/Euro-Principal.mp4",
+      "gallery": [
+        "assets/images/Euro-01.png",
+        "assets/videos/Euro-02.mp4",
+        "assets/images/Euro-03.png",
+        "assets/videos/Euro-04.mp4"
+      ],
+      "live": "https://www.behance.net/robertinomarrazzo"
+    }
+  ],
+  "caseI18n": {
+    "es": [
+      [
+        "MARCA / PACKAGING / REDES",
+        "Identidad de marca, packaging, dirección de arte y redes sociales",
+        "Un lenguaje visual distintivo para una marca gastronómica contemporánea, que integra identidad, packaging y comunicación digital mediante un sistema cálido, sólido y coherente."
+      ],
+      [
+        "MARCA / WEB / COMUNICACIÓN",
+        "Branding, diseño web, redes sociales y comunicación",
+        "Una identidad cohesiva y un sitio web corporativo para una empresa de seguridad vehicular. Un proyecto que combina estrategia, diseño y comunicación digital para transmitir seguridad, claridad y confianza."
+      ],
+      [
+        "MARCA / DIGITAL / DIRECCIÓN DE ARTE",
+        "Identidad de marca, diseño digital y redes sociales",
+        "Una identidad flexible para una agencia, construida a partir de una firma tipográfica contundente y un lenguaje digital contemporáneo, reconocible en todos sus puntos de contacto."
+      ],
+      [
+        "MARCA / REDES / CAMPAÑAS",
+        "Identidad de marca, campañas y redes sociales",
+        "Un sistema de comunicación claro y versátil para una empresa de vending, que equilibra la visibilidad del producto con una presencia de marca consistente en medios digitales."
+      ],
+      [
+        "IDENTIDAD DE MARCA / COMUNICACIÓN",
+        "Identidad visual, comunicación institucional y campañas",
+        "Un sistema visual institucional pensado para mantener la comunicación consistente, accesible y reconocible en múltiples formatos y para distintos públicos."
+      ],
+      [
+        "MARCA / GASTRONOMÍA / DIRECCIÓN DE ARTE",
+        "Branding, dirección de arte y redes sociales",
+        "Un sistema de marca gastronómica que transmite carácter y sentido de pertenencia, con un lenguaje tipográfico y comunicacional flexible."
+      ],
+      [
+        "COMUNICACIÓN DE MARCA / EDUCACIÓN",
+        "Comunicación de marca, campañas y diseño digital",
+        "Un sistema de comunicación educativa e institucional que organiza la información con claridad y mantiene una identidad visual consistente."
+      ],
+      [
+        "EDITORIAL / DIGITAL / DIRECCIÓN DE ARTE",
+        "Diseño editorial, diseño digital y dirección de arte",
+        "Una selección de proyectos editoriales y digitales centrados en la tipografía, la estructura y la relación entre la información y la forma visual."
+      ]
+    ],
+    "it": [
+      [
+        "BRAND IDENTITY / PACKAGING / SOCIAL",
+        "Identità di marca, packaging, art direction e social media",
+        "Un linguaggio visivo distintivo per un brand gastronomico contemporaneo, che integra identità, packaging e comunicazione digitale in un sistema caldo, deciso e coerente."
+      ],
+      [
+        "BRAND / WEB / COMUNICAZIONE",
+        "Branding, web design, social media e comunicazione",
+        "Un’identità coordinata e un sito web aziendale per un’impresa di sicurezza veicolare. Un progetto che unisce strategia, design e comunicazione digitale per trasmettere sicurezza, chiarezza e fiducia."
+      ],
+      [
+        "BRAND / DIGITALE / ART DIRECTION",
+        "Identità di marca, design digitale e social media",
+        "Un’identità flessibile per un’agenzia, costruita attorno a una firma tipografica decisa e a un linguaggio digitale contemporaneo, riconoscibile su tutti i touchpoint."
+      ],
+      [
+        "BRAND / SOCIAL / CAMPAGNE",
+        "Identità di marca, campagne e social media",
+        "Un sistema di comunicazione chiaro e versatile per un’azienda di vending, che bilancia la visibilità dei prodotti con una presenza di marca coerente sui canali digitali."
+      ],
+      [
+        "BRAND IDENTITY / COMUNICAZIONE",
+        "Identità visiva, comunicazione istituzionale e campagne",
+        "Un sistema visivo istituzionale progettato per mantenere la comunicazione coerente, accessibile e riconoscibile in diversi formati e per pubblici differenti."
+      ],
+      [
+        "BRAND / OSPITALITÀ / ART DIRECTION",
+        "Branding, art direction e social media",
+        "Un sistema di marca per la ristorazione che trasmette carattere e senso del luogo, sostenuto da un linguaggio tipografico e comunicativo flessibile."
+      ],
+      [
+        "COMUNICAZIONE DI MARCA / FORMAZIONE",
+        "Comunicazione di marca, campagne e design digitale",
+        "Un sistema di comunicazione formativa e istituzionale che organizza le informazioni con chiarezza mantenendo un’identità visiva coerente."
+      ],
+      [
+        "EDITORIALE / DIGITALE / ART DIRECTION",
+        "Design editoriale, design digitale e art direction",
+        "Una selezione di progetti editoriali e digitali incentrati su tipografia, struttura e relazione tra informazione e forma visiva."
+      ]
+    ]
+  },
+  "legacyI18n": {
+    "en": {
+      "nav": [
+        "About",
+        "Services",
+        "Contact"
+      ],
+      "talk": "Let’s talk",
+      "heroEyebrow": "Visual identity · Digital design",
+      "headline": [
+        "Design that",
+        "makes brands",
+        "matter."
+      ],
+      "hero": "Senior graphic designer creating visual identities, brand systems and campaigns. Based in Italy, working worldwide.",
+      "work": "View my work",
+      "scroll": "Scroll to explore",
+      "featured": "Featured projects",
+      "moreProjects": "View more projects",
+      "categories": [
+        "Branding / Social Media",
+        "Branding / Web",
+        "Branding / Digital",
+        "Branding / Social Media",
+        "Brand Identity / Communication",
+        "Branding / Art Direction",
+        "Brand Communication / Campaigns",
+        "Brand Communication / Campaigns"
+      ],
+      "services": [
+        "Services",
+        "Visual solutions for your brand.",
+        [
+          "Brand Identity",
+          "Social Media",
+          "Digital Design",
+          "Editorial Design"
+        ],
+        [
+          "Brand identities, visual systems and practical guidelines built to scale.",
+          "Creative direction, campaigns and consistent social media communication.",
+          "Web visuals, presentations and digital assets designed for clarity.",
+          "Reports, brochures and printed pieces with clear editorial hierarchy."
+        ]
+      ],
+      "about": [
+        "About me",
+        "I’m Robertino, a graphic designer with 10+ years of experience.",
+        "I turn complex communication needs into clear identities, campaigns and scalable visual systems.",
+        "More about me"
+      ],
+      "facts": [
+        "From Argentina",
+        "Based in Messina, Italy",
+        "Open to global projects",
+        "Remote collaboration",
+        "Languages"
+      ],
+      "brands": "Brands I’ve worked with",
+      "cta": [
+        "Let’s work together",
+        "Have a project<br>in mind?",
+        "Let’s create something great.<br>I’m open to new opportunities worldwide.",
+        "Get in touch"
+      ],
+      "footer": [
+        "Work",
+        "About",
+        "Services",
+        "© 2026 Robertino Marrazzo. All rights reserved.",
+        "Visual solutions for a real world."
+      ],
+      "meta": [
+        "Client",
+        "Year",
+        "Services"
+      ],
+      "case": "Project case study",
+      "prev": "Previous project",
+      "next": "Next project"
+    },
+    "es": {
+      "nav": [
+        "Sobre mí",
+        "Servicios",
+        "Contacto"
+      ],
+      "talk": "Hablemos",
+      "heroEyebrow": "Identidad visual · Diseño digital",
+      "headline": [
+        "Diseño que",
+        "fortalece",
+        "marcas."
+      ],
+      "hero": "Diseñador gráfico senior especializado en identidades visuales, sistemas de marca y campañas. Desde Italia, para todo el mundo.",
+      "work": "Ver proyectos",
+      "scroll": "Deslizá para explorar",
+      "featured": "Proyectos destacados",
+      "moreProjects": "Ver más proyectos",
+      "categories": [
+        "Branding / Redes sociales",
+        "Branding / Web",
+        "Branding / Digital",
+        "Branding / Redes sociales",
+        "Identidad de marca / Comunicación",
+        "Branding / Dirección de arte",
+        "Comunicación de marca / Campañas",
+        "Comunicación de marca / Campañas"
+      ],
+      "services": [
+        "Servicios",
+        "Soluciones visuales para tu marca.",
+        [
+          "Identidad de marca",
+          "Redes sociales",
+          "Diseño digital",
+          "Diseño editorial"
+        ],
+        [
+          "Identidades, sistemas visuales y guías de marca pensadas para crecer.",
+          "Dirección creativa, campañas y comunicación visual coherente en redes.",
+          "Diseño web, presentaciones y piezas digitales centradas en la claridad.",
+          "Informes, folletos y piezas impresas con jerarquía editorial clara."
+        ]
+      ],
+      "about": [
+        "Sobre mí",
+        "Soy Robertino, diseñador gráfico con más de 10 años de experiencia.",
+        "Transformo necesidades de comunicación en identidades, campañas y sistemas visuales coherentes y escalables.",
+        "Más sobre mí"
+      ],
+      "facts": [
+        "De Argentina",
+        "Con base en Mesina, Italia",
+        "Abierto a proyectos globales",
+        "Colaboración remota",
+        "Idiomas"
+      ],
+      "brands": "Marcas con las que trabajé",
+      "cta": [
+        "Trabajemos juntos",
+        "¿Tenés un proyecto<br>en mente?",
+        "Creemos algo excelente.<br>Estoy abierto a nuevas oportunidades en todo el mundo.",
+        "Contactame"
+      ],
+      "footer": [
+        "Proyectos",
+        "Sobre mí",
+        "Servicios",
+        "© 2026 Robertino Marrazzo. Todos los derechos reservados.",
+        "Soluciones visuales para el mundo real."
+      ],
+      "meta": [
+        "Cliente",
+        "Año",
+        "Servicios"
+      ],
+      "case": "Caso de estudio del proyecto",
+      "prev": "Proyecto anterior",
+      "next": "Proyecto siguiente"
+    },
+    "it": {
+      "nav": [
+        "Chi sono",
+        "Servizi",
+        "Contatti"
+      ],
+      "talk": "Parliamone",
+      "heroEyebrow": "Identità visiva · Design digitale",
+      "headline": [
+        "Design che",
+        "valorizza",
+        "i brand."
+      ],
+      "hero": "Senior graphic designer specializzato in identità visive, sistemi di marca e campagne. Dall’Italia, per progetti internazionali.",
+      "work": "Scopri i progetti",
+      "scroll": "Scorri per esplorare",
+      "featured": "Progetti in evidenza",
+      "moreProjects": "Vedi altri progetti",
+      "categories": [
+        "Branding / Social media",
+        "Branding / Web",
+        "Branding / Digitale",
+        "Branding / Social media",
+        "Brand identity / Comunicazione",
+        "Branding / Art direction",
+        "Comunicazione di marca / Campagne",
+        "Comunicazione di marca / Campagne"
+      ],
+      "services": [
+        "Servizi",
+        "Soluzioni visive per il tuo brand.",
+        [
+          "Brand identity",
+          "Social media",
+          "Design digitale",
+          "Design editoriale"
+        ],
+        [
+          "Identità, sistemi visivi e linee guida di marca pensati per crescere.",
+          "Direzione creativa, campagne e comunicazione social coerente.",
+          "Design web, presentazioni e risorse digitali chiare ed efficaci.",
+          "Report, brochure e materiali stampati con gerarchia editoriale chiara."
+        ]
+      ],
+      "about": [
+        "Chi sono",
+        "Sono Robertino, graphic designer con oltre 10 anni di esperienza.",
+        "Trasformo le esigenze di comunicazione in identità, campagne e sistemi visivi chiari e coerenti.",
+        "Scopri di più"
+      ],
+      "facts": [
+        "Dall’Argentina",
+        "Base a Messina, Italia",
+        "Disponibile per progetti globali",
+        "Collaborazione da remoto",
+        "Lingue"
+      ],
+      "brands": "Brand con cui ho lavorato",
+      "cta": [
+        "Lavoriamo insieme",
+        "Hai un progetto<br>in mente?",
+        "Creiamo qualcosa di speciale.<br>Sono aperto a nuove opportunità in tutto il mondo.",
+        "Contattami"
+      ],
+      "footer": [
+        "Progetti",
+        "Chi sono",
+        "Servizi",
+        "© 2026 Robertino Marrazzo. Tutti i diritti riservati.",
+        "Soluzioni visive per il mondo reale."
+      ],
+      "meta": [
+        "Cliente",
+        "Anno",
+        "Servizi"
+      ],
+      "case": "Caso studio del progetto",
+      "prev": "Progetto precedente",
+      "next": "Progetto successivo"
+    }
+  }
+}
