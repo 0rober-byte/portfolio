@@ -1,3 +1,4 @@
+import vm from 'node:vm';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
@@ -30,3 +31,5 @@ test('no reference branding, commercial copy or third-party project assets leak 
 test('contact and brand links use the original assets and correct destinations',()=>{
   for(const file of htmlFiles){const h=fs.readFileSync(file,'utf8');assert.match(h,/\/assets\/logos\/Rob_negro\.svg/);assert.match(h,/\/assets\/logos\/Rob_blanco\.svg/);assert.match(h,/mailto:romadgcv@gmail.com/);assert.match(h,/wa.me\/393513848087/);assert.doesNotMatch(h,/wa.me\/3513848087/);}
 });
+
+test('client script parses in the JavaScript runtime',()=>{new vm.Script(fs.readFileSync(path.join(root,'v2/app.js'),'utf8'));});

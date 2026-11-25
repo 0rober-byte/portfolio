@@ -38,3 +38,7 @@ Reference: https://www.cancreativestudio.com/ (inspected 2026-11-25). Reviewed h
 ## Publishing
 
 Branch: `portfolio-v2`. Dedicated Vercel project: `robgd-portfolio-v2`. Build as a preview; do not promote or reassign production domains.
+
+## Validation record
+
+Initial structural suite passed locally. The final Vercel build runs the complete test suite before publication. Live HTTP checks verify translated routes and project content. The browser session became unavailable during preview inspection; the final screenshot comparison and interactive responsive pass remain pending. The two cover updates from production commit `2db53ef4fe70dff8b176174813785b29dc651174` are included without changing that branch.

@@ -74,7 +74,7 @@ function card(p,t) {
   const cp=caseCopy(p,t.code), cat=cp[0].split(' / ').slice(0,2).join(' · ');
   return `<a class="project-card reveal" href="${href(t.code,`projects/${p.slug}/`)}" data-shots='${e(JSON.stringify(p.shots.map(asset)))}'>
     <div class="thumb"><img src="${asset(p.cover)}" alt="${e(p.title)}" width="800" height="1000" loading="lazy" decoding="async"><span class="shot-counter mono" aria-hidden="true">1/${p.shots.length}</span><span class="open-project mono">${t.view} ${arrow()}</span></div>
-    <div class="project-meta"><h3>${e(p.title)}</h3><span class="mono">${e(cat)}</span></div><div class="project-meta secondary mono"><span>${e(cp[0].split(' / ').slice(2).join(' · ') || 'Visual communication')}</span><span>${p.year}</span></div>
+    <div class="project-meta"><h3>${e(p.title)}</h3><span class="mono">${e(cat)}</span></div><div class="project-meta secondary mono"><span>${e(cp[0].split(' / ').slice(2).join(' · ') || ({es:'Comunicación visual',en:'Visual communication',it:'Comunicazione visiva'}[t.code]))}</span><span>${p.year}</span></div>
   </a>`;
 }
 

@@ -108,7 +108,8 @@
     location.href=mailto;
   });
   $('#copy-message').addEventListener('click',async event=>{
-    try{await navigator.clipboard.writeText(message);event.currentTarget.textContent=event.currentTarget.dataset.copied;}
+    const button=event.currentTarget;
+    try{await navigator.clipboard.writeText(message);button.textContent=button.dataset.copied;}
     catch{const area=document.createElement('textarea');area.value=message;area.readOnly=true;$('.form-status').append(area);area.select();}
   });
 })();
