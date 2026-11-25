@@ -2308,6 +2308,32 @@ html[data-theme="dark"] .case-modal .case-topbar{
 }
 @media(prefers-reduced-motion:reduce){.projects>.project .project-image img{transition:none}}
 
+/* Static brand grid: original SVG assets, optically balanced, no duplicates or animation. */
+#brands.clients{padding-top:clamp(30px,4vw,52px);padding-bottom:clamp(38px,5vw,64px)}
+#brands .eyebrow{font-size:12px}
+#brands .client-marquee{overflow:visible;mask-image:none;-webkit-mask-image:none;margin-top:24px}
+#brands .client-row{display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr));width:100%;gap:1px!important;align-items:stretch;justify-items:stretch;animation:none!important;transform:none!important;will-change:auto;position:static;margin:0;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+#brands .client-logo{display:flex;align-items:center;justify-content:center;flex:none;width:100%;min-width:0;height:clamp(94px,9.4vw,138px);padding:20px 14px;filter:none!important;opacity:1!important;background:#fafafa;transform:none!important;transition:background .2s}
+#brands .client-logo img{display:block;width:auto;height:auto;max-width:min(74%,180px);max-height:56px;object-fit:contain;filter:grayscale(1);opacity:1;transform-origin:center;transition:opacity .2s}
+#brands .client-logo.brand-tmb img{transform:scale(.92)}
+#brands .client-logo.brand-chana img,#brands .client-logo.brand-florencia img{transform:scale(1.07)}
+#brands .client-logo.brand-bml img{transform:scale(.96)}
+html[data-theme="dark"] #brands .client-logo{background:#191c1f}
+html[data-theme="dark"] #brands .client-logo img{filter:grayscale(1) invert(1);opacity:.88}
+@media(hover:hover) and (pointer:fine){#brands .client-logo:hover{background:#f2f2f2}html[data-theme="dark"] #brands .client-logo:hover{background:#202427}}
+#work .section-head .eyebrow{font-size:12px}
+#work .section-head .text-link{font-size:12px}
+#services.section{padding-top:clamp(25px,3.5vw,50px)}
+@media(max-width:900px){#brands .client-logo{height:104px;padding:16px 9px}#brands .client-logo img{max-width:80%;max-height:48px}}
+@media(max-width:600px){
+ #brands .client-row{grid-template-columns:repeat(3,minmax(0,1fr));border-radius:8px}
+ #brands .client-logo{height:85px;padding:11px 8px}
+ #brands .client-logo img{max-width:85%;max-height:38px}
+ #brands .client-marquee{margin-top:20px}
+ #brands .eyebrow,#work .section-head .eyebrow{font-size:10px}
+ #work .section-head .text-link{font-size:10px}
+}
+
 </style>
 <script defer src="/_vercel/insights/script.js"></script>
 </head>
@@ -2350,7 +2376,23 @@ html[data-theme="dark"] .case-modal .case-topbar{
     <button class="carousel-arrow carousel-next" type="button" aria-label="Next projects"><span aria-hidden="true">›</span></button>
   </div>
 </section>
-<section class="wrap clients"><div class="eyebrow">Brands I’ve worked with</div><div class="client-marquee" aria-label="Logos of 15 brands I’ve worked with"><div class="client-row"><div class="client-logo brand-bml"><img src="assets/brands/bml.svg" alt="BML" loading="lazy" decoding="async"></div><div class="client-logo"><img src="assets/brands/clinica.svg" alt="Clínica" loading="lazy" decoding="async"></div><div class="client-logo"><img src="assets/brands/gloow.svg" alt="GLOOW" loading="lazy" decoding="async"></div><div class="client-logo"><img src="assets/brands/control.svg" alt="Control Vehicular" loading="lazy" decoding="async"></div><div class="client-logo brand-chana"><img src="assets/brands/chana.svg" alt="Chaná Restó" loading="lazy" decoding="async"></div><div class="client-logo brand-florencia"><img src="assets/brands/florencia.svg" alt="Florencia Acacia" loading="lazy" decoding="async"></div><div class="client-logo brand-tmb"><img src="assets/brands/tmb.svg" alt="TMB" loading="lazy" decoding="async"></div><div class="client-logo"><img src="assets/brands/gm.svg" alt="GM" loading="lazy" decoding="async"></div><div class="client-logo"><img src="assets/brands/siglo-21.svg" alt="Siglo 21" loading="lazy" decoding="async"></div><div class="client-logo"><img src="assets/brands/nicanor.svg" alt="Nicanor" loading="lazy" decoding="async"></div><div class="client-logo"><img src="assets/brands/red.svg" alt="Red Mutual" loading="lazy" decoding="async"></div><div class="client-logo"><img src="assets/brands/nation.svg" alt="Nation" loading="lazy" decoding="async"></div><div class="client-logo"><img src="assets/brands/best-performance.svg" alt="Best Performance" loading="lazy" decoding="async"></div><div class="client-logo"><img src="assets/brands/bav.svg" alt="BAV" loading="lazy" decoding="async"></div><div class="client-logo"><img src="assets/brands/ipi.svg" alt="IPI" loading="lazy" decoding="async"></div><div class="client-logo" aria-hidden="true"><img src="assets/brands/bml.svg" alt="" loading="lazy" decoding="async"></div><div class="client-logo" aria-hidden="true"><img src="assets/brands/clinica.svg" alt="" loading="lazy" decoding="async"></div><div class="client-logo" aria-hidden="true"><img src="assets/brands/gloow.svg" alt="" loading="lazy" decoding="async"></div><div class="client-logo" aria-hidden="true"><img src="assets/brands/control.svg" alt="" loading="lazy" decoding="async"></div><div class="client-logo" aria-hidden="true"><img src="assets/brands/chana.svg" alt="" loading="lazy" decoding="async"></div><div class="client-logo" aria-hidden="true"><img src="assets/brands/florencia.svg" alt="" loading="lazy" decoding="async"></div><div class="client-logo" aria-hidden="true"><img src="assets/brands/tmb.svg" alt="" loading="lazy" decoding="async"></div><div class="client-logo" aria-hidden="true"><img src="assets/brands/gm.svg" alt="" loading="lazy" decoding="async"></div><div class="client-logo" aria-hidden="true"><img src="assets/brands/siglo-21.svg" alt="" loading="lazy" decoding="async"></div><div class="client-logo" aria-hidden="true"><img src="assets/brands/nicanor.svg" alt="" loading="lazy" decoding="async"></div><div class="client-logo" aria-hidden="true"><img src="assets/brands/red.svg" alt="" loading="lazy" decoding="async"></div><div class="client-logo" aria-hidden="true"><img src="assets/brands/nation.svg" alt="" loading="lazy" decoding="async"></div><div class="client-logo" aria-hidden="true"><img src="assets/brands/best-performance.svg" alt="" loading="lazy" decoding="async"></div><div class="client-logo" aria-hidden="true"><img src="assets/brands/bav.svg" alt="" loading="lazy" decoding="async"></div><div class="client-logo" aria-hidden="true"><img src="assets/brands/ipi.svg" alt="" loading="lazy" decoding="async"></div></div></div></section>
+<section class="wrap clients" id="brands" aria-labelledby="brands-heading"><div class="eyebrow" id="brands-heading">Brands I’ve worked with</div><div class="client-marquee" aria-label="Logos of 15 brands I’ve worked with"><div class="client-row" role="list">
+<div class="client-logo brand-bml" role="listitem"><img src="assets/brands/bml.svg" alt="BML" loading="lazy" decoding="async"></div>
+<div class="client-logo" role="listitem"><img src="assets/brands/clinica.svg" alt="Clínica" loading="lazy" decoding="async"></div>
+<div class="client-logo" role="listitem"><img src="assets/brands/gloow.svg" alt="GLOOW" loading="lazy" decoding="async"></div>
+<div class="client-logo" role="listitem"><img src="assets/brands/control.svg" alt="Control Vehicular" loading="lazy" decoding="async"></div>
+<div class="client-logo brand-chana" role="listitem"><img src="assets/brands/chana.svg" alt="Chaná Restó" loading="lazy" decoding="async"></div>
+<div class="client-logo brand-florencia" role="listitem"><img src="assets/brands/florencia.svg" alt="Florencia Acacia" loading="lazy" decoding="async"></div>
+<div class="client-logo brand-tmb" role="listitem"><img src="assets/brands/tmb.svg" alt="TMB" loading="lazy" decoding="async"></div>
+<div class="client-logo" role="listitem"><img src="assets/brands/gm.svg" alt="GM" loading="lazy" decoding="async"></div>
+<div class="client-logo" role="listitem"><img src="assets/brands/siglo-21.svg" alt="Siglo 21" loading="lazy" decoding="async"></div>
+<div class="client-logo" role="listitem"><img src="assets/brands/nicanor.svg" alt="Nicanor" loading="lazy" decoding="async"></div>
+<div class="client-logo" role="listitem"><img src="assets/brands/red.svg" alt="Red Mutual" loading="lazy" decoding="async"></div>
+<div class="client-logo" role="listitem"><img src="assets/brands/nation.svg" alt="Nation" loading="lazy" decoding="async"></div>
+<div class="client-logo" role="listitem"><img src="assets/brands/best-performance.svg" alt="Best Performance" loading="lazy" decoding="async"></div>
+<div class="client-logo" role="listitem"><img src="assets/brands/bav.svg" alt="BAV" loading="lazy" decoding="async"></div>
+<div class="client-logo" role="listitem"><img src="assets/brands/ipi.svg" alt="IPI" loading="lazy" decoding="async"></div>
+</div></div></section>
 <section class="wrap section" id="services">
   <div class="services reveal">
     <div class="services-intro"><div class="eyebrow">Services</div><h2>Visual solutions for your brand.</h2></div>
@@ -2439,10 +2481,7 @@ if('IntersectionObserver' in window){const observer=new IntersectionObserver(ent
 // Subtle pointer parallax for the colour field and a restrained image tilt on desktop only.
 if(motionOK&&matchMedia('(hover:hover) and (pointer:fine)').matches){const art=document.querySelector('.hero-art'),aura=document.querySelector('.aura');art.addEventListener('pointermove',e=>{const r=art.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;aura.style.transform=`translate(${x*13}px,${y*10}px) rotate(${-5+x*2}deg)`});art.addEventListener('pointerleave',()=>aura.style.transform='');document.querySelectorAll('.project').forEach(card=>{card.addEventListener('pointermove',e=>{const r=card.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;card.querySelector('.project-image').style.transform=`perspective(900px) rotateX(${-y*2.2}deg) rotateY(${x*2.2}deg)`});card.addEventListener('pointerleave',()=>card.querySelector('.project-image').style.transform='')});}
 
-// Seamless brand marquee: pauses on hover/focus and respects reduced motion.
-const marquee=document.querySelector('.client-marquee');
-marquee?.addEventListener('focusin',()=>document.querySelector('.client-row')?.style.setProperty('animation-play-state','paused'));
-marquee?.addEventListener('focusout',()=>document.querySelector('.client-row')?.style.setProperty('animation-play-state','running'));
+// Brand logos are presented as a static, accessible grid.
 // Accessible project case studies, navigable in both directions like the supplied reference.
 const projectData=[
  {title:'Chaná Restó',category:'BRANDING / SOCIAL MEDIA / DIGITAL MARKETING',client:'Chaná Restó',year:'2026',services:'Branding, Art Direction, Social Media, Content Creation, Copywriting, Digital Marketing',description:'Building a distinctive brand through visual identity, creative content and digital marketing, combining art direction, social media and promotional campaigns.',image:'assets/images/chana-01.png',video:'assets/videos/Chana-Principal.mp4',gallery:['assets/images/chana-01.png','assets/videos/Chana-02.mp4','assets/images/chana-03.png','assets/videos/Chana-04.mp4'],live:'https://www.behance.net/robertinomarrazzo'},
