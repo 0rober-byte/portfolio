@@ -2381,6 +2381,38 @@ body.modal-open>header.topbar{visibility:hidden!important;pointer-events:none!im
 .case-modal.is-open{z-index:5000!important}
 .case-modal .case-return{position:relative!important;z-index:2!important}
 @media(max-width:360px){.case-modal .case-return{padding:8px!important;gap:4px!important;font-size:10px!important}.case-modal .case-topbar .case-brand{width:64px!important}}
+
+/* White editorial canvas and larger hero. Keep the original dark CTA lighting. */
+main#home .hero.hero-minimal h1{
+ font-size:clamp(64px,10vw,146px)!important;
+ max-width:100%!important;
+ line-height:.94!important;
+ overflow-wrap:break-word;
+}
+@media(max-width:900px){main#home .hero.hero-minimal h1{font-size:clamp(56px,10.8vw,104px)!important}}
+@media(max-width:600px){main#home .hero.hero-minimal h1{font-size:clamp(46px,14.5vw,85px)!important;line-height:.97!important}}
+html:not([data-theme="dark"]) body{background:#fff!important}
+html:not([data-theme="dark"]) body::before,
+html:not([data-theme="dark"]) body::after,
+html:not([data-theme="dark"]) .hero::before,
+html:not([data-theme="dark"]) .hero::after,
+html:not([data-theme="dark"]) .section::before,
+html:not([data-theme="dark"]) .section::after,
+html:not([data-theme="dark"]) .about::before,
+html:not([data-theme="dark"]) .about::after,
+html:not([data-theme="dark"]) .about-photo::before,
+html:not([data-theme="dark"]) .about-photo::after,
+html:not([data-theme="dark"]) .services::before,
+html:not([data-theme="dark"]) .services::after{
+ content:none!important;display:none!important;animation:none!important;
+}
+html:not([data-theme="dark"]) .services{background:#fff!important;border-color:var(--line)!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+html:not([data-theme="dark"]) .about-photo{background:#fff!important}
+html:not([data-theme="dark"]) .case-modal,
+html:not([data-theme="dark"]) .case-modal.is-open{background:#fff!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+html:not([data-theme="dark"]) .case-modal .case-topbar,
+html:not([data-theme="dark"]) .case-modal .case-bottom-fixed{background:#fff!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+
 </style>
 <script defer src="/_vercel/insights/script.js"></script>
 </head>
