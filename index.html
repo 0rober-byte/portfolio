@@ -2262,6 +2262,67 @@ html[data-theme="dark"] .case-modal .case-topbar{
 /* RobGD Phase 2 — square editorial project covers, matching the supplied 1254px artworks. */
 .project-carousel .project-image{aspect-ratio:1 / 1;}
 .case-permalink{display:inline-flex;align-items:center;gap:10px;border-bottom:1px solid currentColor;font-size:12px;font-weight:800;padding-bottom:6px;margin-top:20px;text-decoration:none}.case-permalink:hover{color:#008c3c}
+
+/* RobGD editorial Home refresh (preview): existing content and identity retained. */
+@media(min-width:901px){
+  .hero{min-height:490px;grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr);padding-top:9px;padding-bottom:20px}
+  .hero-copy{padding-block:18px 24px}
+  .hero h1{font-size:clamp(47px,6.05vw,84px);margin:15px 0 19px}
+  .hero-description{margin-bottom:22px}
+  .hero-art{min-height:410px}
+  .hero-person{max-width:510px}
+  #work.section{padding-top:45px}
+}
+#work .section-head{margin-bottom:25px}
+#work .section-title{gap:18px}
+#work .section-head:before{content:"";display:none}
+.project-carousel{position:relative}
+.project-viewport{overflow:visible;scroll-behavior:auto;scroll-snap-type:none;padding:0;outline:none}
+.projects{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:32px 20px;width:100%}
+.projects>.project{grid-column:span 4;min-width:0;flex:none;scroll-snap-align:none;display:block;transform:none}
+.projects>.project:nth-child(-n+2){grid-column:span 6}
+.projects>.project .project-image{aspect-ratio:1/1;border-radius:9px;overflow:hidden}
+.projects>.project:nth-child(-n+2) .project-image{aspect-ratio:1.20/1}
+.projects>.project .project-image img{width:100%;height:100%;object-fit:cover}
+.projects>.project h3{font-size:clamp(16px,1.55vw,22px);margin:14px 0 5px;line-height:1.1;letter-spacing:-.05em}
+.projects>.project p{font-size:12px;line-height:1.45}
+.projects>.project:nth-child(-n+2) h3{font-size:clamp(21px,2.25vw,29px);margin-top:17px}
+.projects>.project:hover{transform:none}
+.projects>.project:hover .project-image{box-shadow:0 20px 44px rgba(10,10,10,.11)}
+.carousel-arrow{display:none!important}
+#work.section{padding-bottom:58px}
+.clients{border-top:1px solid var(--line);padding-top:32px;padding-bottom:34px}
+@media(min-width:901px) and (max-width:1100px){.hero{min-height:455px}.hero-art{min-height:390px}}
+@media(max-width:900px){
+  .projects{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 15px}
+  .projects>.project,.projects>.project:nth-child(-n+2){grid-column:span 1}
+  .projects>.project:nth-child(-n+2) .project-image{aspect-ratio:1/1}
+  .projects>.project .project-image{aspect-ratio:1/1}
+  .projects>.project:nth-child(-n+2) h3{font-size:19px}
+  .hero{padding-bottom:16px}
+}
+@media(max-width:600px){
+  .hero{padding-top:16px;padding-bottom:12px}
+  .hero h1{font-size:clamp(43px,12vw,64px);line-height:.94;margin-top:14px;margin-bottom:14px}
+  .hero-description{font-size:14px;line-height:1.45;margin-bottom:20px}
+  .hero-art{min-height:230px;margin-top:0}
+  .hero-person{max-height:260px;max-width:330px}
+  .hero-side-note{top:14%}
+  .scroll-link{margin-top:18px}
+  #work.section{padding-top:24px;padding-bottom:40px}
+  #work .section-head{margin-bottom:19px;align-items:center}
+  #work .section-title .eyebrow{font-size:10px}
+  .projects{gap:25px 12px}
+  .projects>.project:nth-child(-n+2){grid-column:1/-1}
+  .projects>.project:nth-child(-n+2) .project-image{aspect-ratio:1.28/1}
+  .projects>.project:nth-child(-n+2) h3{font-size:21px;margin-top:12px}
+  .projects>.project h3{font-size:14px;margin-top:10px;line-height:1.18}
+  .projects>.project p{font-size:11px}
+  .projects>.project .project-image{border-radius:6px}
+  .clients{padding-top:26px;padding-bottom:28px}
+}
+@media(prefers-reduced-motion:reduce){.projects>.project .project-image img{transition:none}}
+
 </style>
 <script defer src="/_vercel/insights/script.js"></script>
 </head>
@@ -2287,15 +2348,15 @@ html[data-theme="dark"] .case-modal .case-topbar{
 </section>
 <section class="wrap section" id="work">
   <div class="section-head"><div class="section-title"><span class="eyebrow">Featured projects</span></div><a class="text-link" href="https://www.behance.net/robertinomarrazzo" target="_blank" rel="noreferrer">View more projects <span>→</span></a></div>
-  <div class="project-carousel" aria-label="Featured projects carousel">
+  <div class="project-carousel" aria-label="Featured projects">
     <button class="carousel-arrow carousel-prev" type="button" aria-label="Previous projects" disabled><span aria-hidden="true">‹</span></button>
-    <div class="project-viewport" tabindex="0" aria-label="Swipe or use arrow keys to browse eight projects">
+    <div class="project-viewport" aria-label="Browse eight selected projects">
       <div class="projects">
+        <a class="project" href="/projects/gloow/" role="button" data-project-index="2"><div class="project-image"><img src="assets/images/covers/gloow.webp" alt="GLOOW agency identity" data-placeholder="GLOOW — upload assets/images/Gloow_portada.png" loading="lazy"></div><h3>GLOOW Agency</h3><p>Branding / Digital</p></a>
+        <a class="project" href="/projects/red-mutual/" role="button" data-project-index="4"><div class="project-image"><img src="assets/images/covers/red.webp" alt="Red Mutual identity" data-placeholder="Red — upload assets/images/Red_portada.png" loading="lazy"></div><h3>Red Mutual</h3><p>Brand Identity / Communication</p></a>
+        <a class="project" href="/projects/buenos-aires-vending/" role="button" data-project-index="3"><div class="project-image"><img src="assets/images/covers/bav.webp" alt="Buenos Aires Vending brand design" data-placeholder="BAV — upload assets/images/BAV_portada.png" loading="lazy"></div><h3>BAV</h3><p>Branding / Social Media</p></a>
         <a class="project" href="/projects/chana-resto/" role="button" data-project-index="0"><div class="project-image"><img src="assets/images/covers/chana.webp" alt="Chaná Restó brand identity" data-placeholder="Chaná Restó — upload assets/images/Chana_portada.png" loading="lazy"></div><h3>Chaná Restó</h3><p>Branding / Social Media</p></a>
         <a class="project" href="/projects/control-vehicular/" role="button" data-project-index="1"><div class="project-image"><img src="assets/images/covers/control.webp" alt="Control Vehicular visual identity and website" data-placeholder="Control Vehicular — upload assets/images/Control_portada.png" loading="lazy"></div><h3>Control Vehicular</h3><p>Branding / Web</p></a>
-        <a class="project" href="/projects/gloow/" role="button" data-project-index="2"><div class="project-image"><img src="assets/images/covers/gloow.webp" alt="GLOOW agency identity" data-placeholder="GLOOW — upload assets/images/Gloow_portada.png" loading="lazy"></div><h3>GLOOW Agency</h3><p>Branding / Digital</p></a>
-        <a class="project" href="/projects/buenos-aires-vending/" role="button" data-project-index="3"><div class="project-image"><img src="assets/images/covers/bav.webp" alt="Buenos Aires Vending brand design" data-placeholder="BAV — upload assets/images/BAV_portada.png" loading="lazy"></div><h3>BAV</h3><p>Branding / Social Media</p></a>
-        <a class="project" href="/projects/red-mutual/" role="button" data-project-index="4"><div class="project-image"><img src="assets/images/covers/red.webp" alt="Red Mutual identity" data-placeholder="Red — upload assets/images/Red_portada.png" loading="lazy"></div><h3>Red Mutual</h3><p>Brand Identity / Communication</p></a>
         <a class="project" href="/projects/nicanor/" role="button" data-project-index="5"><div class="project-image"><img src="assets/images/covers/nicanor.webp" alt="Nicanor Resto brand design" data-placeholder="Nicanor — upload assets/images/Nicanor_portada.png" loading="lazy"></div><h3>Nicanor</h3><p>Branding / Art Direction</p></a>
         <a class="project" href="/projects/ipi-institute/" role="button" data-project-index="6"><div class="project-image"><img src="assets/images/covers/ipi.webp" alt="IPI brand design" data-placeholder="IPI — upload assets/images/IPI_portada.png" loading="lazy"></div><h3>IPI Institute</h3><p>Brand Communication / Campaigns</p></a>
         <a class="project" href="/projects/eurorepar/" role="button" data-project-index="7"><div class="project-image"><img src="assets/images/covers/eurorepar.webp" alt="Eurorepar identity" data-placeholder="Eurorepar — upload assets/images/Euro_portada.png" loading="lazy"></div><h3>Eurorepar</h3><p>Brand Communication / Campaigns</p></a>
@@ -2304,6 +2365,7 @@ html[data-theme="dark"] .case-modal .case-topbar{
     <button class="carousel-arrow carousel-next" type="button" aria-label="Next projects"><span aria-hidden="true">›</span></button>
   </div>
 </section>
+<section class="wrap clients"><div class="eyebrow">Brands I’ve worked with</div><div class="client-marquee" aria-label="Logos of 15 brands I’ve worked with"><div class="client-row"><div class="client-logo brand-bml"><img src="assets/brands/bml.svg" alt="BML" loading="lazy" decoding="async"></div><div class="client-logo"><img src="assets/brands/clinica.svg" alt="Clínica" loading="lazy" decoding="async"></div><div class="client-logo"><img src="assets/brands/gloow.svg" alt="GLOOW" loading="lazy" decoding="async"></div><div class="client-logo"><img src="assets/brands/control.svg" alt="Control Vehicular" loading="lazy" decoding="async"></div><div class="client-logo brand-chana"><img src="assets/brands/chana.svg" alt="Chaná Restó" loading="lazy" decoding="async"></div><div class="client-logo brand-florencia"><img src="assets/brands/florencia.svg" alt="Florencia Acacia" loading="lazy" decoding="async"></div><div class="client-logo brand-tmb"><img src="assets/brands/tmb.svg" alt="TMB" loading="lazy" decoding="async"></div><div class="client-logo"><img src="assets/brands/gm.svg" alt="GM" loading="lazy" decoding="async"></div><div class="client-logo"><img src="assets/brands/siglo-21.svg" alt="Siglo 21" loading="lazy" decoding="async"></div><div class="client-logo"><img src="assets/brands/nicanor.svg" alt="Nicanor" loading="lazy" decoding="async"></div><div class="client-logo"><img src="assets/brands/red.svg" alt="Red Mutual" loading="lazy" decoding="async"></div><div class="client-logo"><img src="assets/brands/nation.svg" alt="Nation" loading="lazy" decoding="async"></div><div class="client-logo"><img src="assets/brands/best-performance.svg" alt="Best Performance" loading="lazy" decoding="async"></div><div class="client-logo"><img src="assets/brands/bav.svg" alt="BAV" loading="lazy" decoding="async"></div><div class="client-logo"><img src="assets/brands/ipi.svg" alt="IPI" loading="lazy" decoding="async"></div><div class="client-logo" aria-hidden="true"><img src="assets/brands/bml.svg" alt="" loading="lazy" decoding="async"></div><div class="client-logo" aria-hidden="true"><img src="assets/brands/clinica.svg" alt="" loading="lazy" decoding="async"></div><div class="client-logo" aria-hidden="true"><img src="assets/brands/gloow.svg" alt="" loading="lazy" decoding="async"></div><div class="client-logo" aria-hidden="true"><img src="assets/brands/control.svg" alt="" loading="lazy" decoding="async"></div><div class="client-logo" aria-hidden="true"><img src="assets/brands/chana.svg" alt="" loading="lazy" decoding="async"></div><div class="client-logo" aria-hidden="true"><img src="assets/brands/florencia.svg" alt="" loading="lazy" decoding="async"></div><div class="client-logo" aria-hidden="true"><img src="assets/brands/tmb.svg" alt="" loading="lazy" decoding="async"></div><div class="client-logo" aria-hidden="true"><img src="assets/brands/gm.svg" alt="" loading="lazy" decoding="async"></div><div class="client-logo" aria-hidden="true"><img src="assets/brands/siglo-21.svg" alt="" loading="lazy" decoding="async"></div><div class="client-logo" aria-hidden="true"><img src="assets/brands/nicanor.svg" alt="" loading="lazy" decoding="async"></div><div class="client-logo" aria-hidden="true"><img src="assets/brands/red.svg" alt="" loading="lazy" decoding="async"></div><div class="client-logo" aria-hidden="true"><img src="assets/brands/nation.svg" alt="" loading="lazy" decoding="async"></div><div class="client-logo" aria-hidden="true"><img src="assets/brands/best-performance.svg" alt="" loading="lazy" decoding="async"></div><div class="client-logo" aria-hidden="true"><img src="assets/brands/bav.svg" alt="" loading="lazy" decoding="async"></div><div class="client-logo" aria-hidden="true"><img src="assets/brands/ipi.svg" alt="" loading="lazy" decoding="async"></div></div></div></section>
 <section class="wrap section" id="services">
   <div class="services reveal">
     <div class="services-intro"><div class="eyebrow">Services</div><h2>Visual solutions for your brand.</h2></div>
@@ -2322,7 +2384,6 @@ html[data-theme="dark"] .case-modal .case-topbar{
     <div class="fact"><svg viewBox="0 0 24 24"><path d="M4 5h10M9 3v2c0 5-2 8-5 10M6 9c1 2 3 4 5 5M14 20l4-10 4 10M15.5 17h5"/><path d="m17 4 4 4M21 4l-4 4"/></svg><div><strong>Languages</strong><p class="language-list"><span class="language-item" data-native="Spanish (native)" data-greeting="Hola!">Spanish (native)</span><br><span class="language-item" data-native="Italian (advanced)" data-greeting="Ciao!">Italian (advanced)</span><br><span class="language-item" data-native="English (advanced)" data-greeting="Hello!">English (advanced)</span></p></div></div>
   </div>
 </section>
-<section class="wrap clients"><div class="eyebrow">Brands I’ve worked with</div><div class="client-marquee" aria-label="Logos of 15 brands I’ve worked with"><div class="client-row"><div class="client-logo brand-bml"><img src="assets/brands/bml.svg" alt="BML" loading="lazy" decoding="async"></div><div class="client-logo"><img src="assets/brands/clinica.svg" alt="Clínica" loading="lazy" decoding="async"></div><div class="client-logo"><img src="assets/brands/gloow.svg" alt="GLOOW" loading="lazy" decoding="async"></div><div class="client-logo"><img src="assets/brands/control.svg" alt="Control Vehicular" loading="lazy" decoding="async"></div><div class="client-logo brand-chana"><img src="assets/brands/chana.svg" alt="Chaná Restó" loading="lazy" decoding="async"></div><div class="client-logo brand-florencia"><img src="assets/brands/florencia.svg" alt="Florencia Acacia" loading="lazy" decoding="async"></div><div class="client-logo brand-tmb"><img src="assets/brands/tmb.svg" alt="TMB" loading="lazy" decoding="async"></div><div class="client-logo"><img src="assets/brands/gm.svg" alt="GM" loading="lazy" decoding="async"></div><div class="client-logo"><img src="assets/brands/siglo-21.svg" alt="Siglo 21" loading="lazy" decoding="async"></div><div class="client-logo"><img src="assets/brands/nicanor.svg" alt="Nicanor" loading="lazy" decoding="async"></div><div class="client-logo"><img src="assets/brands/red.svg" alt="Red Mutual" loading="lazy" decoding="async"></div><div class="client-logo"><img src="assets/brands/nation.svg" alt="Nation" loading="lazy" decoding="async"></div><div class="client-logo"><img src="assets/brands/best-performance.svg" alt="Best Performance" loading="lazy" decoding="async"></div><div class="client-logo"><img src="assets/brands/bav.svg" alt="BAV" loading="lazy" decoding="async"></div><div class="client-logo"><img src="assets/brands/ipi.svg" alt="IPI" loading="lazy" decoding="async"></div><div class="client-logo" aria-hidden="true"><img src="assets/brands/bml.svg" alt="" loading="lazy" decoding="async"></div><div class="client-logo" aria-hidden="true"><img src="assets/brands/clinica.svg" alt="" loading="lazy" decoding="async"></div><div class="client-logo" aria-hidden="true"><img src="assets/brands/gloow.svg" alt="" loading="lazy" decoding="async"></div><div class="client-logo" aria-hidden="true"><img src="assets/brands/control.svg" alt="" loading="lazy" decoding="async"></div><div class="client-logo" aria-hidden="true"><img src="assets/brands/chana.svg" alt="" loading="lazy" decoding="async"></div><div class="client-logo" aria-hidden="true"><img src="assets/brands/florencia.svg" alt="" loading="lazy" decoding="async"></div><div class="client-logo" aria-hidden="true"><img src="assets/brands/tmb.svg" alt="" loading="lazy" decoding="async"></div><div class="client-logo" aria-hidden="true"><img src="assets/brands/gm.svg" alt="" loading="lazy" decoding="async"></div><div class="client-logo" aria-hidden="true"><img src="assets/brands/siglo-21.svg" alt="" loading="lazy" decoding="async"></div><div class="client-logo" aria-hidden="true"><img src="assets/brands/nicanor.svg" alt="" loading="lazy" decoding="async"></div><div class="client-logo" aria-hidden="true"><img src="assets/brands/red.svg" alt="" loading="lazy" decoding="async"></div><div class="client-logo" aria-hidden="true"><img src="assets/brands/nation.svg" alt="" loading="lazy" decoding="async"></div><div class="client-logo" aria-hidden="true"><img src="assets/brands/best-performance.svg" alt="" loading="lazy" decoding="async"></div><div class="client-logo" aria-hidden="true"><img src="assets/brands/bav.svg" alt="" loading="lazy" decoding="async"></div><div class="client-logo" aria-hidden="true"><img src="assets/brands/ipi.svg" alt="" loading="lazy" decoding="async"></div></div></div></section>
 <section class="cta" id="contact"><div class="wrap cta-inner"><div><div class="eyebrow">Let’s work together</div><h2>Have a project<br>in mind?</h2></div><div class="cta-middle"><p>Let’s create something great.<br>I’m open to new opportunities worldwide.</p><a class="pill" href="https://wa.me/3513848087" target="_blank" rel="noreferrer">Get in touch <span class="arrow">→</span></a></div><div class="cta-tags"><span class="cta-tag">Brands</span><span class="cta-tag">People</span><span class="cta-tag">Ideas</span><span class="cta-tag">Cultures</span><span class="cta-tag">Global impact</span></div></div></section>
 </main>
 
@@ -2452,7 +2513,7 @@ document.querySelector('.case-topbar .case-brand')?.addEventListener('click',eve
     else window.scrollTo({top:0,behavior:motionOK?'smooth':'auto'});
   },80);
 });
-document.querySelectorAll('.project').forEach((card,index)=>{card.addEventListener('click',event=>{event.preventDefault();openCase(index)});card.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();openCase(index)}})});
+document.querySelectorAll('.project').forEach(card=>{const projectIndex=Number(card.dataset.projectIndex);card.addEventListener('click',event=>{event.preventDefault();openCase(projectIndex)});card.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();openCase(projectIndex)}})});
 document.querySelectorAll('[data-close-case]').forEach(el=>el.addEventListener('click',closeCase));
 document.querySelector('#case-prev')?.addEventListener('click',()=>renderCase(activeProject-1));
 document.querySelector('#case-next')?.addEventListener('click',()=>renderCase(activeProject+1));
@@ -2607,7 +2668,7 @@ function applyLanguage(lang){
  setHtml(document.querySelector('.hero-location'),heroLocation);setHtml(document.querySelector('.hero-experience'),heroExperience);
  setTxt(document.querySelector('.hero-description'),t.hero);setHtml(document.querySelector('.hero-actions .pill'),t.work+' <span class="arrow">→</span>');setHtml(document.querySelector('.scroll-link'),'<span>↓</span> '+t.scroll);
  setTxt(document.querySelector('#work .section-title .eyebrow'),t.featured);setHtml(document.querySelector('#work .section-head .text-link'),t.moreProjects+' <span>→</span>');
- document.querySelectorAll('.project').forEach((el,i)=>setTxt(el.querySelector('p'),t.categories[i]));
+ document.querySelectorAll('.project').forEach(el=>setTxt(el.querySelector('p'),t.categories[Number(el.dataset.projectIndex)]));
  setTxt(document.querySelector('.services-intro .eyebrow'),t.services[0]);setTxt(document.querySelector('.services-intro h2'),t.services[1]);document.querySelectorAll('.service').forEach((el,i)=>{setTxt(el.querySelector('h3'),t.services[2][i]);setTxt(el.querySelector('p'),t.services[3][i])});
  const expandedCopy=currentLanguage==='es'?["Soy Robertino Marrazzo, diseñador gráfico senior y licenciado en Diseño de la Comunicación Visual por la Universidad Nacional del Litoral.","Durante más de 15 años trabajé en agencias, empresas y proyectos independientes, desarrollando identidades, campañas y sistemas de comunicación visual.","Mi enfoque integra estrategia, dirección de arte y ejecución para construir lenguajes visuales coherentes en soportes digitales, editoriales y físicos.","Desde Italia colaboro con clientes y equipos creativos de distintos países en español, italiano e inglés."]:currentLanguage==='it'?["Sono Robertino Marrazzo, senior graphic designer e laureato in Design della Comunicazione Visiva presso l’Universidad Nacional del Litoral.","Da oltre 15 anni lavoro con agenzie, aziende e progetti indipendenti, sviluppando identità, campagne e sistemi di comunicazione visiva.","Il mio approccio unisce strategia, art direction e realizzazione per creare linguaggi visivi coerenti su media digitali, editoriali e fisici.","Dall’Italia collaboro con clienti e team creativi internazionali in spagnolo, italiano e inglese."]:["I am Robertino Marrazzo, a senior graphic designer and Visual Communication Design graduate from Universidad Nacional del Litoral.","For over 15 years I have worked with agencies, companies and independent projects, creating brand identities, campaigns and visual communication systems.","My approach combines strategy, art direction and production to create consistent visual languages across digital, editorial and physical media.","Based in Italy, I work with international clients and creative teams in Spanish, Italian and English."];document.querySelectorAll('#about-expanded p').forEach((el,i)=>setTxt(el,expandedCopy[i]));
  setTxt(document.querySelector('#about-copy .eyebrow'),t.about[0]);
@@ -2696,7 +2757,7 @@ const motionReduced=window.matchMedia('(prefers-reduced-motion: reduce)');
 (()=> {
  const viewport=document.querySelector('.project-viewport');
  const carousel=document.querySelector('.project-carousel');
- if(!viewport||!carousel)return;
+ if(!viewport||!carousel||getComputedStyle(document.querySelector('.projects')).display==='grid')return;
  let lastTime=0,raf=0;
  const speed=24; // pixels per second — requested continuous movement
  function tick(now){
