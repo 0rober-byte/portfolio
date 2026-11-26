@@ -2540,7 +2540,6 @@ footer.footer .footer-top-link:active{transform:scale(.97)}
 @media(max-width:600px){footer.footer .footer-top{grid-template-columns:1fr 1fr;row-gap:22px!important}footer.footer .footer-links{grid-column:1/-1;grid-row:2;justify-self:center}footer.footer .footer-top-link{grid-column:2;grid-row:1}}
 /* Project CTA uses the same dark brand lighting as Home contact. */
 .case-modal .case-content{--case-gutter:clamp(18px,3vw,44px)}
-@media(max-width:900px){.case-modal .case-content{--case-gutter:14px}}
 @media(max-width:700px){.case-modal .case-content{--case-gutter:16px}}
 @media(max-width:390px){.case-modal .case-content{--case-gutter:13px}}
 .case-modal .case-contact{
@@ -2752,6 +2751,7 @@ document.querySelector('.case-topbar .case-brand')?.addEventListener('click',eve
 });
 document.querySelectorAll('.project').forEach(card=>{const projectIndex=Number(card.dataset.projectIndex);card.addEventListener('click',event=>{event.preventDefault();openCase(projectIndex)});card.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();openCase(projectIndex)}})});
 document.querySelectorAll('[data-close-case]').forEach(el=>el.addEventListener('click',()=>{closeCase();document.getElementById('work')?.scrollIntoView({block:'start',behavior:'auto'});}));
+document.querySelector('.footer-top-link')?.addEventListener('click',event=>{event.preventDefault();window.scrollTo({top:0,behavior:motionOK?'smooth':'auto'});});
 function stepProject(button,step){button.classList.add('nav-pressed');clearTimeout(button._pressTimer);button._pressTimer=setTimeout(()=>button.classList.remove('nav-pressed'),260);renderCase(activeProject+step);}
 document.querySelector('#case-prev')?.addEventListener('click',event=>stepProject(event.currentTarget,-1));
 document.querySelector('#case-next')?.addEventListener('click',event=>stepProject(event.currentTarget,1));
