@@ -110,8 +110,8 @@ body:after{background:linear-gradient(115deg,rgba(255,255,255,.12),transparent 3
 .services{grid-template-columns:1.18fr repeat(4,minmax(0,1fr));gap:0;padding:clamp(34px,4.6vw,68px);border-radius:22px;min-height:270px;align-items:stretch}
 .services-intro{padding-right:clamp(24px,3.5vw,52px);display:flex;flex-direction:column;justify-content:center}
 .services-intro h2{font-size:clamp(32px,3.4vw,50px);max-width:320px;margin-top:25px}
-.service{padding:12px clamp(14px,1.8vw,28px) 8px;border-left:1px solid rgba(10,10,10,.13);display:flex;flex-direction:column;align-items:flex-start;justify-content:center;min-height:180px}
-.service-icon{width:58px;height:58px;margin-bottom:24px;background:rgba(255,255,255,.85);border:1px solid rgba(10,10,10,.035)}
+.service{padding:12px clamp(14px,1.8vw,28px) 8px;border-left:1px solid rgba(10,10,10,.13);display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start;min-height:180px}
+.service-icon{width:58px;height:58px;flex:0 0 auto;align-self:flex-start;margin-bottom:24px;background:rgba(255,255,255,.85);border:1px solid rgba(10,10,10,.035)}
 .service h3{font-size:clamp(14px,1.1vw,17px);margin-bottom:11px}
 .service p{font-size:13px;line-height:1.65;max-width:200px}
 @media(max-width:900px){.project{flex-basis:calc((100% - 16px)/2)}.carousel-arrow{top:38%}.services{grid-template-columns:repeat(2,minmax(0,1fr));padding:34px;gap:0}.services-intro{grid-column:1/-1;padding:0 0 26px}.services-intro h2{max-width:500px}.service{padding:22px 20px;min-height:190px;border-top:1px solid rgba(10,10,10,.12)}.service:nth-of-type(2n){border-left:0}.service-icon{margin-bottom:16px}}
@@ -2585,8 +2585,12 @@ html[data-theme="dark"] .case-modal .case-bottom-fixed .case-nav-btn:is(:hover,:
 main#home .hero.hero-minimal h1{font-size:clamp(68px,10.7vw,154px)!important;line-height:.96!important;overflow-wrap:normal!important}
 @media(max-width:900px){main#home .hero.hero-minimal h1{font-size:clamp(58px,11.5vw,110px)!important}}
 @media(max-width:600px){main#home .hero.hero-minimal h1{font-size:clamp(48px,15.1vw,89px)!important;overflow-wrap:anywhere!important;line-height:.97!important}}
-#about-copy .cv-download{display:inline-flex;box-sizing:border-box;align-items:center;justify-content:center;gap:16px;height:46px;min-height:46px;width:max-content;max-width:100%;padding:0 20px;border:1px solid var(--line);border-radius:999px;font-size:13px;font-weight:700;margin:12px 0 0 12px;transition:background .2s,color .2s,border-color .2s}
-#about-copy .cv-download:hover,#about-copy .cv-download:focus-visible{background:var(--green);color:#0a0a0a;border-color:var(--green)}
+#about-copy .cv-download{display:inline-flex;box-sizing:border-box;align-items:center;justify-content:center;gap:16px;height:46px;min-height:46px;width:max-content;max-width:100%;padding:0 20px;border-radius:999px;font-size:13px;font-weight:700;margin:12px 0 0 12px;transition:background .2s,color .2s,border-color .2s}
+#about-copy .cv-download:hover,#about-copy .cv-download:focus-visible{background:var(--green)!important;color:#0a0a0a!important;border-color:var(--green)!important}
+/* Align service icons and highlight the vector in both themes. */
+#services .service-icon svg{display:block}
+#services .service-icon:hover svg,#services .service-icon:focus-visible svg{stroke:var(--green)!important}
+html[data-theme="dark"] #services .service:hover .service-icon,html[data-theme="dark"] #services .service-icon:hover,html[data-theme="dark"] #services .service-icon:focus-visible{background:#292e32!important}
 .career-proof[hidden]{display:none!important}
 .career-proof{padding-block:clamp(42px,6vw,86px);color:var(--ink)}
 .career-heading{margin-bottom:clamp(28px,4vw,48px);display:grid;gap:15px}
