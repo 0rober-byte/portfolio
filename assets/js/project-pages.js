@@ -9,8 +9,11 @@ document.querySelectorAll('[data-es][data-it]').forEach(el=>{if(!el.dataset.en)e
 document.querySelectorAll('[data-ui]').forEach(el=>{let key=el.dataset.ui;if(dictionaries[lang][key])el.textContent=dictionaries[lang][key]});
 document.querySelectorAll('[data-lang]').forEach(el=>el.setAttribute('aria-pressed',String(el.dataset.lang===lang)));
 }
-document.querySelectorAll('[data-lang]').forEach(btn=>btn.addEventListener('click',()=>apply(btn.dataset.lang)));
-let lang='en';try{lang=localStorage.getItem('robGD-language')||'en'}catch(e){}apply(lang);
+const themeToggle=document.querySelector('.project-theme-toggle');
+function paintTheme(dark,save){document.documentElement.dataset.theme=dark?'dark':'light';const brand=document.querySelector('.site-header .brand img');if(brand)brand.src=dark?'/assets/logos/Rob_blanco.svg':'/assets/logos/Rob_negro.svg';if(themeToggle){themeToggle.setAttribute('aria-pressed',String(dark));const l=document.documentElement.lang;const label=l==='es'?(dark?'Activar modo claro':'Activar modo oscuro'):l==='it'?(dark?'Attiva modalità chiara':'Attiva modalità scura'):(dark?'Activate light mode':'Activate dark mode');themeToggle.setAttribute('aria-label',label);themeToggle.title=label;themeToggle.querySelector('svg').innerHTML=dark?'<circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M19 5l-1.5 1.5m-11 11L5 19"/>':'<path d="M20.9 13.4A9 9 0 0 1 10.6 3.1 9 9 0 1 0 20.9 13.4Z"/>'}if(save)try{localStorage.setItem('robGD-theme',dark?'dark':'light')}catch(e){}}
+let savedTheme='light';try{savedTheme=localStorage.getItem('robGD-theme')||'light'}catch(e){}paintTheme(savedTheme==='dark',false);themeToggle?.addEventListener('click',()=>paintTheme(document.documentElement.dataset.theme!=='dark',true));
+document.querySelectorAll('[data-lang]').forEach(btn=>btn.addEventListener('click',()=>{apply(btn.dataset.lang);paintTheme(document.documentElement.dataset.theme==='dark',false)}));
+let lang='en';try{lang=localStorage.getItem('robGD-language')||'en'}catch(e){}apply(lang);paintTheme(document.documentElement.dataset.theme==='dark',false);
 document.addEventListener('click',event=>{const link=event.target.closest('a[href]');if(!link)return;const url=link.getAttribute('href');if(!url)return;const method=url.startsWith('mailto:')?'Email':url.startsWith('https://wa.me/')?'WhatsApp':null;if(method&&typeof window.va==='function')window.va('event',{name:'Contact Click',data:{method,source:'project_page'}});},{capture:true});
 if(!matchMedia('(prefers-reduced-motion: reduce)').matches&&matchMedia('(hover:hover) and (pointer:fine)').matches){
 document.querySelectorAll('.closing').forEach(section=>{
